@@ -42,12 +42,7 @@ export default function CalculatorEngine({ slug, prefill }: Props) {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [computeError, setComputeError] = useState<string | null>(null);
-  const [outputs, setOutputs] = useState<ReturnType<CalculatorDef["compute"]>["outputs"]>(() => {
-    if (!def) return [];
-    const initialValues = mergePrefill(getDefaultValues(def), prefill);
-    const result = def.compute(initialValues);
-    return result.error ? [] : result.outputs;
-  });
+ const [outputs, setOutputs] = useState<ReturnType<CalculatorDef["compute"]>["outputs"]>([]);
 
   useEffect(() => {
     if (!def) return;
