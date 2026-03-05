@@ -28,8 +28,7 @@ export default function HomePage() {
             <span className={styles.accent}>everyday calculations</span>
           </h1>
           <p className={styles.subheadline}>
-            Fast, accurate, beautifully designed calculators for finance, health, and life.
-            No ads interrupting you. No data collected. Just answers.
+            Fast, accurate, beautifully designed calculators for finance, health, and life. No data collected. Just answers.
           </p>
           <div className={styles.heroCtas}>
             <Link href="/calculators" className={styles.primaryCta}>Browse all calculators</Link>
@@ -37,11 +36,11 @@ export default function HomePage() {
           </div>
 
           <div className={styles.stats}>
-            <div className={styles.stat}><strong>12+</strong><span>Calculators</span></div>
+            <div className={styles.stat}><strong>50+</strong><span>Calculators</span></div>
             <div className={styles.statDivider} />
             <div className={styles.stat}><strong>3</strong><span>Categories</span></div>
             <div className={styles.statDivider} />
-            <div className={styles.stat}><strong>100%</strong><span>Free</span></div>
+            <div className={styles.stat}><strong>100%</strong><span>Always Free</span></div>
           </div>
         </div>
       </section>
