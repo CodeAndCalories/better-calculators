@@ -37,6 +37,11 @@ import marginCalculator from "./margin-calculator";
 import markupCalculator from "./markup-calculator";
 import hoursBetweenDatesCalculator from "./hours-between-dates-calculator";
 import weeksBetweenDatesCalculator from "./weeks-between-dates-calculator";
+import commissionCalculator from "./commission-calculator";
+import overtimePayCalculator from "./overtime-pay-calculator";
+import percentOffCalculator from "./percent-off-calculator";
+import profitMarginCalculator from "./profit-margin-calculator";
+import percentDifferenceCalculator from "./percent-difference-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -82,6 +87,12 @@ export const calculators: CalculatorDef[] = [
  percentageDifferenceCalculator,
  marginCalculator,
  markupCalculator,
+
+commissionCalculator,
+overtimePayCalculator,
+percentOffCalculator,
+profitMarginCalculator,
+percentDifferenceCalculator,
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {
