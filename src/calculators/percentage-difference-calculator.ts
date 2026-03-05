@@ -8,7 +8,7 @@ const def: CalculatorDef = {
     "Calculate the percentage difference between two numbers using the standard percent difference formula.",
   longDescription:
     "The percentage difference calculator finds how different two values are relative to their average. Unlike percentage change, percentage difference treats both values equally — there's no 'starting' value. This makes it ideal for comparing two measurements, prices, or quantities where neither is the baseline.",
-  category: "math",
+  category: "life",
   keywords: [
     "percentage difference calculator",
     "percent difference formula",
@@ -57,8 +57,7 @@ const def: CalculatorDef = {
           key: "percentageDifference",
           label: "Percentage Difference",
           value: Number(percentDiff.toFixed(4)),
-          format: "number",
-          suffix: "%",
+          format: "percentage",
           highlight: true,
         },
         {
