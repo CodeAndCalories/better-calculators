@@ -24,6 +24,11 @@ import hoursToMinutesCalculator from "./hours-to-minutes-calculator";
 import percentageIncreaseCalculator from "./percentage-increase-calculator";
 import percentageDecreaseCalculator from "./percentage-decrease-calculator";
 import hourlyToSalaryCalculator from "./hourly-to-salary-calculator";
+import daysBetweenDatesCalculator from "./days-between-dates-calculator";
+import ageDifferenceCalculator from "./age-difference-calculator";
+import timeUntilDateCalculator from "./time-until-date-calculator";
+import daysUntilCalculator from "./days-until-calculator";
+import salaryAfterTaxCalculator from "./salary-after-tax-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
