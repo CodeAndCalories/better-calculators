@@ -67,6 +67,13 @@ import compoundGrowthCalculator from "./compound-growth-calculator";
 import discountPercentageCalculator from "./discount-percentage-calculator";
 import hoursWorkedCalculator from "./hours-worked-calculator";
 import payPerHourCalculator from "./pay-per-hour-calculator";
+import fractionCalculator from "./fraction-calculator";
+import ratioToPercentageCalculator from "./ratio-to-percentage-calculator";
+import percentageChangeBetweenNumbersCalculator from "./percentage-change-between-numbers-calculator";
+import weightedGradeCalculator from "./weighted-grade-calculator";
+import tipSplitCalculator from "./tip-split-calculator";
+import salaryPerMonthCalculator from "./salary-per-month-calculator";
+import workHoursPerYearCalculator from "./work-hours-per-year-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -139,6 +146,13 @@ export const calculators: CalculatorDef[] = [
   discountPercentageCalculator,
   hoursWorkedCalculator,
   payPerHourCalculator,
+  fractionCalculator,
+  ratioToPercentageCalculator,
+  percentageChangeBetweenNumbersCalculator,
+  weightedGradeCalculator,
+  tipSplitCalculator,
+  salaryPerMonthCalculator,
+  workHoursPerYearCalculator,
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {
