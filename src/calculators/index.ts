@@ -29,6 +29,9 @@ import ageDifferenceCalculator from "./age-difference-calculator";
 import timeUntilDateCalculator from "./time-until-date-calculator";
 import daysUntilCalculator from "./days-until-calculator";
 import salaryAfterTaxCalculator from "./salary-after-tax-calculator";
+import workHoursCalculator from "./work-hours-calculator";
+import timeBetweenTimesCalculator from "./time-between-times-calculator";
+import percentageChangeCalculator from "./percentage-change-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
