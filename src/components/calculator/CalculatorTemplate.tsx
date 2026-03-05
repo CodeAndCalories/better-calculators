@@ -1,32 +1,24 @@
-"use client";
-
-import { useState, useEffect, useCallback, useMemo } from "react";
-import type { InputValues, CalculatorDef, ComputeResult } from "@/lib/types";
-import { validateInputs } from "@/lib/validate";
-import { getCalculatorBySlug } from "@/calculators/index";
-import CalculatorInput from "./CalculatorInput";
-import CalculatorOutput from "./CalculatorOutput";
-import styles from "./CalculatorEngine.module.css";
+import type { CalculatorDef, InputValues } from "@/lib/types";
+import { getRelatedCalculators } from "@/calculators/index";
+import CalculatorEngine from "./CalculatorEngine";
+import CalculatorCard from "@/components/ui/CalculatorCard";
+import styles from "./CalculatorTemplate.module.css";
 
 interface Props {
-  slug: string;
+  def: CalculatorDef;
   prefill?: InputValues;
 }
 
-function getDefaultValues(def: CalculatorDef): InputValues {
-  const vals: InputValues = {};
-  for (const input of def.inputs) {
-    if (input.defaultValue !== undefined) {
-      vals[input.key] = input.defaultValue;
-    } else if (input.type === "toggle") {
-      vals[input.key] = false;
-    } else if (input.type === "select") {
-      vals[input.key] = input.options[0]?.value ?? "";
-    } else {
-      vals[input.key] = "";
-    }
-  }
-  return vals;
+export default function CalculatorTemplate({ def, prefill }: Props) {
+  const related = getRelatedCalculators(def.relatedSlugs);
+
+  return (
+    <main className={styles.page}>
+      {/* ... */}
+      <CalculatorEngine slug={def.slug} prefill={prefill} />
+      {/* ... */}
+    </main>
+  );
 }
 
 function mergePrefill(defaults: InputValues, prefill?: InputValues): InputValues {
