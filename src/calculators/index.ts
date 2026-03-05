@@ -36,7 +36,19 @@ export const calculators: CalculatorDef[] = [
   bmi,
   calorie,
   waterIntake,
+
   inflationCalculator,
+  salaryToHourlyCalculator,
+  loanAffordabilityCalculator,
+  savingsGoalCalculator,
+
+  dateDifferenceCalculator,
+  timeInXMinutes,
+  timeXMinutesAgo,
+  timeDurationCalculator,
+
+  minutesToHoursCalculator,
+  hoursToMinutesCalculator,
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {
