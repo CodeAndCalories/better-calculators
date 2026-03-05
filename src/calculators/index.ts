@@ -129,7 +129,6 @@ export const calculators: CalculatorDef[] = [
   salesTaxCalculator,
   breakEvenCalculator,
   netIncomeCalculator,
-  netIncomeCalculator,
   creditUtilizationCalculator,
   averageCalculator,
   ratioCalculator,
