@@ -4,11 +4,14 @@ import CalculatorEngine from "./CalculatorEngine";
 import CalculatorCard from "@/components/ui/CalculatorCard";
 import styles from "./CalculatorTemplate.module.css";
 
+import type { InputValues } from "@/lib/types";
+
 interface Props {
   def: CalculatorDef;
+  prefill?: InputValues;
 }
 
-export default function CalculatorTemplate({ def }: Props) {
+export default function CalculatorTemplate({ def, prefill }: Props) {
   const related = getRelatedCalculators(def.relatedSlugs);
 
   return (
@@ -29,8 +32,7 @@ export default function CalculatorTemplate({ def }: Props) {
       {/* 1. Calculator */}
       <section className={`container ${styles.section} ${styles.calcSection}`} id="calculator">
         <div className={styles.calculatorCard}>
-          <CalculatorEngine slug={def.slug} />
-        </div>
+          <CalculatorEngine slug={def.slug} prefill={prefill} />
       </section>
 
       {/* 2. What this calculator does */}

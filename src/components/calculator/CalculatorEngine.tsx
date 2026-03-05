@@ -9,6 +9,7 @@ import styles from "./CalculatorEngine.module.css";
 
 interface Props {
   slug: string;
+  prefill?: InputValues;
 }
 
 function getDefaultValues(def: CalculatorDef): InputValues {
@@ -27,15 +28,24 @@ function getDefaultValues(def: CalculatorDef): InputValues {
   return vals;
 }
 
-export default function CalculatorEngine({ slug }: Props) {
-  const def = getCalculatorBySlug(slug);
-  const initialDef = def!; // guaranteed by page generating only valid slugs
+function mergePrefill(defaults: InputValues, prefill?: InputValues): InputValues {
+  if (!prefill) return defaults;
+  return { ...defaults, ...prefill };
+}
 
-  const [values, setValues] = useState<InputValues>(() => getDefaultValues(initialDef));
+export default function CalculatorEngine({ slug, prefill }: Props) {
+  const def = getCalculatorBySlug(slug);
+  if (!def) return <div className={styles.computeError}>Calculator not found.</div>;
+
+  const initialDef = def;
+
+  const initialValues = mergePrefill(getDefaultValues(initialDef), prefill);
+
+  const [values, setValues] = useState<InputValues>(() => initialValues);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [computeError, setComputeError] = useState<string | null>(null);
   const [outputs, setOutputs] = useState(() => {
-    const result = initialDef.compute(getDefaultValues(initialDef));
+    const result = initialDef.compute(initialValues);
     return result.error ? [] : result.outputs;
   });
 
@@ -52,12 +62,15 @@ export default function CalculatorEngine({ slug }: Props) {
     const validationErrors = validateInputs(initialDef.inputs, values);
     if (validationErrors.length > 0) {
       const errorMap: Record<string, string> = {};
-      validationErrors.forEach((e) => { errorMap[e.key] = e.message; });
+      validationErrors.forEach((e) => {
+        errorMap[e.key] = e.message;
+      });
       setErrors(errorMap);
       setOutputs([]);
       setComputeError(null);
       return;
     }
+
     const result = initialDef.compute(values);
     if (result.error) {
       setComputeError(result.error);
@@ -75,7 +88,7 @@ export default function CalculatorEngine({ slug }: Props) {
   }, []);
 
   const handleReset = () => {
-    const defaults = getDefaultValues(initialDef);
+    const defaults = mergePrefill(getDefaultValues(initialDef), prefill);
     setValues(defaults);
     setErrors({});
     setComputeError(null);
@@ -83,13 +96,11 @@ export default function CalculatorEngine({ slug }: Props) {
     setOutputs(result.error ? [] : result.outputs);
   };
 
-  if (!def) return <div className={styles.computeError}>Calculator not found.</div>;
-
   return (
     <div className={styles.engine}>
       <div className={styles.inputPanel}>
         <div className={styles.inputGrid}>
-          {def.inputs.map((input) => (
+          {initialDef.inputs.map((input) => (
             <CalculatorInput
               key={input.key}
               schema={input}
@@ -100,10 +111,15 @@ export default function CalculatorEngine({ slug }: Props) {
           ))}
         </div>
         <div className={styles.actions}>
-          <button className={styles.calcBtn} onClick={handleCalculate}>Calculate</button>
-          <button className={styles.resetBtn} onClick={handleReset}>Reset</button>
+          <button className={styles.calcBtn} onClick={handleCalculate}>
+            Calculate
+          </button>
+          <button className={styles.resetBtn} onClick={handleReset}>
+            Reset
+          </button>
         </div>
       </div>
+
       <div className={styles.outputPanel}>
         {computeError && (
           <div className={styles.computeError} role="alert">
