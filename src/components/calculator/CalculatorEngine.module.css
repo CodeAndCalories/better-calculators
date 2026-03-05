@@ -1,0 +1,90 @@
+.engine {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .engine {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.inputPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.inputGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.calcBtn {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-accent);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.calcBtn:hover { background: var(--color-accent-hover); }
+.calcBtn:active { transform: scale(0.98); }
+
+.resetBtn {
+  padding: 0.75rem 1.25rem;
+  background: var(--color-surface-2);
+  color: var(--color-text-2);
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.resetBtn:hover { background: var(--color-border); }
+
+.outputPanel {
+  position: sticky;
+  top: 80px;
+}
+
+.computeError {
+  background: var(--color-error-light);
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--color-error);
+  line-height: 1.5;
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 3rem 1.5rem;
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.placeholderIcon { font-size: 2.5rem; }
+
+.placeholder p {
+  font-size: 0.9rem;
+  color: var(--color-text-3);
+}

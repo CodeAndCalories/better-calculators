@@ -1,0 +1,38 @@
+.page { padding-bottom: 4rem; }
+
+.content {
+  max-width: 720px;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.content h1 { margin-bottom: 0.25rem; }
+.content h2 { margin-top: 0.5rem; }
+.content h3 { margin-top: 0.25rem; font-size: 1rem; }
+
+.content p { color: var(--color-text-2); line-height: 1.75; }
+
+.content ul {
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.content li { color: var(--color-text-2); font-size: 0.95rem; line-height: 1.6; }
+
+.meta {
+  font-size: 0.85rem;
+  color: var(--color-text-3);
+  margin-top: -0.75rem;
+}
+
+.lead {
+  font-size: 1.05rem;
+  color: var(--color-text-2);
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1rem;
+  font-style: italic;
+}
