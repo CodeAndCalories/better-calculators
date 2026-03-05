@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import type { InputValues, CalculatorDef } from "@/lib/types";
 import { validateInputs } from "@/lib/validate";
 import { getCalculatorBySlug } from "@/calculators/index";
@@ -34,20 +34,35 @@ function mergePrefill(defaults: InputValues, prefill?: InputValues): InputValues
 }
 
 export default function CalculatorEngine({ slug, prefill }: Props) {
-  const def = getCalculatorBySlug(slug);
-  if (!def) return <div className={styles.computeError}>Calculator not found.</div>;
+  const def = useMemo(() => getCalculatorBySlug(slug), [slug]);
 
-  const initialDef = def;
-
-  const initialValues = mergePrefill(getDefaultValues(initialDef), prefill);
-
-  const [values, setValues] = useState<InputValues>(() => initialValues);
+  const [values, setValues] = useState<InputValues>(() => {
+    if (!def) return {};
+    return mergePrefill(getDefaultValues(def), prefill);
+  });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [computeError, setComputeError] = useState<string | null>(null);
-  const [outputs, setOutputs] = useState(() => {
-    const result = initialDef.compute(initialValues);
+  const [outputs, setOutputs] = useState<ReturnType<CalculatorDef["compute"]>["outputs"]>(() => {
+    if (!def) return [];
+    const initialValues = mergePrefill(getDefaultValues(def), prefill);
+    const result = def.compute(initialValues);
     return result.error ? [] : result.outputs;
   });
+
+  useEffect(() => {
+    if (!def) return;
+    const defaults = mergePrefill(getDefaultValues(def), prefill);
+    setValues(defaults);
+    setErrors({});
+    setComputeError(null);
+    const result = def.compute(defaults);
+    if (result.error) {
+      setComputeError(result.error);
+      setOutputs([]);
+    } else {
+      setOutputs(result.outputs);
+    }
+  }, [def, prefill]);
 
   const handleChange = useCallback((key: string, value: string | number | boolean) => {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -59,7 +74,8 @@ export default function CalculatorEngine({ slug, prefill }: Props) {
   }, []);
 
   const handleCalculate = useCallback(() => {
-    const validationErrors = validateInputs(initialDef.inputs, values);
+    if (!def) return;
+    const validationErrors = validateInputs(def.inputs, values);
     if (validationErrors.length > 0) {
       const errorMap: Record<string, string> = {};
       validationErrors.forEach((e) => {
@@ -71,7 +87,7 @@ export default function CalculatorEngine({ slug, prefill }: Props) {
       return;
     }
 
-    const result = initialDef.compute(values);
+    const result = def.compute(values);
     if (result.error) {
       setComputeError(result.error);
       setOutputs([]);
@@ -80,27 +96,27 @@ export default function CalculatorEngine({ slug, prefill }: Props) {
       setOutputs(result.outputs);
     }
     setErrors({});
-  }, [initialDef, values]);
+  }, [def, values]);
 
-  useEffect(() => {
-    handleCalculate();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const handleReset = () => {
-    const defaults = mergePrefill(getDefaultValues(initialDef), prefill);
+  const handleReset = useCallback(() => {
+    if (!def) return;
+    const defaults = mergePrefill(getDefaultValues(def), prefill);
     setValues(defaults);
     setErrors({});
     setComputeError(null);
-    const result = initialDef.compute(defaults);
+    const result = def.compute(defaults);
     setOutputs(result.error ? [] : result.outputs);
-  };
+  }, [def, prefill]);
+
+  if (!def) {
+    return <div className={styles.computeError}>Calculator not found.</div>;
+  }
 
   return (
     <div className={styles.engine}>
       <div className={styles.inputPanel}>
         <div className={styles.inputGrid}>
-          {initialDef.inputs.map((input) => (
+          {def.inputs.map((input) => (
             <CalculatorInput
               key={input.key}
               schema={input}
