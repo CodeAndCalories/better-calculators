@@ -45,6 +45,13 @@ import percentDifferenceCalculator from "./percent-difference-calculator";
 import businessDaysBetweenDatesCalculator from "./business-days-between-dates-calculator";
 import pregnancyDueDateCalculator from "./pregnancy-due-date-calculator";
 import loanCalculator from "./loan-calculator";
+import aprCalculator from "./apr-calculator";
+import roiCalculator from "./roi-calculator";
+import cagrCalculator from "./cagr-calculator";
+import salesTaxCalculator from "./sales-tax-calculator";
+import breakEvenCalculator from "./break-even-calculator";
+import netIncomeCalculator from "./net-income-calculator";
+import creditUtilizationCalculator from "./credit-utilization-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -94,11 +101,19 @@ export const calculators: CalculatorDef[] = [
  marginCalculator,
  markupCalculator,
 
-commissionCalculator,
-overtimePayCalculator,
-percentOffCalculator,
-profitMarginCalculator,
-percentDifferenceCalculator,
+ commissionCalculator,
+ overtimePayCalculator,
+ percentOffCalculator,
+ profitMarginCalculator,
+ percentDifferenceCalculator,
+ aprCalculator,
+ roiCalculator,
+ cagrCalculator,
+ salesTaxCalculator,
+ breakEvenCalculator,
+ netIncomeCalculator,
+ netIncomeCalculator,
+ creditUtilizationCalculator,
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {
