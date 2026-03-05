@@ -60,6 +60,13 @@ import percentToDecimalCalculator from "./percent-to-decimal-calculator";
 import timeAndAHalfCalculator from "./time-and-a-half-calculator";
 import minutesToDecimalHoursCalculator from "./minutes-to-decimal-hours-calculator";
 import decimalHoursToMinutesCalculator from "./decimal-hours-to-minutes-calculator";
+import weightedAverageCalculator from "./weighted-average-calculator";
+import fractionToDecimalCalculator from "./fraction-to-decimal-calculator";
+import decimalToFractionCalculator from "./decimal-to-fraction-calculator";
+import compoundGrowthCalculator from "./compound-growth-calculator";
+import discountPercentageCalculator from "./discount-percentage-calculator";
+import hoursWorkedCalculator from "./hours-worked-calculator";
+import payPerHourCalculator from "./pay-per-hour-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -125,6 +132,13 @@ export const calculators: CalculatorDef[] = [
   timeAndAHalfCalculator,
   minutesToDecimalHoursCalculator,
   decimalHoursToMinutesCalculator,
+  weightedAverageCalculator,
+  fractionToDecimalCalculator,
+  decimalToFractionCalculator,
+  compoundGrowthCalculator,
+  discountPercentageCalculator,
+  hoursWorkedCalculator,
+  payPerHourCalculator,
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {

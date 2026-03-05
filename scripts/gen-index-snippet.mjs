@@ -1,28 +1,40 @@
-import fs from "node:fs";
+import { execSync } from "node:child_process";
 import path from "node:path";
 
-const CALC_DIR = path.join(process.cwd(), "src", "calculators");
-
-// turn "credit-utilization-calculator" into "creditUtilizationCalculator"
 function toVarName(filename) {
   const base = filename.replace(/\.ts$/, "");
   return base.replace(/-([a-z0-9])/g, (_, c) => c.toUpperCase());
 }
 
-const files = fs
-  .readdirSync(CALC_DIR)
-  .filter((f) => f.endsWith(".ts"))
-  .filter((f) => f !== "index.ts")
-  .filter((f) => !f.startsWith("_"))
+function toImportLine(filePath) {
+  const fname = path.basename(filePath);
+  const base = fname.replace(/\.ts$/, "");
+  const varName = toVarName(fname);
+  return { varName, importLine: `import ${varName} from "./${base}";` };
+}
+
+const raw = execSync("git diff --name-only", { encoding: "utf8" }).trim();
+if (!raw) {
+  console.log("No unstaged changes found. If you already staged files, run: git diff --name-only --cached");
+  process.exit(0);
+}
+
+const files = raw
+  .split("\n")
+  .map((s) => s.trim())
+  .filter(Boolean)
+  .filter((p) => p.startsWith("src/calculators/"))
+  .filter((p) => p.endsWith(".ts"))
+  .filter((p) => !p.endsWith("index.ts"))
   .sort((a, b) => a.localeCompare(b));
 
-const imports = files.map((f) => {
-  const v = toVarName(f);
-  const p = "./" + f.replace(/\.ts$/, "");
-  return `import ${v} from "${p}";`;
-});
+if (!files.length) {
+  console.log("No new calculator .ts files found in src/calculators/.");
+  process.exit(0);
+}
 
-const entries = files.map((f) => `  ${toVarName(f)},`);
+const imports = files.map((p) => toImportLine(p).importLine);
+const entries = files.map((p) => `  ${toImportLine(p).varName},`);
 
-console.log("\n// Imports\n" + imports.join("\n"));
-console.log("\n\n// calculators array entries\n" + entries.join("\n"));
+console.log("\n// Imports (new/changed)\n" + imports.join("\n"));
+console.log("\n\n// calculators array entries (new/changed)\n" + entries.join("\n"));
