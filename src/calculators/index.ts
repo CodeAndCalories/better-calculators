@@ -35,6 +35,8 @@ import percentageChangeCalculator from "./percentage-change-calculator";
 import percentageDifferenceCalculator from "./percentage-difference-calculator";
 import marginCalculator from "./margin-calculator";
 import markupCalculator from "./markup-calculator";
+import hoursBetweenDatesCalculator from "./hours-between-dates-calculator";
+import weeksBetweenDatesCalculator from "./weeks-between-dates-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -75,6 +77,8 @@ export const calculators: CalculatorDef[] = [
   timeBetweenTimesCalculator,
   percentageChangeCalculator,
 
+ hoursBetweenDatesCalculator,
+ weeksBetweenDatesCalculator,
  percentageDifferenceCalculator,
  marginCalculator,
  markupCalculator,
