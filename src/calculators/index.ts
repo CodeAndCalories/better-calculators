@@ -60,6 +60,17 @@ export const calculators: CalculatorDef[] = [
 
   minutesToHoursCalculator,
   hoursToMinutesCalculator,
+  percentageIncreaseCalculator,
+  percentageDecreaseCalculator,
+  hourlyToSalaryCalculator,
+  daysBetweenDatesCalculator,
+  ageDifferenceCalculator,
+  timeUntilDateCalculator,
+  daysUntilCalculator,
+  salaryAfterTaxCalculator,
+  workHoursCalculator,
+  timeBetweenTimesCalculator,
+  percentageChangeCalculator,
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {
