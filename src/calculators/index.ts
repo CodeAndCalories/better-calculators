@@ -52,6 +52,14 @@ import salesTaxCalculator from "./sales-tax-calculator";
 import breakEvenCalculator from "./break-even-calculator";
 import netIncomeCalculator from "./net-income-calculator";
 import creditUtilizationCalculator from "./credit-utilization-calculator";
+import averageCalculator from "./average-calculator";
+import ratioCalculator from "./ratio-calculator";
+import percentageOfNumberCalculator from "./percentage-of-number-calculator";
+import decimalToPercentCalculator from "./decimal-to-percent-calculator";
+import percentToDecimalCalculator from "./percent-to-decimal-calculator";
+import timeAndAHalfCalculator from "./time-and-a-half-calculator";
+import minutesToDecimalHoursCalculator from "./minutes-to-decimal-hours-calculator";
+import decimalHoursToMinutesCalculator from "./decimal-hours-to-minutes-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -67,12 +75,10 @@ export const calculators: CalculatorDef[] = [
   bmi,
   calorie,
   waterIntake,
-
   inflationCalculator,
   salaryToHourlyCalculator,
   loanAffordabilityCalculator,
   savingsGoalCalculator,
-
   dateDifferenceCalculator,
   timeInXMinutes,
   timeXMinutesAgo,
@@ -80,7 +86,6 @@ export const calculators: CalculatorDef[] = [
   businessDaysBetweenDatesCalculator,
   pregnancyDueDateCalculator,
   loanCalculator,
-
   minutesToHoursCalculator,
   hoursToMinutesCalculator,
   percentageIncreaseCalculator,
@@ -94,26 +99,32 @@ export const calculators: CalculatorDef[] = [
   workHoursCalculator,
   timeBetweenTimesCalculator,
   percentageChangeCalculator,
-
- hoursBetweenDatesCalculator,
- weeksBetweenDatesCalculator,
- percentageDifferenceCalculator,
- marginCalculator,
- markupCalculator,
-
- commissionCalculator,
- overtimePayCalculator,
- percentOffCalculator,
- profitMarginCalculator,
- percentDifferenceCalculator,
- aprCalculator,
- roiCalculator,
- cagrCalculator,
- salesTaxCalculator,
- breakEvenCalculator,
- netIncomeCalculator,
- netIncomeCalculator,
- creditUtilizationCalculator,
+  hoursBetweenDatesCalculator,
+  weeksBetweenDatesCalculator,
+  percentageDifferenceCalculator,
+  marginCalculator,
+  markupCalculator,
+  commissionCalculator,
+  overtimePayCalculator,
+  percentOffCalculator,
+  profitMarginCalculator,
+  percentDifferenceCalculator,
+  aprCalculator,
+  roiCalculator,
+  cagrCalculator,
+  salesTaxCalculator,
+  breakEvenCalculator,
+  netIncomeCalculator,
+  netIncomeCalculator,
+  creditUtilizationCalculator,
+  averageCalculator,
+  ratioCalculator,
+  percentageOfNumberCalculator,
+  decimalToPercentCalculator,
+  percentToDecimalCalculator,
+  timeAndAHalfCalculator,
+  minutesToDecimalHoursCalculator,
+  decimalHoursToMinutesCalculator,
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {
