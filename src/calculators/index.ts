@@ -21,6 +21,9 @@ import timeXMinutesAgo from "./time-x-minutes-ago";
 import timeDurationCalculator from "./time-duration-calculator";
 import minutesToHoursCalculator from "./minutes-to-hours-calculator";
 import hoursToMinutesCalculator from "./hours-to-minutes-calculator";
+import percentageIncreaseCalculator from "./percentage-increase-calculator";
+import percentageDecreaseCalculator from "./percentage-decrease-calculator";
+import hourlyToSalaryCalculator from "./hourly-to-salary-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
