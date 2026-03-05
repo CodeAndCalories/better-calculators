@@ -2,8 +2,53 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { calculators, getCalculatorBySlug } from "@/calculators/index";
 import CalculatorTemplate from "@/components/calculator/CalculatorTemplate";
+import Script from "next/script";
 
 const SITE_URL = "https://bettercalculators.net";
+
+function calculatorJsonLd(title: string, description: string, slug: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: title,
+    description: description,
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "Any",
+    url: `${SITE_URL}/calculators/${slug}`,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD"
+    }
+  };
+}
+
+function breadcrumbJsonLd(title: string, slug: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Calculators",
+        item: `${SITE_URL}/calculators`
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: title,
+        item: `${SITE_URL}/calculators/${slug}`
+      }
+    ]
+  };
+}
 
 interface Props {
   params: { slug: string };
@@ -108,7 +153,7 @@ export default function CalculatorPage({ params }: Props) {
   const jsonLd = [
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
+      "@type": "SoftwareApplication",
       name: v ? v.title : def.title,
       description: v ? v.description : def.description,
       url,

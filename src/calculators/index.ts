@@ -32,6 +32,9 @@ import salaryAfterTaxCalculator from "./salary-after-tax-calculator";
 import workHoursCalculator from "./work-hours-calculator";
 import timeBetweenTimesCalculator from "./time-between-times-calculator";
 import percentageChangeCalculator from "./percentage-change-calculator";
+import percentageDifferenceCalculator from "./percentage-difference-calculator";
+import marginCalculator from "./margin-calculator";
+import markupCalculator from "./markup-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -71,6 +74,10 @@ export const calculators: CalculatorDef[] = [
   workHoursCalculator,
   timeBetweenTimesCalculator,
   percentageChangeCalculator,
+
+ percentageDifferenceCalculator,
+ marginCalculator,
+ markupCalculator,
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {
