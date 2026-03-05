@@ -42,6 +42,9 @@ import overtimePayCalculator from "./overtime-pay-calculator";
 import percentOffCalculator from "./percent-off-calculator";
 import profitMarginCalculator from "./profit-margin-calculator";
 import percentDifferenceCalculator from "./percent-difference-calculator";
+import businessDaysBetweenDatesCalculator from "./business-days-between-dates-calculator";
+import pregnancyDueDateCalculator from "./pregnancy-due-date-calculator";
+import loanCalculator from "./loan-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -67,6 +70,9 @@ export const calculators: CalculatorDef[] = [
   timeInXMinutes,
   timeXMinutesAgo,
   timeDurationCalculator,
+  businessDaysBetweenDatesCalculator,
+  pregnancyDueDateCalculator,
+  loanCalculator,
 
   minutesToHoursCalculator,
   hoursToMinutesCalculator,
