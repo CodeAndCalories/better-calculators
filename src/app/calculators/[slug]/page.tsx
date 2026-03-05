@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { calculators, getCalculatorBySlug } from "@/calculators/index";
 import CalculatorTemplate from "@/components/calculator/CalculatorTemplate";
 import Script from "next/script";
+import { VARIANTS } from "@/scripts/generateVariants";
 
 const SITE_URL = "https://bettercalculators.net";
 
@@ -61,51 +62,6 @@ type Variant = {
   description: string;
   prefill: Record<string, string | number | boolean>;
 };
-
-const VARIANTS: Variant[] = [
-  {
-    slug: "time-in-5-minutes",
-    baseSlug: "time-in-x-minutes",
-    title: "What Time Will It Be in 5 Minutes",
-    description: "Find the exact time 5 minutes from now based on your current local time.",
-    prefill: { minutes: 5 },
-  },
-  {
-    slug: "time-in-10-minutes",
-    baseSlug: "time-in-x-minutes",
-    title: "What Time Will It Be in 10 Minutes",
-    description: "Calculate the time 10 minutes from now instantly.",
-    prefill: { minutes: 10 },
-  },
-  {
-    slug: "time-in-15-minutes",
-    baseSlug: "time-in-x-minutes",
-    title: "What Time Will It Be in 15 Minutes",
-    description: "Calculate the time 15 minutes from now instantly.",
-    prefill: { minutes: 15 },
-  },
-  {
-    slug: "time-in-30-minutes",
-    baseSlug: "time-in-x-minutes",
-    title: "What Time Will It Be in 30 Minutes",
-    description: "Find the exact time 30 minutes from now.",
-    prefill: { minutes: 30 },
-  },
-  {
-    slug: "time-in-45-minutes",
-    baseSlug: "time-in-x-minutes",
-    title: "What Time Will It Be in 45 Minutes",
-    description: "Find the exact time 45 minutes from now.",
-    prefill: { minutes: 45 },
-  },
-  {
-    slug: "time-in-60-minutes",
-    baseSlug: "time-in-x-minutes",
-    title: "What Time Will It Be in 60 Minutes",
-    description: "Find the exact time 60 minutes from now.",
-    prefill: { minutes: 60 },
-  },
-];
 
 function getVariant(slug: string): Variant | undefined {
   return VARIANTS.find((v) => v.slug === slug);
