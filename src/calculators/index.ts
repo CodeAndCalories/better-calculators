@@ -11,6 +11,16 @@ import age from "./age";
 import bmi from "./bmi";
 import calorie from "./calorie";
 import waterIntake from "./water-intake";
+import inflationCalculator from "./inflation-calculator";
+import salaryToHourlyCalculator from "./salary-to-hourly-calculator";
+import loanAffordabilityCalculator from "./loan-affordability-calculator";
+import savingsGoalCalculator from "./savings-goal-calculator";
+import dateDifferenceCalculator from "./date-difference-calculator";
+import timeInXMinutes from "./time-in-x-minutes";
+import timeXMinutesAgo from "./time-x-minutes-ago";
+import timeDurationCalculator from "./time-duration-calculator";
+import minutesToHoursCalculator from "./minutes-to-hours-calculator";
+import hoursToMinutesCalculator from "./hours-to-minutes-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -26,6 +36,7 @@ export const calculators: CalculatorDef[] = [
   bmi,
   calorie,
   waterIntake,
+  inflationCalculator,
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {
