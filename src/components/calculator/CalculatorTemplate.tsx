@@ -1,100 +1,163 @@
-import type { CalculatorDef, InputValues } from "@/lib/types";
-import { getRelatedCalculators } from "@/calculators/index";
-import CalculatorEngine from "./CalculatorEngine";
-import CalculatorCard from "@/components/ui/CalculatorCard";
-import styles from "./CalculatorTemplate.module.css";
+"use client";
+
+import { useState, useEffect, useCallback, useMemo } from "react";
+import type { InputValues, CalculatorDef, ComputeResult } from "@/lib/types";
+import { validateInputs } from "@/lib/validate";
+import { getCalculatorBySlug } from "@/calculators/index";
+import CalculatorInput from "./CalculatorInput";
+import CalculatorOutput from "./CalculatorOutput";
+import styles from "./CalculatorEngine.module.css";
 
 interface Props {
-  def: CalculatorDef;
+  slug: string;
   prefill?: InputValues;
 }
 
-export default function CalculatorTemplate({ def, prefill }: Props) {
-  const related = getRelatedCalculators(def.relatedSlugs);
+function getDefaultValues(def: CalculatorDef): InputValues {
+  const vals: InputValues = {};
+  for (const input of def.inputs) {
+    if (input.defaultValue !== undefined) {
+      vals[input.key] = input.defaultValue;
+    } else if (input.type === "toggle") {
+      vals[input.key] = false;
+    } else if (input.type === "select") {
+      vals[input.key] = input.options[0]?.value ?? "";
+    } else {
+      vals[input.key] = "";
+    }
+  }
+  return vals;
+}
+
+function mergePrefill(defaults: InputValues, prefill?: InputValues): InputValues {
+  if (!prefill) return defaults;
+  return { ...defaults, ...prefill };
+}
+
+export default function CalculatorEngine({ slug, prefill }: Props) {
+  // Always compute def in a stable way
+  const def = useMemo(() => getCalculatorBySlug(slug), [slug]);
+
+  // Hooks must always run, even if def is missing
+  const [values, setValues] = useState<InputValues>({});
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [computeError, setComputeError] = useState<string | null>(null);
+  const [outputs, setOutputs] = useState<ComputeResult["outputs"]>([]);
+
+  // Initialize or re-init whenever slug/prefill changes
+  useEffect(() => {
+    if (!def) return;
+    const defaults = mergePrefill(getDefaultValues(def), prefill);
+    setValues(defaults);
+    setErrors({});
+    setComputeError(null);
+
+    const result = def.compute(defaults);
+    if (result.error) {
+      setComputeError(result.error);
+      setOutputs([]);
+    } else {
+      setOutputs(result.outputs);
+    }
+  }, [def, prefill]);
+
+  const handleChange = useCallback((key: string, value: string | number | boolean) => {
+    setValues((prev) => ({ ...prev, [key]: value }));
+    setErrors((prev) => {
+      const next = { ...prev };
+      delete next[key];
+      return next;
+    });
+  }, []);
+
+  const handleCalculate = useCallback(() => {
+    if (!def) return;
+
+    const validationErrors = validateInputs(def.inputs, values);
+    if (validationErrors.length > 0) {
+      const errorMap: Record<string, string> = {};
+      validationErrors.forEach((e) => {
+        errorMap[e.key] = e.message;
+      });
+      setErrors(errorMap);
+      setOutputs([]);
+      setComputeError(null);
+      return;
+    }
+
+    const result = def.compute(values);
+    if (result.error) {
+      setComputeError(result.error);
+      setOutputs([]);
+    } else {
+      setComputeError(null);
+      setOutputs(result.outputs);
+    }
+    setErrors({});
+  }, [def, values]);
+
+  const handleReset = useCallback(() => {
+    if (!def) return;
+    const defaults = mergePrefill(getDefaultValues(def), prefill);
+    setValues(defaults);
+    setErrors({});
+    setComputeError(null);
+
+    const result = def.compute(defaults);
+    if (result.error) {
+      setComputeError(result.error);
+      setOutputs([]);
+    } else {
+      setOutputs(result.outputs);
+    }
+  }, [def, prefill]);
+
+  // Render "not found" state without early returning before hooks
+  if (!def) {
+    return <div className={styles.computeError}>Calculator not found.</div>;
+  }
 
   return (
-    <main className={styles.page}>
-      <div className={`container ${styles.hero}`}>
-        <div className={styles.breadcrumb}>
-          <a href="/calculators">Calculators</a>
-          <span>/</span>
-          <a href={`/calculators/${def.category}`}>
-            {def.category.charAt(0).toUpperCase() + def.category.slice(1)}
-          </a>
-          <span>/</span>
-          <span>{def.shortTitle ?? def.title}</span>
+    <div className={styles.engine}>
+      <div className={styles.inputPanel}>
+        <div className={styles.inputGrid}>
+          {def.inputs.map((input) => (
+            <CalculatorInput
+              key={input.key}
+              schema={input}
+              value={values[input.key]}
+              onChange={handleChange}
+              error={errors[input.key]}
+            />
+          ))}
         </div>
 
-        <span className={`category-badge ${def.category}`}>{def.category}</span>
-        <h1 className={styles.h1}>{def.title}</h1>
-        <p className={styles.description}>{def.longDescription}</p>
+        <div className={styles.actions}>
+          <button className={styles.calcBtn} onClick={handleCalculate}>
+            Calculate
+          </button>
+          <button className={styles.resetBtn} onClick={handleReset}>
+            Reset
+          </button>
+        </div>
       </div>
 
-      {/* 1. Calculator */}
-      <section className={`container ${styles.section} ${styles.calcSection}`} id="calculator">
-        <div className={styles.calculatorCard}>
-          <CalculatorEngine slug={def.slug} prefill={prefill} />
-        </div>
-      </section>
-
-      {/* 2. What this calculator does */}
-      <section className={`container ${styles.section}`} id="about">
-        <h2 className={styles.sectionTitle}>What this calculator does</h2>
-        <p>{def.longDescription}</p>
-      </section>
-
-      {/* 3. How it works */}
-      <section className={`container ${styles.section}`} id="how-it-works">
-        <h2 className={styles.sectionTitle}>How the calculation works</h2>
-        <div className={styles.prose}>
-          <p>{def.howItWorks}</p>
-        </div>
-      </section>
-
-      {/* 4. Examples */}
-      {def.examples.length > 0 && (
-        <section className={`container ${styles.section}`} id="examples">
-          <h2 className={styles.sectionTitle}>Examples</h2>
-          <div className={styles.examples}>
-            {def.examples.map((ex, i) => (
-              <div key={i} className={styles.example}>
-                <h3 className={styles.exampleTitle}>{ex.title}</h3>
-                <p className={styles.exampleDesc}>{ex.description}</p>
-                <div className={styles.exampleResult}>
-                  <strong>Result:</strong> {ex.result}
-                </div>
-              </div>
-            ))}
+      <div className={styles.outputPanel}>
+        {computeError && (
+          <div className={styles.computeError} role="alert">
+            <strong>Oops:</strong> {computeError}
           </div>
-        </section>
-      )}
+        )}
 
-      {/* 5. FAQs */}
-      {def.faqs.length > 0 && (
-        <section className={`container ${styles.section}`} id="faqs">
-          <h2 className={styles.sectionTitle}>FAQ</h2>
-          <div className={styles.faqs}>
-            {def.faqs.map((faq, i) => (
-              <details key={i} className={styles.faq}>
-                <summary className={styles.faqQ}>{faq.question}</summary>
-                <div className={styles.faqA}>{faq.answer}</div>
-              </details>
-            ))}
-          </div>
-        </section>
-      )}
+        {outputs.length > 0 && <CalculatorOutput outputs={outputs} />}
 
-      {/* 6. Related */}
-      {related.length > 0 && (
-        <section className={`container ${styles.section}`} id="related">
-          <h2 className={styles.sectionTitle}>Related calculators</h2>
-          <div className={styles.relatedGrid}>
-            {related.map((c) => (
-              <CalculatorCard key={c.slug} calc={c} />
-            ))}
+        {!computeError && outputs.length === 0 && (
+          <div className={styles.placeholder}>
+            <span className={styles.placeholderIcon}>🧮</span>
+            <p>Enter your values and click Calculate</p>
           </div>
-        </section>
-      )}
-    </main>
+        )}
+      </div>
+    </div>
   );
 }
