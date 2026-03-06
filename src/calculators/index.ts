@@ -74,14 +74,7 @@ import weightedGradeCalculator from "./weighted-grade-calculator";
 import tipSplitCalculator from "./tip-split-calculator";
 import salaryPerMonthCalculator from "./salary-per-month-calculator";
 import workHoursPerYearCalculator from "./work-hours-per-year-calculator";
-import daysUntilChristmasCalculator from "./days-until-christmas";
-import daysUntilHalloweenCalculator from "./days-until-halloween";
-import daysUntilNewYearCalculator from "./days-until-new-year";
-import daysUntilThanksgivingCalculator from "./days-until-thanksgiving";
-import daysUntilSummerCalculator from "./days-until-summer";
-import daysUntilWinterCalculator from "./days-until-winter";
-import daysUntilSpringCalculator from "./days-until-spring";
-import daysUntilFallCalculator from "./days-until-fall";
+
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -160,14 +153,6 @@ export const calculators: CalculatorDef[] = [
   tipSplitCalculator,
   salaryPerMonthCalculator,
   workHoursPerYearCalculator,
-  daysUntilChristmasCalculator,
-  daysUntilHalloweenCalculator,
-  daysUntilNewYearCalculator,
-  daysUntilThanksgivingCalculator,
-  daysUntilSummerCalculator,
-  daysUntilWinterCalculator,
-  daysUntilSpringCalculator,
-  daysUntilFallCalculator,
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {
