@@ -87,6 +87,12 @@ import daysUntilSummerCalculator from "./days-until-summer";
 import daysUntilWinterCalculator from "./days-until-winter";
 import daysUntilSpringCalculator from "./days-until-spring";
 import daysUntilFallCalculator from "./days-until-fall";
+import celsiusToFahrenheitCalculator from "./celsius-to-fahrenheit";
+import fahrenheitToCelsiusCalculator from "./fahrenheit-to-celsius";
+import celsiusToKelvinCalculator from "./celsius-to-kelvin";
+import kelvinToCelsiusCalculator from "./kelvin-to-celsius";
+import feetToMetersCalculator from "./feet-to-meters";
+import metersToFeetCalculator from "./meters-to-feet";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -178,6 +184,12 @@ export const calculators: CalculatorDef[] = [
   daysUntilWinterCalculator,
   daysUntilSpringCalculator,
   daysUntilFallCalculator,
+  celsiusToFahrenheitCalculator,
+  fahrenheitToCelsiusCalculator,
+  celsiusToKelvinCalculator,
+  kelvinToCelsiusCalculator,
+  feetToMetersCalculator,
+  metersToFeetCalculator,
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {
