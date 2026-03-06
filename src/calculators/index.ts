@@ -99,6 +99,18 @@ import ouncesToGramsCalculator from "./ounces-to-grams";
 import minutesToSecondsCalculator from "./minutes-to-seconds";
 import secondsToMinutesCalculator from "./seconds-to-minutes";
 import daysToHoursCalculator from "./days-to-hours";
+import mphToKmhCalculator from "./mph-to-kmh";
+import kmhToMphCalculator from "./kmh-to-mph";
+import litersToGallonsCalculator from "./liters-to-gallons";
+import gallonsToLitersCalculator from "./gallons-to-liters";
+import cmToInchesCalculator from "./cm-to-inches";
+import metersToYardsCalculator from "./meters-to-yards";
+import salaryToWeeklyCalculator from "./salary-to-weekly";
+import salaryToDailyCalculator from "./salary-to-daily";
+import weeklyToSalaryCalculator from "./weekly-to-salary";
+import dailyToSalaryCalculator from "./daily-to-salary";
+import percentErrorCalculator from "./percent-error";
+import percentGrowthCalculator from "./percent-growth";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -202,6 +214,18 @@ export const calculators: CalculatorDef[] = [
   minutesToSecondsCalculator,
   secondsToMinutesCalculator,
   daysToHoursCalculator,
+  mphToKmhCalculator,
+  kmhToMphCalculator,
+  litersToGallonsCalculator,
+  gallonsToLitersCalculator,
+  cmToInchesCalculator,
+  metersToYardsCalculator,
+  salaryToWeeklyCalculator,
+  salaryToDailyCalculator,
+  weeklyToSalaryCalculator,
+  dailyToSalaryCalculator,
+  percentErrorCalculator,
+  percentGrowthCalculator,
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {
