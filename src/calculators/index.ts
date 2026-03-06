@@ -111,6 +111,12 @@ import weeklyToSalaryCalculator from "./weekly-to-salary";
 import dailyToSalaryCalculator from "./daily-to-salary";
 import percentErrorCalculator from "./percent-error";
 import percentGrowthCalculator from "./percent-growth";
+import bmrCalculator from "./bmr-calculator";
+import tdeeCalculator from "./tdee-calculator";
+import proteinIntakeCalculator from "./protein-intake-calculator";
+import waterIntakeByWeightCalculator from "./water-intake-by-weight";
+import bodyFatCalculator from "./body-fat-calculator";
+import idealWeightCalculator from "./ideal-weight-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -226,6 +232,12 @@ export const calculators: CalculatorDef[] = [
   dailyToSalaryCalculator,
   percentErrorCalculator,
   percentGrowthCalculator,
+  bmrCalculator,
+  tdeeCalculator,
+  proteinIntakeCalculator,
+  waterIntakeByWeightCalculator,
+  bodyFatCalculator,
+  idealWeightCalculator,
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {

@@ -6,15 +6,36 @@ import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: "Better Calculators — Free Online Calculators for Finance, Health & Life",
-  description: "Fast, accurate, free calculators. Mortgage, BMI, compound interest, tip, credit card payoff, calorie, and more — no signup required.",
+  description:
+    "Fast, accurate, free calculators. Mortgage, BMI, compound interest, tip, credit card payoff, calorie, and more — no signup required.",
   alternates: { canonical: "https://bettercalculators.net" },
 };
 
-const featured = ["mortgage-calculator", "bmi-calculator", "compound-interest-calculator", "tip-calculator", "calorie-calculator", "discount-calculator"];
-const featuredCalcs = featured.flatMap((slug) => {
+// Slugs verified against src/calculators/index.ts
+const featuredSlugs = [
+  "mortgage",
+  "compound-interest",
+  "bmi",
+  "calorie",
+  "percentage",
+  "age",
+  "days-between-dates-calculator",
+  "tip",
+];
+
+const featuredCalcs = featuredSlugs.flatMap((slug) => {
   const c = calculators.find((x) => x.slug === slug);
   return c ? [c] : [];
 });
+
+const popularLinks = [
+  { label: "Age Calculator", slug: "age" },
+  { label: "Days Between Dates", slug: "days-between-dates-calculator" },
+  { label: "Percentage Calculator", slug: "percentage" },
+  { label: "BMI Calculator", slug: "bmi" },
+  { label: "kg to lbs", slug: "kg-to-lbs" },
+  { label: "Salary to Hourly", slug: "salary-to-hourly-calculator" },
+];
 
 export default function HomePage() {
   return (
@@ -58,14 +79,32 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Popular */}
+      <section className={`container ${styles.section}`}>
+        <div className={styles.sectionHeader}>
+          <h2>Popular Calculators</h2>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {popularLinks.map(({ label, slug }) => (
+            <Link
+              key={slug}
+              href={`/calculators/${slug}`}
+              className={styles.popularLink}
+            >
+              {label}
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* Categories */}
       <section className={`container ${styles.section}`}>
         <h2>Browse by Category</h2>
         <div className={styles.categories}>
           {[
-            { slug: "finance", label: "Finance", icon: "💰", desc: "Mortgages, loans, interest, investments", count: calculators.filter(c=>c.category==="finance").length },
-            { slug: "health", label: "Health", icon: "❤️", desc: "BMI, calories, hydration, wellness", count: calculators.filter(c=>c.category==="health").length },
-            { slug: "life", label: "Life", icon: "✨", desc: "Percentages, tips, discounts, age", count: calculators.filter(c=>c.category==="life").length },
+            { slug: "finance", label: "Finance", icon: "💰", desc: "Mortgages, loans, interest, investments", count: calculators.filter((c) => c.category === "finance").length },
+            { slug: "health", label: "Health", icon: "❤️", desc: "BMI, calories, hydration, wellness", count: calculators.filter((c) => c.category === "health").length },
+            { slug: "life", label: "Life", icon: "✨", desc: "Percentages, tips, discounts, age", count: calculators.filter((c) => c.category === "life").length },
           ].map((cat) => (
             <Link key={cat.slug} href={`/calculators/${cat.slug}`} className={styles.categoryCard}>
               <span className={styles.catIcon}>{cat.icon}</span>
