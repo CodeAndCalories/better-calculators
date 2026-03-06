@@ -11,16 +11,19 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://bettercalculators.net" },
 };
 
-// Slugs verified against src/calculators/index.ts
+// Slugs are sourced directly from each calculator's slug: field in the registry.
+// Short-named files (mortgage, bmi, age, tip, calorie, percentage) use their
+// filename as their slug with no "-calculator" suffix.
+// Files imported as *Calculator use the full kebab name with "-calculator" suffix.
 const featuredSlugs = [
-  "mortgage",
-  "compound-interest",
-  "bmi",
-  "calorie",
-  "percentage",
-  "age",
-  "days-between-dates-calculator",
-  "tip",
+  "mortgage",               // ./mortgage  → slug: "mortgage"
+  "compound-growth-calculator", // ./compound-growth-calculator → confirmed slug
+  "bmi",                    // ./bmi       → slug: "bmi"
+  "calorie",                // ./calorie   → slug: "calorie"
+  "percentage",             // ./percentage → slug: "percentage"
+  "age",                    // ./age       → slug: "age"
+  "days-between-dates-calculator", // ./days-between-dates-calculator → confirmed
+  "tip",                    // ./tip       → slug: "tip"
 ];
 
 const featuredCalcs = featuredSlugs.flatMap((slug) => {
@@ -28,13 +31,13 @@ const featuredCalcs = featuredSlugs.flatMap((slug) => {
   return c ? [c] : [];
 });
 
-const popularLinks = [
-  { label: "Age Calculator", slug: "age" },
-  { label: "Days Between Dates", slug: "days-between-dates-calculator" },
+const popularLinks: { label: string; slug: string }[] = [
+  { label: "Age Calculator",        slug: "age" },
+  { label: "Days Between Dates",    slug: "days-between-dates-calculator" },
   { label: "Percentage Calculator", slug: "percentage" },
-  { label: "BMI Calculator", slug: "bmi" },
-  { label: "kg to lbs", slug: "kg-to-lbs" },
-  { label: "Salary to Hourly", slug: "salary-to-hourly-calculator" },
+  { label: "BMI Calculator",        slug: "bmi" },
+  { label: "kg to lbs",             slug: "kg-to-lbs" },
+  { label: "Salary to Hourly",      slug: "salary-to-hourly-calculator" },
 ];
 
 export default function HomePage() {
@@ -81,12 +84,16 @@ export default function HomePage() {
 
       {/* Popular */}
       <section className={`container ${styles.section}`}>
-   <div className={styles.grid}>
-  {popularLinks.map(({ slug }) => {
-    const calc = calculators.find((c) => c.slug === slug);
-    return calc ? <CalculatorCard key={slug} calc={calc} /> : null;
-    })}
-   </div>
+        <div className={styles.sectionHeader}>
+          <h2>Popular Calculators</h2>
+        </div>
+        <div className={styles.grid}>
+          {popularLinks.map(({ slug }) => {
+            const calc = calculators.find((x) => x.slug === slug);
+            if (!calc) return null;
+            return <CalculatorCard key={slug} calc={calc} />;
+          })}
+        </div>
       </section>
 
       {/* Categories */}
