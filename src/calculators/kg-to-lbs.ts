@@ -7,7 +7,7 @@ const def: CalculatorDef = {
   description: "Convert kilograms to pounds instantly.",
   longDescription:
     "Whether you're tracking your weight, shipping a package, or following a recipe, converting kilograms to pounds is a common need. This calculator applies the exact conversion factor to give you a precise result every time.",
-  category: "conversion",
+  category: "life",
   keywords: ["kg to lbs", "kilograms to pounds", "weight converter", "mass conversion"],
   inputs: [
     {
@@ -35,7 +35,7 @@ const def: CalculatorDef = {
           key: "pounds",
           label: "Pounds (lbs)",
           value: Number(pounds.toFixed(4)),
-          format: "number",
+          format: "lbs",
           highlight: true,
         },
       ],

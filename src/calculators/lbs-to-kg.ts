@@ -7,7 +7,7 @@ const def: CalculatorDef = {
   description: "Convert pounds to kilograms quickly and accurately.",
   longDescription:
     "The pound is the primary unit of weight in the United States, while the kilogram is the international standard. Use this calculator to convert any pound value to its kilogram equivalent for travel, fitness, science, or shipping.",
-  category: "conversion",
+  category: "life",
   keywords: ["lbs to kg", "pounds to kilograms", "weight converter", "mass conversion"],
   inputs: [
     {
@@ -35,7 +35,7 @@ const def: CalculatorDef = {
           key: "kilograms",
           label: "Kilograms (kg)",
           value: Number(kilograms.toFixed(4)),
-          format: "number",
+          format: "kg",
           highlight: true,
         },
       ],

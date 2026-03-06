@@ -7,7 +7,7 @@ const def: CalculatorDef = {
   description: "Convert inches to centimeters instantly.",
   longDescription:
     "Inches are commonly used in the United States for measuring height, screen sizes, and dimensions, while centimeters are the international standard. This calculator gives you an exact conversion for any value you enter.",
-  category: "conversion",
+  category: "life",
   keywords: ["inches to cm", "inches to centimeters", "length converter", "height conversion"],
   inputs: [
     {

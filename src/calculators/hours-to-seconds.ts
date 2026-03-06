@@ -7,7 +7,7 @@ const def: CalculatorDef = {
   description: "Convert hours to seconds instantly.",
   longDescription:
     "Whether you're working on a programming problem, calculating elapsed time, or converting durations for scientific use, this calculator converts any number of hours into the exact equivalent in seconds. It also shows the intermediate minute value for clarity.",
-  category: "conversion",
+  category: "life",
   keywords: ["hours to seconds", "time converter", "hours to sec", "duration conversion"],
   inputs: [
     {

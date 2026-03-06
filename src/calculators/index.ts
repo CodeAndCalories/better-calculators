@@ -74,6 +74,11 @@ import weightedGradeCalculator from "./weighted-grade-calculator";
 import tipSplitCalculator from "./tip-split-calculator";
 import salaryPerMonthCalculator from "./salary-per-month-calculator";
 import workHoursPerYearCalculator from "./work-hours-per-year-calculator";
+import kgToLbsCalculator from "./kg-to-lbs";
+import lbsToKgCalculator from "./lbs-to-kg";
+import milesToKmCalculator from "./miles-to-km";
+import inchesToCmCalculator from "./inches-to-cm";
+import hoursToSecondsCalculator from "./hours-to-seconds";
 
 
 // REGISTRY — add new calculators here
@@ -153,6 +158,11 @@ export const calculators: CalculatorDef[] = [
   tipSplitCalculator,
   salaryPerMonthCalculator,
   workHoursPerYearCalculator,
+  kgToLbsCalculator,
+  lbsToKgCalculator,
+  milesToKmCalculator,
+  inchesToCmCalculator,
+  hoursToSecondsCalculator,
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {
