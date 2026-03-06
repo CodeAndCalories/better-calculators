@@ -81,20 +81,12 @@ export default function HomePage() {
 
       {/* Popular */}
       <section className={`container ${styles.section}`}>
-        <div className={styles.sectionHeader}>
-          <h2>Popular Calculators</h2>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {popularLinks.map(({ label, slug }) => (
-            <Link
-              key={slug}
-              href={`/calculators/${slug}`}
-              className={styles.popularLink}
-            >
-              {label}
-            </Link>
-          ))}
-        </div>
+   <div className={styles.grid}>
+  {popularLinks.map(({ slug }) => {
+    const calc = calculators.find((c) => c.slug === slug);
+    return calc ? <CalculatorCard key={slug} calc={calc} /> : null;
+    })}
+   </div>
       </section>
 
       {/* Categories */}
