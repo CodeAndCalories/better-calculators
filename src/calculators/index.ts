@@ -79,7 +79,14 @@ import lbsToKgCalculator from "./lbs-to-kg";
 import milesToKmCalculator from "./miles-to-km";
 import inchesToCmCalculator from "./inches-to-cm";
 import hoursToSecondsCalculator from "./hours-to-seconds";
-
+import daysUntilChristmasCalculator from "./days-until-christmas";
+import daysUntilHalloweenCalculator from "./days-until-halloween";
+import daysUntilNewYearCalculator from "./days-until-new-year";
+import daysUntilThanksgivingCalculator from "./days-until-thanksgiving";
+import daysUntilSummerCalculator from "./days-until-summer";
+import daysUntilWinterCalculator from "./days-until-winter";
+import daysUntilSpringCalculator from "./days-until-spring";
+import daysUntilFallCalculator from "./days-until-fall";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -163,6 +170,14 @@ export const calculators: CalculatorDef[] = [
   milesToKmCalculator,
   inchesToCmCalculator,
   hoursToSecondsCalculator,
+  daysUntilChristmasCalculator,
+  daysUntilHalloweenCalculator,
+  daysUntilNewYearCalculator,
+  daysUntilThanksgivingCalculator,
+  daysUntilSummerCalculator,
+  daysUntilWinterCalculator,
+  daysUntilSpringCalculator,
+  daysUntilFallCalculator,
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {
