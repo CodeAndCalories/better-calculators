@@ -93,6 +93,12 @@ import celsiusToKelvinCalculator from "./celsius-to-kelvin";
 import kelvinToCelsiusCalculator from "./kelvin-to-celsius";
 import feetToMetersCalculator from "./feet-to-meters";
 import metersToFeetCalculator from "./meters-to-feet";
+import yardsToMetersCalculator from "./yards-to-meters";
+import gramsToOuncesCalculator from "./grams-to-ounces";
+import ouncesToGramsCalculator from "./ounces-to-grams";
+import minutesToSecondsCalculator from "./minutes-to-seconds";
+import secondsToMinutesCalculator from "./seconds-to-minutes";
+import daysToHoursCalculator from "./days-to-hours";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -190,6 +196,12 @@ export const calculators: CalculatorDef[] = [
   kelvinToCelsiusCalculator,
   feetToMetersCalculator,
   metersToFeetCalculator,
+  yardsToMetersCalculator,
+  gramsToOuncesCalculator,
+  ouncesToGramsCalculator,
+  minutesToSecondsCalculator,
+  secondsToMinutesCalculator,
+  daysToHoursCalculator,
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {
