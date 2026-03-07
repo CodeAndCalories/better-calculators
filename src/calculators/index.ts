@@ -125,6 +125,16 @@ import targetHeartRateDef from "./target-heart-rate-calculator";
 import debtPayoffDef from "./debt-payoff-calculator";
 import paceDef from "./pace-calculator";
 import runningSpeedDef from "./running-speed-calculator";
+import carLoanDef from "./car-loan-calculator";
+import downPaymentDef from "./down-payment-calculator";
+import loanInterestDef from "./loan-interest-calculator";
+import savingsRateDef from "./savings-rate-calculator";
+import oneRepMaxDef from "./one-rep-max-calculator";
+import bodySurfaceAreaDef from "./body-surface-area-calculator";
+import idealBodyFatDef from "./ideal-body-fat-calculator";
+import runningCadenceDef from "./running-cadence-calculator";
+import pacePerMileDef from "./pace-per-mile-calculator";
+import unitPriceDef from "./unit-price-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -254,6 +264,16 @@ export const calculators: CalculatorDef[] = [
   debtPayoffDef,
   paceDef,
   runningSpeedDef,
+  carLoanDef,
+  downPaymentDef,
+  loanInterestDef,
+  savingsRateDef,
+  oneRepMaxDef,
+  bodySurfaceAreaDef,
+  idealBodyFatDef,
+  runningCadenceDef,
+  pacePerMileDef,
+  unitPriceDef,
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {
