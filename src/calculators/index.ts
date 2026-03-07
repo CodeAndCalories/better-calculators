@@ -117,6 +117,11 @@ import proteinIntakeCalculator from "./protein-intake-calculator";
 import waterIntakeByWeightCalculator from "./water-intake-by-weight";
 import bodyFatCalculator from "./body-fat-calculator";
 import idealWeightCalculator from "./ideal-weight-calculator";
+import macroDef from "./macro-calculator";
+import calorieDeficitDef from "./calorie-deficit-calculator";
+import leanBodyMassDef from "./lean-body-mass-calculator";
+import waistToHeightDef from "./waist-to-height-ratio-calculator";
+import targetHeartRateDef from "./target-heart-rate-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -238,6 +243,11 @@ export const calculators: CalculatorDef[] = [
   waterIntakeByWeightCalculator,
   bodyFatCalculator,
   idealWeightCalculator,
+  macroDef,
+  calorieDeficitDef,
+  leanBodyMassDef,
+  waistToHeightDef,
+  targetHeartRateDef,
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {
