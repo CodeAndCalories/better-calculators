@@ -13,21 +13,21 @@ export const metadata: Metadata = {
 
 // All slugs verified against src/calculators/index.ts import paths.
 const featuredSlugs = [
-  "mortgage",                      // import mortgage from "./mortgage"
-  "bmi",                           // import bmi from "./bmi"
-  "calorie",                       // import calorie from "./calorie"
-  "tip",                           // import tip from "./tip"
-  "kg-to-lbs",                     // import kgToLbsCalculator from "./kg-to-lbs"
-  "days-between-dates-calculator", // import daysBetweenDatesCalculator from "./days-between-dates-calculator"
+  "mortgage-calculator",          // import mortgage from "./mortgage"
+  "bmi-calculator",               // import bmi from "./bmi"
+  "calorie-calculator",           // import calorie from "./calorie"
+  "tip-calculator",               // import tip from "./tip"
+  "kg-to-lbs",                    // import kgToLbsCalculator from "./kg-to-lbs"
+  "days-between-dates-calculator" // import daysBetweenDatesCalculator
 ];
 
 const popularSlugs = [
-  "age",                         // import age from "./age"
-  "percentage",                  // import percentage from "./percentage"
-  "salary-to-hourly-calculator", // import salaryToHourlyCalculator from "./salary-to-hourly-calculator"
-  "bmr-calculator",              // import bmrCalculator from "./bmr-calculator"
-  "body-fat-calculator",         // import bodyFatCalculator from "./body-fat-calculator"
-  "protein-intake-calculator",   // import proteinIntakeCalculator from "./protein-intake-calculator"
+  "age-calculator",               // import age from "./age"
+  "percentage-calculator",        // import percentage from "./percentage"
+  "salary-to-hourly-calculator",  // import salaryToHourlyCalculator
+  "bmr-calculator",               // import bmrCalculator
+  "body-fat-calculator",          // import bodyFatCalculator
+  "protein-intake-calculator"     // import proteinIntakeCalculator
 ];
 
 const featuredCalcs = featuredSlugs.flatMap((slug) => {
