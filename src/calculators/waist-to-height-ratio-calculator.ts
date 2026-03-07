@@ -60,8 +60,8 @@ const def: CalculatorDef = {
       outputs: [
         { key: "ratio", label: "Waist-to-Height Ratio", value: Math.round(ratio * 1000) / 1000, format: "number", highlight: true },
         { key: "category", label: "Health Category", value: category, format: "text" },
-        { key: "waistCm", label: "Waist", value: waistCm, format: "number", suffix: "cm" },
-        { key: "heightCm", label: "Height", value: heightCm, format: "number", suffix: "cm" },
+        { key: "waistCm", label: "Waist (cm)", value: waistCm, format: "number" },
+        { key: "heightCm", label: "Height (cm)", value: heightCm, format: "number" },
       ],
     };
   },

@@ -51,9 +51,9 @@ const def: CalculatorDef = {
 
     return {
       outputs: [
-        { key: "leanBodyMassKg", label: "Lean Body Mass", value: Math.round(leanBodyMassKg * 10) / 10, format: "number", suffix: "kg", highlight: true },
-        { key: "fatMassKg", label: "Fat Mass", value: Math.round(fatMassKg * 10) / 10, format: "number", suffix: "kg" },
-        { key: "bodyFatPercent", label: "Body Fat", value: Math.round(bodyFatPercent * 10) / 10, format: "number", suffix: "%" },
+        { key: "leanBodyMassKg", label: "Lean Body Mass (kg)", value: Math.round(leanBodyMassKg * 10) / 10, format: "number", highlight: true },
+        { key: "fatMassKg", label: "Fat Mass (kg)", value: Math.round(fatMassKg * 10) / 10, format: "number" },
+        { key: "bodyFatPercent", label: "Body Fat (%)", value: Math.round(bodyFatPercent * 10) / 10, format: "number" },
       ],
     };
   },

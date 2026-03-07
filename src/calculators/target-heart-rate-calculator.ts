@@ -85,8 +85,8 @@ const def: CalculatorDef = {
     return {
       outputs: [
         { key: "targetHR", label: "Target Heart Rate", value: `${targetLow}–${targetHigh} bpm`, format: "text", highlight: true },
-        { key: "maxHR", label: "Estimated Max Heart Rate", value: maxHR, format: "number", suffix: "bpm" },
-        ...(useKarvonen ? [{ key: "restingHR", label: "Resting Heart Rate", value: Math.round(restingHR), format: "number" as const, suffix: "bpm" }] : []),
+        { key: "maxHR", label: "Estimated Max Heart Rate (bpm)", value: maxHR, format: "number" },
+        ...(useKarvonen ? [{ key: "restingHR", label: "Resting Heart Rate (bpm)", value: Math.round(restingHR), format: "number" as const }] : []),
         { key: "method", label: "Method Used", value: method, format: "text" },
       ],
     };

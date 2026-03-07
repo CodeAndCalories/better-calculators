@@ -143,9 +143,9 @@ const def: CalculatorDef = {
     return {
       outputs: [
         { key: "calories", label: "Daily Calorie Target", value: Math.round(targetCalories), format: "calories", highlight: true },
-        { key: "protein", label: "Protein", value: proteinGrams, format: "number", suffix: "g" },
-        { key: "carbs", label: "Carbohydrates", value: carbsGrams, format: "number", suffix: "g" },
-        { key: "fat", label: "Fat", value: fatGrams, format: "number", suffix: "g" },
+        { key: "protein", label: "Protein (g)", value: proteinGrams, format: "number" },
+        { key: "carbs", label: "Carbohydrates (g)", value: carbsGrams, format: "number" },
+        { key: "fat", label: "Fat (g)", value: fatGrams, format: "number" },
         { key: "tdee", label: "TDEE (Maintenance Calories)", value: Math.round(tdee), format: "calories" },
       ],
     };
