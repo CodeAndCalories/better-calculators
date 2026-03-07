@@ -5,7 +5,7 @@ import CalculatorCard from "@/components/ui/CalculatorCard";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Better Calculators — Free Online Calculators for Finance, Health & Life",
+  title: "Better Calculators — 150+ Free Online Calculators for Finance, Health & Life",
   description:
     "Fast, accurate, free calculators. Mortgage, BMI, compound interest, tip, credit card payoff, calorie, and more — no signup required.",
   alternates: { canonical: "https://bettercalculators.net" },
@@ -47,7 +47,7 @@ export default function HomePage() {
             <span className={styles.accent}>everyday calculations</span>
           </h1>
           <p className={styles.subheadline}>
-            100+ Fast, accurate, beautifully designed calculators for finance, health, and life. No data collected. Just answers.
+            150+ Fast, accurate, beautifully designed calculators for finance, health, and life. No data collected. Just answers.
           </p>
           <div className={styles.heroCtas}>
             <Link href="/calculators" className={styles.primaryCta}>Browse all calculators</Link>

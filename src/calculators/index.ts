@@ -139,6 +139,16 @@ import rentVsBuyDef from "./rent-vs-buy-calculator";
 import compoundDailyDef from "./compound-daily-interest-calculator";
 import caloriesWalkingDef from "./calories-burned-walking-calculator";
 import pacePerKmDef from "./pace-per-km-calculator";
+import rentAffordabilityDef from "./rent-affordability-calculator";
+import closingCostDef from "./closing-cost-calculator";
+import interestOnlyLoanDef from "./interest-only-loan-calculator";
+import amortizationDef from "./amortization-calculator";
+import mileTimeDef from "./mile-time-calculator";
+import heartRateZoneDef from "./heart-rate-zone-calculator";
+import caloriesCyclingDef from "./calories-burned-cycling-calculator";
+import waterIntakeOzDef from "./water-intake-ounce-calculator";
+import dateSubtractDef from "./date-subtract-calculator";
+import hoursToDaysDef from "./hours-to-days-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -282,6 +292,16 @@ export const calculators: CalculatorDef[] = [
   compoundDailyDef,
   caloriesWalkingDef,
   pacePerKmDef,
+  rentAffordabilityDef,
+ closingCostDef,
+ interestOnlyLoanDef,
+ amortizationDef,
+ mileTimeDef,
+ heartRateZoneDef,
+ caloriesCyclingDef,
+ waterIntakeOzDef,
+ dateSubtractDef,
+ hoursToDaysDef,
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {
