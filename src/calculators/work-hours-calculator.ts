@@ -1,139 +1,147 @@
 import type { CalculatorDef, InputValues, ComputeResult } from "@/lib/types";
 
-function toMinutesSinceMidnight(hour12: number, minute: number, ampm: string): number | null {
-  if (!Number.isFinite(hour12) || hour12 < 1 || hour12 > 12) return null;
-  if (!Number.isFinite(minute) || minute < 0 || minute > 59) return null;
-
-  const ap = String(ampm || "AM").toUpperCase();
-  let h = hour12 % 12;
-  if (ap === "PM") h += 12;
-  if (ap !== "AM" && ap !== "PM") return null;
-
-  return h * 60 + minute;
-}
-
-function formatHM(totalMinutes: number): string {
-  const m = Math.max(0, Math.round(totalMinutes));
-  const h = Math.floor(m / 60);
-  const r = m % 60;
-  return `${h}h ${String(r).padStart(2, "0")}m`;
-}
-
 const def: CalculatorDef = {
   slug: "work-hours-calculator",
   title: "Work Hours Calculator",
   shortTitle: "Work Hours",
-  description: "Calculate total work hours between a start and end time, including breaks.",
+  description: "Calculate how many hours you worked in a day after accounting for breaks.",
   longDescription:
-    "Use this Work Hours Calculator to find how many hours you worked. Enter your start time, end time, and optional break minutes to get total worked time in hours (decimal) and hours and minutes. Great for timesheets, payroll, and shift planning.",
+    "Enter your start time, end time (as separate hours and minutes), and any break duration in minutes. The calculator returns your net hours worked — useful for timesheets, freelance billing, or checking shift length. Overnight shifts are handled automatically.",
   category: "life",
-  keywords: ["work hours calculator", "hours worked", "timesheet calculator", "shift hours calculator"],
+  keywords: ["work hours calculator", "hours worked calculator", "timesheet calculator", "shift hours calculator", "break time calculator"],
   inputs: [
-    { type: "number", key: "startHour", label: "Start Hour (1–12)", defaultValue: 9, min: 1, max: 12, step: 1, placeholder: "9" },
-    { type: "number", key: "startMinute", label: "Start Minute (0–59)", defaultValue: 0, min: 0, max: 59, step: 1, placeholder: "0" },
     {
-      type: "select",
-      key: "startAmPm",
-      label: "Start AM/PM",
-      defaultValue: "AM",
-      options: [
-        { label: "AM", value: "AM" },
-        { label: "PM", value: "PM" },
-      ],
+      type: "number",
+      key: "startHour",
+      label: "Start Hour (0–23)",
+      defaultValue: 9,
+      min: 0,
+      max: 23,
+      step: 1,
+      placeholder: "9",
+      helpText: "24-hour format",
     },
-
-    { type: "number", key: "endHour", label: "End Hour (1–12)", defaultValue: 5, min: 1, max: 12, step: 1, placeholder: "5" },
-    { type: "number", key: "endMinute", label: "End Minute (0–59)", defaultValue: 0, min: 0, max: 59, step: 1, placeholder: "0" },
     {
-      type: "select",
-      key: "endAmPm",
-      label: "End AM/PM",
-      defaultValue: "PM",
-      options: [
-        { label: "AM", value: "AM" },
-        { label: "PM", value: "PM" },
-      ],
+      type: "number",
+      key: "startMinute",
+      label: "Start Minute (0–59)",
+      defaultValue: 0,
+      min: 0,
+      max: 59,
+      step: 1,
+      placeholder: "0",
     },
-
-    { type: "number", key: "breakMinutes", label: "Break Minutes", defaultValue: 30, min: 0, max: 600, step: 5, placeholder: "30" },
     {
-      type: "toggle",
-      key: "overnight",
-      label: "Overnight shift (end is next day)",
-      defaultValue: false,
+      type: "number",
+      key: "endHour",
+      label: "End Hour (0–23)",
+      defaultValue: 17,
+      min: 0,
+      max: 23,
+      step: 1,
+      placeholder: "17",
+      helpText: "24-hour format",
+    },
+    {
+      type: "number",
+      key: "endMinute",
+      label: "End Minute (0–59)",
+      defaultValue: 30,
+      min: 0,
+      max: 59,
+      step: 1,
+      placeholder: "30",
+    },
+    {
+      type: "number",
+      key: "breakMinutes",
+      label: "Break Duration (minutes)",
+      defaultValue: 30,
+      min: 0,
+      max: 480,
+      step: 5,
+      placeholder: "30",
     },
   ],
 
   compute(values: InputValues): ComputeResult {
-    const start = toMinutesSinceMidnight(Number(values.startHour), Number(values.startMinute), String(values.startAmPm));
-    const end = toMinutesSinceMidnight(Number(values.endHour), Number(values.endMinute), String(values.endAmPm));
+    const startHour = Number(values.startHour);
+    const startMinute = Number(values.startMinute);
+    const endHour = Number(values.endHour);
+    const endMinute = Number(values.endMinute);
     const breakMinutes = Number(values.breakMinutes);
-    const overnight = Boolean(values.overnight);
 
-    if (start === null || end === null) {
-      return {
-        outputs: [{ key: "error", label: "Result", value: "Enter a valid start and end time.", format: "text", highlight: true }],
-      };
-    }
-    if (!Number.isFinite(breakMinutes) || breakMinutes < 0) {
-      return {
-        outputs: [{ key: "error", label: "Result", value: "Enter a valid break minutes value (0 or more).", format: "text", highlight: true }],
-      };
-    }
-
-    let diff = end - start;
-    if (overnight && diff <= 0) diff += 24 * 60;
-    if (!overnight && diff < 0) {
-      return {
-        outputs: [{ key: "error", label: "Result", value: "End time is earlier than start time. Enable overnight shift if needed.", format: "text", highlight: true }],
-      };
+    if (
+      !Number.isFinite(startHour) || !Number.isFinite(startMinute) ||
+      !Number.isFinite(endHour) || !Number.isFinite(endMinute) ||
+      !Number.isFinite(breakMinutes) ||
+      startHour < 0 || startHour > 23 || startMinute < 0 || startMinute > 59 ||
+      endHour < 0 || endHour > 23 || endMinute < 0 || endMinute > 59 ||
+      breakMinutes < 0
+    ) {
+      return { outputs: [], error: "Please enter a valid number." };
     }
 
-    const worked = Math.max(0, diff - breakMinutes);
-    const hoursDecimal = worked / 60;
+    const startTotalMins = startHour * 60 + startMinute;
+    const endTotalMins = endHour * 60 + endMinute;
+
+    // Handle overnight shifts: if end <= start, add 24 hours to end
+    let shiftMinutes = endTotalMins - startTotalMins;
+    if (shiftMinutes <= 0) {
+      shiftMinutes += 24 * 60;
+    }
+
+    const netMinutes = shiftMinutes - breakMinutes;
+
+    if (netMinutes <= 0) {
+      return {
+        outputs: [],
+        error: "Break duration exceeds or equals total shift time.",
+      };
+    }
+
+    const hoursWorked = Math.round((netMinutes / 60) * 100) / 100;
+    const hoursWhole = Math.floor(netMinutes / 60);
+    const minsRemainder = netMinutes % 60;
 
     return {
       outputs: [
-        { key: "workedHours", label: "Hours Worked (decimal)", value: Number(hoursDecimal.toFixed(2)), format: "number", highlight: true },
-        { key: "workedHM", label: "Hours Worked (h m)", value: formatHM(worked), format: "text" },
-        { key: "shiftLength", label: "Shift Length (before breaks)", value: formatHM(diff), format: "text" },
-        { key: "breaks", label: "Break Time", value: `${Math.round(breakMinutes)} minutes`, format: "text" },
+        { key: "hoursWorked", label: "Hours Worked (decimal)", value: hoursWorked, format: "number", highlight: true },
+        { key: "hoursAndMins", label: "Hours Worked (H:MM)", value: `${hoursWhole}:${String(minsRemainder).padStart(2, "0")}`, format: "text" },
+        { key: "shiftMinutes", label: "Gross Shift Minutes", value: shiftMinutes, format: "number" },
       ],
     };
   },
 
-  howItWorks:
-    "We convert your start and end times into minutes since midnight, subtract to get shift length, then subtract break minutes to get hours worked. Decimal hours are simply worked minutes divided by 60.",
+  howItWorks: `Start and end times are converted to total minutes from midnight. If end time is earlier than or equal to start time, 24 hours (1440 minutes) is added to handle overnight shifts. Net minutes = gross shift minutes minus break minutes. Hours worked = net minutes / 60.`,
 
   examples: [
     {
-      title: "9:00 AM to 5:00 PM with a 30 minute break",
-      description: "A common full day shift.",
-      inputs: { startHour: 9, startMinute: 0, startAmPm: "AM", endHour: 5, endMinute: 0, endAmPm: "PM", breakMinutes: 30, overnight: false },
-      result: "8h shift minus 30m break = 7.50 hours worked.",
+      title: "09:00 to 17:30 with 30 min break",
+      description: "A standard office working day.",
+      inputs: { startHour: 9, startMinute: 0, endHour: 17, endMinute: 30, breakMinutes: 30 },
+      result: "8 hours worked.",
     },
     {
-      title: "Overnight shift",
-      description: "11:00 PM to 7:00 AM with a 45 minute break.",
-      inputs: { startHour: 11, startMinute: 0, startAmPm: "PM", endHour: 7, endMinute: 0, endAmPm: "AM", breakMinutes: 45, overnight: true },
-      result: "8h shift minus 45m break = 7.25 hours worked.",
+      title: "22:00 to 06:30 with 45 min break",
+      description: "An overnight shift.",
+      inputs: { startHour: 22, startMinute: 0, endHour: 6, endMinute: 30, breakMinutes: 45 },
+      result: "7.75 hours worked.",
     },
   ],
 
   faqs: [
-    { question: "How do I calculate hours worked for a shift?", answer: "Subtract start time from end time to get shift length, then subtract unpaid break minutes. Convert minutes to hours by dividing by 60." },
-    { question: "What is decimal hours used for?", answer: "Decimal hours are common for payroll and timesheets because they are easy to multiply by an hourly rate." },
-    { question: "What if my shift crosses midnight?", answer: "Enable the overnight shift toggle so the end time is treated as the next day." },
-    { question: "Does this include paid breaks?", answer: "If your break is paid, set break minutes to 0. If it is unpaid, enter the break minutes to subtract it." },
+    {
+      question: "Does this support overnight shifts?",
+      answer: "Yes. If your end time is before your start time, the calculator automatically adds 24 hours to handle midnight crossings.",
+    },
+    {
+      question: "How do I enter 9:30 AM?",
+      answer: "Set Start Hour to 9 and Start Minute to 30. For 1:45 PM, set End Hour to 13 and End Minute to 45.",
+    },
   ],
 
-  relatedSlugs: [
-    "time-between-times-calculator",
-    "time-duration-calculator",
-    "minutes-to-hours-calculator",
-    "hours-to-minutes-calculator",
-    "salary-to-hourly-calculator",
-  ],
+  relatedSlugs: ["time-duration-calculator", "hours-to-days-calculator"],
 };
 
 export default def;
