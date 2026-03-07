@@ -11,34 +11,29 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://bettercalculators.net" },
 };
 
-// Slugs are sourced directly from each calculator's slug: field in the registry.
-// Short-named files (mortgage, bmi, age, tip, calorie, percentage) use their
-// filename as their slug with no "-calculator" suffix.
-// Files imported as *Calculator use the full kebab name with "-calculator" suffix.
+// All slugs verified against src/calculators/index.ts import paths.
 const featuredSlugs = [
-  "mortgage",               // ./mortgage  → slug: "mortgage"
-  "compound-growth-calculator", // ./compound-growth-calculator → confirmed slug
-  "bmi",                    // ./bmi       → slug: "bmi"
-  "calorie",                // ./calorie   → slug: "calorie"
-  "percentage",             // ./percentage → slug: "percentage"
-  "age",                    // ./age       → slug: "age"
-  "days-between-dates-calculator", // ./days-between-dates-calculator → confirmed
-  "tip",                    // ./tip       → slug: "tip"
+  "mortgage",                      // import mortgage from "./mortgage"
+  "bmi",                           // import bmi from "./bmi"
+  "calorie",                       // import calorie from "./calorie"
+  "tip",                           // import tip from "./tip"
+  "kg-to-lbs",                     // import kgToLbsCalculator from "./kg-to-lbs"
+  "days-between-dates-calculator", // import daysBetweenDatesCalculator from "./days-between-dates-calculator"
+];
+
+const popularSlugs = [
+  "age",                         // import age from "./age"
+  "percentage",                  // import percentage from "./percentage"
+  "salary-to-hourly-calculator", // import salaryToHourlyCalculator from "./salary-to-hourly-calculator"
+  "bmr-calculator",              // import bmrCalculator from "./bmr-calculator"
+  "body-fat-calculator",         // import bodyFatCalculator from "./body-fat-calculator"
+  "protein-intake-calculator",   // import proteinIntakeCalculator from "./protein-intake-calculator"
 ];
 
 const featuredCalcs = featuredSlugs.flatMap((slug) => {
   const c = calculators.find((x) => x.slug === slug);
   return c ? [c] : [];
 });
-
-const popularLinks: { label: string; slug: string }[] = [
-  { label: "Age Calculator",        slug: "age" },
-  { label: "Days Between Dates",    slug: "days-between-dates-calculator" },
-  { label: "Percentage Calculator", slug: "percentage" },
-  { label: "BMI Calculator",        slug: "bmi" },
-  { label: "kg to lbs",             slug: "kg-to-lbs" },
-  { label: "Salary to Hourly",      slug: "salary-to-hourly-calculator" },
-];
 
 export default function HomePage() {
   return (
@@ -88,7 +83,7 @@ export default function HomePage() {
           <h2>Popular Calculators</h2>
         </div>
         <div className={styles.grid}>
-          {popularLinks.map(({ slug }) => {
+          {popularSlugs.map((slug) => {
             const calc = calculators.find((x) => x.slug === slug);
             if (!calc) return null;
             return <CalculatorCard key={slug} calc={calc} />;
@@ -102,8 +97,8 @@ export default function HomePage() {
         <div className={styles.categories}>
           {[
             { slug: "finance", label: "Finance", icon: "💰", desc: "Mortgages, loans, interest, investments", count: calculators.filter((c) => c.category === "finance").length },
-            { slug: "health", label: "Health", icon: "❤️", desc: "BMI, calories, hydration, wellness", count: calculators.filter((c) => c.category === "health").length },
-            { slug: "life", label: "Life", icon: "✨", desc: "Percentages, tips, discounts, age", count: calculators.filter((c) => c.category === "life").length },
+            { slug: "health",  label: "Health",  icon: "❤️", desc: "BMI, calories, hydration, wellness",     count: calculators.filter((c) => c.category === "health").length },
+            { slug: "life",    label: "Life",    icon: "✨", desc: "Percentages, tips, discounts, age",      count: calculators.filter((c) => c.category === "life").length },
           ].map((cat) => (
             <Link key={cat.slug} href={`/calculators/${cat.slug}`} className={styles.categoryCard}>
               <span className={styles.catIcon}>{cat.icon}</span>
@@ -123,9 +118,9 @@ export default function HomePage() {
           <h2>Why Better Calculators?</h2>
           <div className={styles.trustGrid}>
             {[
-              { icon: "⚡", title: "Instant results", desc: "No loading spinners. Results update as you type or on one click." },
+              { icon: "⚡", title: "Instant results",   desc: "No loading spinners. Results update as you type or on one click." },
               { icon: "🎯", title: "Accurate formulas", desc: "Every calculator uses the same formulas trusted by professionals." },
-              { icon: "📱", title: "Works everywhere", desc: "Fully responsive and accessible on any device or screen size." },
+              { icon: "📱", title: "Works everywhere",  desc: "Fully responsive and accessible on any device or screen size." },
               { icon: "🔒", title: "No data collected", desc: "Everything runs in your browser. We never store your numbers." },
             ].map((item) => (
               <div key={item.title} className={styles.trustItem}>
