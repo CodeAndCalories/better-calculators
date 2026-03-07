@@ -135,6 +135,10 @@ import idealBodyFatDef from "./ideal-body-fat-calculator";
 import runningCadenceDef from "./running-cadence-calculator";
 import pacePerMileDef from "./pace-per-mile-calculator";
 import unitPriceDef from "./unit-price-calculator";
+import rentVsBuyDef from "./rent-vs-buy-calculator";
+import compoundDailyDef from "./compound-daily-interest-calculator";
+import caloriesWalkingDef from "./calories-burned-walking-calculator";
+import pacePerKmDef from "./pace-per-km-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -274,6 +278,10 @@ export const calculators: CalculatorDef[] = [
   runningCadenceDef,
   pacePerMileDef,
   unitPriceDef,
+  rentVsBuyDef,
+  compoundDailyDef,
+  caloriesWalkingDef,
+  pacePerKmDef,
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {
