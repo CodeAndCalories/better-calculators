@@ -1,9 +1,18 @@
-.page { padding-bottom: 4rem; }
+/* ─────────────────────────────────────────
+   Page shell
+───────────────────────────────────────── */
+.page {
+  padding-bottom: 4rem;
+}
 
+/* ─────────────────────────────────────────
+   Hero
+───────────────────────────────────────── */
 .hero {
   padding-top: 2.5rem;
   padding-bottom: 2rem;
   max-width: var(--content-width);
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -21,7 +30,9 @@
   color: var(--color-text-3);
   text-decoration: none;
 }
-.breadcrumb a:hover { color: var(--color-accent); }
+.breadcrumb a:hover {
+  color: var(--color-accent);
+}
 
 .h1 {
   margin-top: 0.25rem;
@@ -33,6 +44,99 @@
   max-width: 640px;
 }
 
+/* ─────────────────────────────────────────
+   Desktop page rail
+   Mobile: single column (default)
+   Desktop (≥1024px): three columns —
+     [ad-left] [main] [ad-right]
+───────────────────────────────────────── */
+.pageRail {
+  display: contents; /* Mobile: no-op wrapper, children flow normally */
+  margin: 0 auto;
+}
+
+/* ─────────────────────────────────────────
+   Ad slots
+   Hidden by default (mobile-first).
+   Shown only on desktop via media query.
+───────────────────────────────────────── */
+.adSlot {
+  display: none; /* hidden on mobile */
+}
+
+/* ─────────────────────────────────────────
+   Main content column (mobile)
+───────────────────────────────────────── */
+.mainContent {
+  /* On mobile this is just a normal block */
+}
+
+/* ─────────────────────────────────────────
+   Desktop layout (≥1024px)
+───────────────────────────────────────── */
+@media (min-width: 1024px) {
+  .pageRail {
+    display: grid;
+    /*
+      160px  = ad rail width (change to 0 / auto if you only want one side)
+      1fr    = main content, naturally constrained
+      160px  = right ad rail
+      
+      If you only want a right rail (common for monetization), change to:
+        grid-template-columns: 1fr minmax(0, var(--content-width, 860px)) 160px;
+        
+      If you want no ad rails yet, change to:
+        grid-template-columns: 1fr minmax(0, var(--content-width, 860px)) 1fr;
+    */
+    grid-template-columns: 160px minmax(0, var(--content-width, 860px)) 160px;
+    grid-template-rows: auto;
+    column-gap: 1.5rem;
+    align-items: start;
+
+    /*
+      Center the whole three-column rail within the page.
+      Adjust max-width if your site already has a container wrapper.
+    */
+    max-width: calc(var(--content-width, 860px) + 160px * 2 + 1.5rem * 2);
+    margin: 0 auto;
+  }
+
+  .adSlotLeft {
+    display: block;
+    grid-column: 1;
+    grid-row: 1 / -1; /* spans all rows */
+    position: sticky;
+    top: 1.5rem;
+    align-self: start;
+    width: 160px;
+    min-height: 600px; /* standard ad unit height; collapses gracefully when empty */
+
+    /* Subtle placeholder style — remove once real ads are wired up */
+    background: transparent;
+    border-radius: var(--radius-lg, 8px);
+  }
+
+  .adSlotRight {
+    display: block;
+    grid-column: 3;
+    grid-row: 1 / -1;
+    position: sticky;
+    top: 1.5rem;
+    align-self: start;
+    width: 160px;
+    min-height: 600px;
+    background: transparent;
+    border-radius: var(--radius-lg, 8px);
+  }
+
+  .mainContent {
+    grid-column: 2;
+  }
+}
+
+/* ─────────────────────────────────────────
+   Sections
+───────────────────────────────────────── */
 .section {
   max-width: var(--content-width);
   padding-top: 2.5rem;
@@ -41,8 +145,12 @@
 
 .section:first-of-type {
   max-width: 100%;
+  padding-top: 0; /* calculator card sits flush under hero on desktop */
 }
 
+/* ─────────────────────────────────────────
+   Calculator card
+───────────────────────────────────────── */
 .calculatorCard {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -52,19 +160,30 @@
 }
 
 @media (max-width: 640px) {
-  .calculatorCard { padding: 1.25rem; }
+  .calculatorCard {
+    padding: 1.25rem;
+  }
 }
 
+/* ─────────────────────────────────────────
+   Section titles
+───────────────────────────────────────── */
 .sectionTitle {
   margin-bottom: 1.25rem;
   color: var(--color-text);
 }
 
+/* ─────────────────────────────────────────
+   Prose
+───────────────────────────────────────── */
 .prose p {
   color: var(--color-text-2);
   line-height: 1.75;
 }
 
+/* ─────────────────────────────────────────
+   Examples
+───────────────────────────────────────── */
 .examples {
   display: flex;
   flex-direction: column;
@@ -98,8 +217,13 @@
   padding: 0.6rem 0.875rem;
   border-radius: var(--radius-sm);
 }
-.exampleResult strong { color: var(--color-text); }
+.exampleResult strong {
+  color: var(--color-text);
+}
 
+/* ─────────────────────────────────────────
+   FAQs
+───────────────────────────────────────── */
 .faqs {
   display: flex;
   flex-direction: column;
@@ -111,7 +235,9 @@
 .faq {
   border-bottom: 1px solid var(--color-border);
 }
-.faq:last-child { border-bottom: none; }
+.faq:last-child {
+  border-bottom: none;
+}
 
 .faqQuestion {
   padding: 1.1rem 1.25rem;
@@ -126,8 +252,12 @@
   gap: 1rem;
   transition: background 0.15s;
 }
-.faqQuestion:hover { background: var(--color-surface-2); }
-.faqQuestion::-webkit-details-marker { display: none; }
+.faqQuestion:hover {
+  background: var(--color-surface-2);
+}
+.faqQuestion::-webkit-details-marker {
+  display: none;
+}
 .faqQuestion::after {
   content: '+';
   font-size: 1.25rem;
@@ -135,7 +265,9 @@
   color: var(--color-text-3);
   flex-shrink: 0;
 }
-details[open] .faqQuestion::after { content: '−'; }
+details[open] .faqQuestion::after {
+  content: '−';
+}
 
 .faqAnswer {
   padding: 0 1.25rem 1.1rem;
@@ -144,12 +276,18 @@ details[open] .faqQuestion::after { content: '−'; }
   line-height: 1.7;
 }
 
+/* ─────────────────────────────────────────
+   Related calculators grid
+───────────────────────────────────────── */
 .relatedGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 1rem;
 }
 
+/* ─────────────────────────────────────────
+   Utility overrides
+───────────────────────────────────────── */
 .calcSection {
   max-width: 100% !important;
 }
