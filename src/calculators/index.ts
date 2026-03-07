@@ -122,6 +122,9 @@ import calorieDeficitDef from "./calorie-deficit-calculator";
 import leanBodyMassDef from "./lean-body-mass-calculator";
 import waistToHeightDef from "./waist-to-height-ratio-calculator";
 import targetHeartRateDef from "./target-heart-rate-calculator";
+import debtPayoffDef from "./debt-payoff-calculator";
+import paceDef from "./pace-calculator";
+import runningSpeedDef from "./running-speed-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -248,6 +251,9 @@ export const calculators: CalculatorDef[] = [
   leanBodyMassDef,
   waistToHeightDef,
   targetHeartRateDef,
+  debtPayoffDef,
+  paceDef,
+  runningSpeedDef,
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {
