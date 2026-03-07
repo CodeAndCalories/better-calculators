@@ -12,7 +12,7 @@ export default function PrivacyPage() {
     <main className={styles.page}>
       <div className={`container ${styles.content}`}>
         <h1>Privacy Policy</h1>
-        <p className={styles.meta}>Last updated: January 1, 2025</p>
+        <p className={styles.meta}>Last updated: March 2026</p>
 
         <h2>Overview</h2>
         <p>BetterCalculators.net ("we", "us", "our") is committed to protecting your privacy. This policy explains what information we collect, how we use it, and your rights.</p>
