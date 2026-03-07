@@ -8,10 +8,20 @@ const SITE_URL = "https://bettercalculators.net";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Better Calculators — Free Online Calculators",
+    default: "Free Online Calculators for Finance, Health & Everyday Life | Better Calculators",
     template: "%s | Better Calculators",
   },
-  description: "Fast, accurate, free online calculators for finance, health, and everyday life. Mortgage, BMI, compound interest, tip, discount, and more.",
+  description:
+  "Use 140+ free online calculators for finance, health, percentages, loans, time, and everyday decisions. Fast, accurate tools including mortgage, BMI, compound interest, tip, conversions, and more.",
+  keywords: [
+  "free calculators",
+  "online calculators",
+  "finance calculators",
+  "health calculators",
+  "loan calculator",
+  "percentage calculator",
+  "bmi calculator"
+],
   openGraph: {
     type: "website",
     locale: "en_US",
