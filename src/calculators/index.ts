@@ -149,6 +149,26 @@ import caloriesCyclingDef from "./calories-burned-cycling-calculator";
 import waterIntakeOzDef from "./water-intake-ounce-calculator";
 import dateSubtractDef from "./date-subtract-calculator";
 import hoursToDaysDef from "./hours-to-days-calculator";
+import medianDef from "./median-calculator";
+import modeDef from "./mode-calculator";
+import rangeDef from "./range-calculator";
+import stdDevDef from "./standard-deviation-calculator";
+import monthsBetweenDef from "./months-between-dates-calculator";
+import yearsBetweenDef from "./years-between-dates-calculator";
+import dateAddDef from "./date-add-calculator";
+import workingHoursDef from "./working-hours-calculator";
+import sleepDef from "./sleep-calculator";
+import countdownDef from "./countdown-calculator";
+import mortgageExtraDef from "./mortgage-extra-payment-calculator";
+import loanEarlyPayoffDef from "./loan-early-payoff-calculator";
+import monthlySavingsDef from "./monthly-savings-calculator";
+import futureValueDef from "./future-value-calculator";
+import presentValueDef from "./present-value-calculator";
+import gpaDef from "./gpa-calculator";
+import gradeAverageDef from "./grade-average-calculator";
+import fuelCostDef from "./fuel-cost-calculator";
+import roadTripDef from "./road-trip-cost-calculator";
+import pricePerSqftDef from "./price-per-square-foot-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -293,15 +313,36 @@ export const calculators: CalculatorDef[] = [
   caloriesWalkingDef,
   pacePerKmDef,
   rentAffordabilityDef,
- closingCostDef,
- interestOnlyLoanDef,
- amortizationDef,
- mileTimeDef,
- heartRateZoneDef,
- caloriesCyclingDef,
- waterIntakeOzDef,
- dateSubtractDef,
- hoursToDaysDef,
+  closingCostDef,
+  interestOnlyLoanDef,
+  amortizationDef,
+  mileTimeDef,
+  heartRateZoneDef,
+  caloriesCyclingDef,
+  waterIntakeOzDef,
+  dateSubtractDef,
+  hoursToDaysDef,
+  medianDef, 
+  modeDef, 
+  rangeDef, 
+  stdDevDef,
+  monthsBetweenDef, 
+  yearsBetweenDef, 
+  dateAddDef,
+  workingHoursDef, 
+  sleepDef, 
+  countdownDef,
+  mortgageExtraDef, 
+  loanEarlyPayoffDef, 
+  monthlySavingsDef,
+  futureValueDef, 
+  presentValueDef,
+  gpaDef, 
+  gradeAverageDef,
+  fuelCostDef, 
+  roadTripDef, 
+  pricePerSqftDef,
+ 
 ];
 
 export function getCalculatorBySlug(slug: string): CalculatorDef | undefined {
