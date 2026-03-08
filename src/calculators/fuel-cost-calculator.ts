@@ -41,5 +41,14 @@ const def: CalculatorDef = {
   },
   howItWorks: "Gallons = distance / MPG. Total cost = gallons × price per gallon. Per-person cost = total cost / passengers.",
   relatedSlugs: ["road-trip-cost-calculator", "running-speed-calculator"],
+
+  longDescription: "Estimate how much a drive will cost in fuel by entering your distance, vehicle fuel efficiency, and current gas price. The cost-per-mile output helps you compare routes or vehicles, and the per-person split makes it easy to share expenses.",
+  examples: [
+    { title: "250 miles at 30 MPG, USD 3.50/gallon, 2 passengers", description: "A weekend road trip split between two people.", inputs: { distance: 250, mpg: 30, fuelPrice: 3.50, passengers: "2" }, result: "Total ~USD 29.17 — USD 14.58 per person." },
+  ],
+  faqs: [
+    { question: "How do I find my MPG?", answer: "Fill your tank, drive normally, then refill and note the gallons used and miles driven. MPG = miles driven / gallons used. Your car manual or fuel economy sticker also lists EPA estimates." },
+  ],
 };
+
 export default def;

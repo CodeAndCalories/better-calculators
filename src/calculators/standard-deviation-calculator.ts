@@ -48,5 +48,15 @@ const def: CalculatorDef = {
   },
   howItWorks: "Mean = sum / n. Variance = Σ(value − mean)² / n for population, or / (n−1) for sample. SD = √variance.",
   relatedSlugs: ["median-calculator", "range-calculator", "mode-calculator"],
+
+  longDescription: "Standard deviation measures how spread out values are around the mean. A low SD means values are clustered near the mean; a high SD means they are widely scattered. Use sample SD when your data is a subset of a larger population; use population SD when you have the full population.",
+  examples: [
+    { title: "Values: 2, 4, 4, 4, 5, 5, 7, 9", description: "Classic textbook dataset.", inputs: { v1: 2, v2: 4, v3: 4, v4: 4, v5: 5, v6: 5, use7: true, v7: 7, use8: true, v8: 9 }, result: "Population SD = 2.0, Sample SD ≈ 2.14." },
+  ],
+  faqs: [
+    { question: "Sample vs population SD — which should I use?", answer: "Use sample SD (divides by n−1) when your values are a sample from a larger group. Use population SD (divides by n) when you have all possible values." },
+    { question: "What is variance?", answer: "Variance is the square of the standard deviation. It is useful in mathematical formulas but harder to interpret directly because its units are squared." },
+  ],
 };
+
 export default def;

@@ -35,5 +35,14 @@ const def: CalculatorDef = {
   },
   howItWorks: "Total months = |(endYear × 12 + endMonth) − (startYear × 12 + startMonth)|.",
   relatedSlugs: ["years-between-dates-calculator", "time-duration-calculator", "date-add-calculator"],
+
+  longDescription: "Calculate the exact number of months between any two year/month combinations. Useful for calculating contract lengths, subscription durations, age in months, or any period measured in calendar months.",
+  examples: [
+    { title: "January 2023 to March 2025", description: "A 26-month span.", inputs: { startYear: 2023, startMonth: 1, endYear: 2025, endMonth: 3 }, result: "26 months — 2 years 2 months." },
+  ],
+  faqs: [
+    { question: "Does the order of the dates matter?", answer: "No — the calculator always returns a positive result regardless of which date comes first." },
+  ],
 };
+
 export default def;

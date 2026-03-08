@@ -104,5 +104,15 @@ const def: CalculatorDef = {
   },
   howItWorks: "GPA = Σ(grade points × credits) / Σ(credits). Grade points follow the standard 4.0 scale.",
   relatedSlugs: ["grade-average-calculator"],
+
+  longDescription: "Calculate your semester or cumulative GPA using letter grades and credit hours. Each grade is converted to grade points on the standard 4.0 scale, then weighted by credit hours to produce your overall GPA.",
+  examples: [
+    { title: "Three courses: A (3 credits), A− (4 credits), B+ (3 credits)", description: "A strong semester.", inputs: { g1: "4.0", c1: 3, g2: "3.7", c2: 4, g3: "3.3", c3: 3 }, result: "GPA ≈ 3.68." },
+  ],
+  faqs: [
+    { question: "Why are credits weighted?", answer: "A 4-credit course contributes more to your GPA than a 1-credit course. Weighting ensures higher-credit courses have proportionally more impact." },
+    { question: "Does A+ count differently from A?", answer: "On the standard 4.0 scale both A and A+ receive 4.0 grade points. Some institutions use a 4.3 scale where A+ = 4.3." },
+  ],
 };
+
 export default def;

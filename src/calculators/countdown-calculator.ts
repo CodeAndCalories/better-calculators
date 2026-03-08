@@ -44,5 +44,14 @@ const def: CalculatorDef = {
   },
   howItWorks: "Difference in milliseconds between target and from dates (UTC), divided by 86,400,000 to get total days. Weeks = floor(days / 7). Months = absolute difference in year×12+month values.",
   relatedSlugs: ["date-add-calculator", "months-between-dates-calculator", "time-duration-calculator"],
+
+  longDescription: "Enter a future event date and a starting date to see exactly how many days, weeks, and months remain. Useful for countdowns to holidays, deadlines, weddings, product launches, or any upcoming event.",
+  examples: [
+    { title: "Days until December 31, 2026 from March 7, 2025", description: "Countdown to New Year.", inputs: { targetYear: 2026, targetMonth: 12, targetDay: 31, fromYear: 2025, fromMonth: 3, fromDay: 7 }, result: "664 days remaining." },
+  ],
+  faqs: [
+    { question: "Can I count down to a date in the past?", answer: "No — the target date must be after the from date. For elapsed time, use the Time Duration Calculator." },
+  ],
 };
+
 export default def;

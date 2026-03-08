@@ -46,5 +46,15 @@ const def: CalculatorDef = {
   },
   howItWorks: "Values are sorted ascending. For odd count the median is the middle value; for even count it is the average of the two middle values.",
   relatedSlugs: ["mode-calculator", "range-calculator", "standard-deviation-calculator"],
+
+  longDescription: "Enter up to 8 numbers and the calculator sorts them to find the middle value. The median is useful when your data contains outliers — a single extreme value cannot skew it the way it would the mean.",
+  examples: [
+    { title: "Five values: 4, 8, 15, 16, 23", description: "Odd count — middle value is median.", inputs: { v1: 4, v2: 8, v3: 15, v4: 16, v5: 23, v6: 42 }, result: "Median = 15." },
+  ],
+  faqs: [
+    { question: "When should I use median instead of mean?", answer: "Use median when your data has outliers or is skewed — it represents the typical value better than the mean in those cases." },
+    { question: "What happens with an even number of values?", answer: "The median is the average of the two middle values after sorting." },
+  ],
 };
+
 export default def;

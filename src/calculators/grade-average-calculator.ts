@@ -67,5 +67,15 @@ const def: CalculatorDef = {
   },
   howItWorks: "Weighted average = Σ(score × weight) / Σ(weights). Weights do not need to sum to 100 — the calculator normalises automatically.",
   relatedSlugs: ["gpa-calculator"],
+
+  longDescription: "Calculate your overall course grade from individual assignments, quizzes, and exams — each with its own percentage weight. Weights do not need to sum to 100; the calculator normalises them automatically so you can add items incrementally.",
+  examples: [
+    { title: "Two midterms (20% each), final (30%), homework (30%): scores 88, 74, 91, 82", description: "Typical university course weighting.", inputs: { s1: 88, w1: 20, s2: 74, w2: 20, s3: 91, w3: 30, s4: 82, w4: 30 }, result: "Weighted average ≈ 84.8% — B." },
+  ],
+  faqs: [
+    { question: "Do weights need to add up to 100?", answer: "No — the calculator divides by the total weight you enter, so it works correctly even if your weights sum to any number." },
+    { question: "What if I have not received a grade yet?", answer: "Leave that item toggled off. The average is calculated only from the items you include." },
+  ],
 };
+
 export default def;

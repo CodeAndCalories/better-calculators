@@ -49,5 +49,15 @@ const def: CalculatorDef = {
   },
   howItWorks: "Price per square foot = total price / total square footage. When comparing two properties, the one with the lower $/sqft represents better value per unit of space.",
   relatedSlugs: ["down-payment-calculator", "closing-cost-calculator", "rent-vs-buy-calculator"],
+
+  longDescription: "Price per square foot is a standard real estate metric for comparing properties of different sizes. A larger home is not necessarily better value — this calculator helps you compare the cost per unit of living space across two properties.",
+  examples: [
+    { title: "USD 450,000 for 1,800 sq ft vs USD 520,000 for 2,100 sq ft", description: "Comparing two homes.", inputs: { price1: 450000, sqft1: 1800, compare: true, price2: 520000, sqft2: 2100 }, result: "Property 1: USD 250/sqft. Property 2: USD 247.62/sqft — marginally better value." },
+  ],
+  faqs: [
+    { question: "Is lower price per square foot always better?", answer: "Not necessarily. Location, condition, lot size, and amenities all affect value. Price/sqft is one useful data point among many." },
+    { question: "Does this include outdoor space or garage?", answer: "Typically no — square footage in real estate refers to livable interior space. Always confirm what the listing includes." },
+  ],
 };
+
 export default def;

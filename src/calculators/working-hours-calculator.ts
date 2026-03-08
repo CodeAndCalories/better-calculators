@@ -41,5 +41,14 @@ const def: CalculatorDef = {
   },
   howItWorks: "Net hours/day = hours/day − break minutes / 60. Working days = (days/week × weeks) − vacation days. Total hours = net hours/day × working days.",
   relatedSlugs: ["work-hours-calculator", "hours-to-days-calculator", "sleep-calculator"],
+
+  longDescription: "Calculate your total net working hours over a custom time period. Accounts for your working days per week, hours per day, break time, and vacation days. Useful for billing, project planning, and employment contracts.",
+  examples: [
+    { title: "Full-time, 8 hrs/day, 5 days/week, 52 weeks, 30-min break, 10 vacation days", description: "A standard annual work year.", inputs: { hoursPerDay: 8, daysPerWeek: 5, weeks: 52, breakMins: 30, vacDays: 10 }, result: "~1,937 net working hours per year." },
+  ],
+  faqs: [
+    { question: "What is the difference from the Work Hours Calculator?", answer: "The Work Hours Calculator finds hours for a single shift. This calculator finds total hours across an entire period of weeks." },
+  ],
 };
+
 export default def;

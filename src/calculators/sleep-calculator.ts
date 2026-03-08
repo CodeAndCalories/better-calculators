@@ -54,5 +54,15 @@ const def: CalculatorDef = {
   },
   howItWorks: "Each sleep cycle ≈ 90 minutes. Optimal sleep = 5–6 complete cycles (7.5–9 hrs). The calculator adds or subtracts (cycles × 90 + fall-asleep time) from the anchor time.",
   relatedSlugs: ["working-hours-calculator", "countdown-calculator"],
+
+  longDescription: "Your body cycles through approximately 90-minute sleep cycles. Waking mid-cycle leaves you groggy; waking at the end of a cycle feels natural. This calculator finds your optimal bedtime or wake time based on complete cycles plus your personal fall-asleep latency.",
+  examples: [
+    { title: "Wake at 7:00 AM, 6 cycles, 14 min to fall asleep", description: "Optimal bedtime for a full night.", inputs: { mode: "bedtime", anchorHour: 7, anchorMinute: 0, cycles: 6, fallAsleepMins: 14 }, result: "Go to bed at 10:46 PM." },
+  ],
+  faqs: [
+    { question: "How many sleep cycles do I need?", answer: "Most adults need 5–6 cycles (7.5–9 hours). Athletes and those recovering from illness may need 6 or more." },
+    { question: "What is sleep latency?", answer: "Sleep latency is the time it takes to fall asleep after getting into bed. The average is 10–20 minutes for healthy adults." },
+  ],
 };
+
 export default def;

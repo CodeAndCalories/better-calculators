@@ -48,5 +48,15 @@ const def: CalculatorDef = {
   },
   howItWorks: "Each value's frequency is tallied. The value(s) with the highest frequency are the mode. If all values appear once there is no mode.",
   relatedSlugs: ["median-calculator", "range-calculator", "standard-deviation-calculator"],
+
+  longDescription: "The mode is the value that appears most frequently in a dataset. A dataset can have one mode (unimodal), multiple modes (multimodal), or no mode if all values appear equally often.",
+  examples: [
+    { title: "Values: 3, 7, 3, 9, 3, 7", description: "3 appears three times — it is the mode.", inputs: { v1: 3, v2: 7, v3: 3, v4: 9, v5: 3, v6: 7 }, result: "Mode = 3, frequency = 3." },
+  ],
+  faqs: [
+    { question: "What does multimodal mean?", answer: "If two or more values share the highest frequency, the dataset is multimodal — all tied values are modes." },
+    { question: "What if no value repeats?", answer: "If every value appears exactly once there is no mode." },
+  ],
 };
+
 export default def;

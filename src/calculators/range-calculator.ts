@@ -49,5 +49,14 @@ const def: CalculatorDef = {
   },
   howItWorks: "Range = maximum − minimum. A complete summary of min, max, mean, and median is also provided.",
   relatedSlugs: ["median-calculator", "standard-deviation-calculator", "mode-calculator"],
+
+  longDescription: "The range is the simplest measure of statistical spread — it is the difference between the largest and smallest values. A large range indicates high variability; a small range indicates the data is clustered together.",
+  examples: [
+    { title: "Values: 5, 12, 3, 28, 7, 19", description: "Max 28, min 3.", inputs: { v1: 5, v2: 12, v3: 3, v4: 28, v5: 7, v6: 19 }, result: "Range = 25." },
+  ],
+  faqs: [
+    { question: "Is range a good measure of spread?", answer: "Range is simple but sensitive to outliers. For a more robust measure of spread, use standard deviation or interquartile range." },
+  ],
 };
+
 export default def;

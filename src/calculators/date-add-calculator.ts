@@ -50,5 +50,15 @@ const def: CalculatorDef = {
   },
   howItWorks: "Years and months are added to the date components first (the Date constructor handles month overflow automatically), then days are added. All operations use UTC to avoid DST issues.",
   relatedSlugs: ["date-subtract-calculator", "months-between-dates-calculator", "countdown-calculator"],
+
+  longDescription: "Add any combination of years, months, and days to a starting date to find the resulting date. Useful for deadline planning, lease end dates, subscription renewals, and project scheduling.",
+  examples: [
+    { title: "Add 3 months and 14 days to March 7, 2025", description: "A common project deadline calculation.", inputs: { startYear: 2025, startMonth: 3, startDay: 7, addYears: 0, addMonths: 3, addDays: 14 }, result: "June 21, 2025." },
+  ],
+  faqs: [
+    { question: "What happens when adding months crosses a year?", answer: "The calculator handles this automatically — adding 3 months to November correctly returns February of the following year." },
+    { question: "Can I subtract dates instead?", answer: "Use the Date Subtract Calculator for working backwards from a date." },
+  ],
 };
+
 export default def;

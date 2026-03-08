@@ -55,5 +55,14 @@ const def: CalculatorDef = {
   },
   howItWorks: "Both scenarios are simulated month by month. In the lump-sum scenario the initial balance is reduced by the lump sum before simulation begins. Savings = original total interest minus new total interest.",
   relatedSlugs: ["mortgage-extra-payment-calculator", "debt-payoff-calculator", "amortization-calculator"],
+
+  longDescription: "A one-time lump sum payment directly reduces your loan principal, cutting future interest and shortening your payoff timeline. This calculator shows exactly how much interest you save and how many months sooner you will be debt-free.",
+  examples: [
+    { title: "USD 15,000 loan at 7.5%, USD 350/month payment, USD 3,000 lump sum", description: "Using a tax refund or bonus to pay down debt.", inputs: { balance: 15000, annualRate: 7.5, monthlyPmt: 350, lumpSum: 3000 }, result: "Saves several months of payments and reduces total interest." },
+  ],
+  faqs: [
+    { question: "When is the best time to make a lump sum payment?", answer: "The earlier in the loan term you pay, the more interest you save — early payments prevent months or years of compounding interest on that principal." },
+  ],
 };
+
 export default def;

@@ -60,5 +60,15 @@ const def: CalculatorDef = {
   },
   howItWorks: "Standard payment uses the amortisation formula. Both scenarios are then simulated month by month to calculate exact interest paid. Savings = original total interest − accelerated total interest.",
   relatedSlugs: ["amortization-calculator", "loan-early-payoff-calculator", "debt-payoff-calculator"],
+
+  longDescription: "Making even small extra monthly payments on your mortgage reduces the principal faster, which cuts future interest charges and shortens your loan term. This calculator simulates both scenarios month by month to show you the exact savings.",
+  examples: [
+    { title: "USD 280,000 balance at 6.75%, 27 years remaining, USD 200 extra/month", description: "A typical mid-term mortgage overpayment.", inputs: { balance: 280000, annualRate: 6.75, termYears: 27, extraMonthly: 200 }, result: "Saves ~USD 47,000 in interest and pays off ~4 years early." },
+  ],
+  faqs: [
+    { question: "Does extra payment go directly to principal?", answer: "Yes — extra payments beyond the scheduled amount reduce principal directly, which is why the interest savings compound over time." },
+    { question: "Should I check for prepayment penalties first?", answer: "Some mortgages have prepayment penalties. Check your loan documents or contact your lender before making extra payments." },
+  ],
 };
+
 export default def;

@@ -54,5 +54,15 @@ const def: CalculatorDef = {
   },
   howItWorks: "Fuel = (distance / MPG) × price. Lodging = hotel/night × (days − 1). Food = per person/day × travelers × days. Activities = per day × days. Total = sum of all categories.",
   relatedSlugs: ["fuel-cost-calculator", "unit-price-calculator"],
+
+  longDescription: "Budget your entire road trip — not just fuel. This calculator combines fuel cost with accommodation, food, and activities across all travelers and days to give you a complete cost estimate before you leave.",
+  examples: [
+    { title: "800 miles, 28 MPG, USD 3.50/gallon, 3 days, USD 120/night hotel, USD 50/day food, USD 30/day activities, 2 travelers", description: "A 3-day two-person road trip.", inputs: { distance: 800, mpg: 28, fuelPrice: 3.50, days: 3, hotelPerNight: 120, foodPerDay: 50, actPerDay: 30, travelers: "2" }, result: "Total ~USD 760 — ~USD 380 per person." },
+  ],
+  faqs: [
+    { question: "Why is lodging calculated as days minus 1?", answer: "You sleep one fewer night than you travel days — a 3-day trip requires 2 overnight stays." },
+    { question: "Should I add a buffer?", answer: "Yes — budget 10–15% extra for parking, tolls, unexpected stops, and price variation." },
+  ],
 };
+
 export default def;

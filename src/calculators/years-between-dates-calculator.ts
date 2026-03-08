@@ -45,5 +45,14 @@ const def: CalculatorDef = {
   },
   howItWorks: "Full years = absolute year difference, reduced by 1 if the anniversary hasn't occurred yet in the end year. Total days use UTC timestamps to avoid DST errors.",
   relatedSlugs: ["months-between-dates-calculator", "time-duration-calculator", "date-add-calculator"],
+
+  longDescription: "Enter two full dates (year, month, day) to calculate the number of complete years elapsed and the remaining months. Commonly used for age calculations, contract terms, and anniversary tracking.",
+  examples: [
+    { title: "June 15, 2010 to March 7, 2025", description: "Full years with an incomplete final year.", inputs: { startYear: 2010, startMonth: 6, startDay: 15, endYear: 2025, endMonth: 3, endDay: 7 }, result: "14 full years, 8 months remaining." },
+  ],
+  faqs: [
+    { question: "What counts as a full year?", answer: "A full year requires the anniversary date to have passed in the ending year. If today is March 7 and your anniversary is June 15, that year has not yet completed." },
+  ],
 };
+
 export default def;

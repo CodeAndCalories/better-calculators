@@ -56,5 +56,14 @@ const def: CalculatorDef = {
   },
   howItWorks: "Required monthly payment = (goal − current × (1+r)^n) × r / ((1+r)^n − 1). When rate = 0, payment = remaining / months.",
   relatedSlugs: ["savings-goal-calculator", "future-value-calculator", "compound-interest-calculator"],
+
+  longDescription: "Working backwards from a savings target, this calculator tells you exactly how much to set aside each month. It accounts for interest growth on both your existing savings and your new contributions, so you may need less than a simple division would suggest.",
+  examples: [
+    { title: "Save USD 20,000 in 24 months, USD 2,000 already saved, 4% annual interest", description: "Emergency fund or down payment planning.", inputs: { goal: 20000, currentSaved: 2000, months: 24, annualRate: 4 }, result: "~USD 735/month needed." },
+  ],
+  faqs: [
+    { question: "What if my current savings will grow to cover the goal on their own?", answer: "The calculator detects this and returns USD 0 required — your existing savings plus interest will reach the target without additional contributions." },
+  ],
 };
+
 export default def;

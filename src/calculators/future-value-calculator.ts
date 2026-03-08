@@ -50,5 +50,14 @@ const def: CalculatorDef = {
   },
   howItWorks: "FV = P × (1 + r/n)^(n×t) + PMT × ((1 + r/n)^(n×t) − 1) / (r/n). Monthly contributions are converted to per-period amounts based on compounding frequency.",
   relatedSlugs: ["present-value-calculator", "compound-interest-calculator", "monthly-savings-calculator"],
+
+  longDescription: "Future value shows what an investment is worth after a period of compound growth. This calculator handles both a lump-sum initial investment and regular monthly contributions, with your choice of compounding frequency.",
+  examples: [
+    { title: "USD 10,000 initial + USD 200/month at 7% for 20 years", description: "A long-term retirement-style investment.", inputs: { principal: 10000, annualRate: 7, years: 20, monthly: 200, compound: "12" }, result: "Future value ~USD 142,000." },
+  ],
+  faqs: [
+    { question: "Does compounding frequency matter much?", answer: "At the same annual rate, more frequent compounding yields slightly more. Monthly compounding on a 7% rate gives an effective annual rate of ~7.23%." },
+  ],
 };
+
 export default def;

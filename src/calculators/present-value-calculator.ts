@@ -39,5 +39,14 @@ const def: CalculatorDef = {
   },
   howItWorks: "PV = FV / (1 + r/n)^(n×t). The effective annual rate accounts for within-year compounding: EAR = (1 + r/n)^n − 1.",
   relatedSlugs: ["future-value-calculator", "compound-interest-calculator", "savings-goal-calculator"],
+
+  longDescription: "Present value tells you what a future sum of money is worth in today s dollars. A dollar today is worth more than a dollar in the future because of its earning potential. This concept — the time value of money — underpins all investment and loan analysis.",
+  examples: [
+    { title: "USD 50,000 in 10 years at 6% discount rate", description: "What is that future amount worth today?", inputs: { futureValue: 50000, annualRate: 6, years: 10, compound: "12" }, result: "Present value ~USD 27,400." },
+  ],
+  faqs: [
+    { question: "What discount rate should I use?", answer: "Use the rate of return you could earn on an alternative investment of similar risk — often your expected investment return, cost of capital, or current interest rate." },
+  ],
 };
+
 export default def;
