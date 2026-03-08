@@ -5,7 +5,7 @@ const def: CalculatorDef = {
   title: "Grade Average Calculator",
   shortTitle: "Grade Average",
   description: "Calculate your weighted average percentage grade across up to 6 assignments or exams.",
-  category: "education",
+  category: "life",
   keywords: ["grade average calculator", "weighted grade calculator", "average score", "grade percentage"],
   inputs: [
     { type: "number", key: "s1", label: "Score 1 (%)",  defaultValue: 88, min: 0, max: 100, step: 0.1 },

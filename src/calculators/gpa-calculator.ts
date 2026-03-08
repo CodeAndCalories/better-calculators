@@ -8,7 +8,7 @@ const def: CalculatorDef = {
   title: "GPA Calculator",
   shortTitle: "GPA",
   description: "Calculate your weighted GPA across up to 6 courses using letter grades and credit hours.",
-  category: "education",
+  category: "life",
   keywords: ["GPA calculator", "grade point average", "college GPA", "semester GPA calculator"],
   inputs: [
     { type: "select", key: "g1", label: "Course 1 Grade", defaultValue: "4.0", options: [
