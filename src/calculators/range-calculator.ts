@@ -5,7 +5,7 @@ const def: CalculatorDef = {
   title: "Range Calculator",
   shortTitle: "Range",
   description: "Calculate the statistical range (max minus min) for up to 8 numbers.",
-  category: "math",
+  category: "life",
   keywords: ["range calculator", "min max", "statistical range", "data spread"],
   inputs: [
     { type: "number", key: "v1", label: "Value 1", defaultValue: 5,  step: 0.01 },

@@ -5,7 +5,7 @@ const def: CalculatorDef = {
   title: "Mode Calculator",
   shortTitle: "Mode",
   description: "Find the most frequently occurring value in a set of up to 8 numbers.",
-  category: "math",
+  category: "life",
   keywords: ["mode calculator", "most common number", "statistics mode", "frequency"],
   inputs: [
     { type: "number", key: "v1", label: "Value 1", defaultValue: 3, step: 0.01 },

@@ -5,7 +5,7 @@ const def: CalculatorDef = {
   title: "Standard Deviation Calculator",
   shortTitle: "Std Deviation",
   description: "Calculate population and sample standard deviation for up to 8 values.",
-  category: "math",
+  category: "life",
   keywords: ["standard deviation calculator", "variance calculator", "statistics SD"],
   inputs: [
     { type: "number", key: "v1", label: "Value 1", defaultValue: 2, step: 0.01 },

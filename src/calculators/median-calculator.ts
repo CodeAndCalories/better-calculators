@@ -5,7 +5,7 @@ const def: CalculatorDef = {
   title: "Median Calculator",
   shortTitle: "Median",
   description: "Find the median of up to 8 numbers.",
-  category: "math",
+  category: "life",
   keywords: ["median calculator", "middle number", "statistics median"],
   inputs: [
     { type: "number", key: "v1", label: "Value 1", defaultValue: 4,  step: 0.01 },
