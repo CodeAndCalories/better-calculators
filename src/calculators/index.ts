@@ -169,6 +169,35 @@ import gradeAverageDef from "./grade-average-calculator";
 import fuelCostDef from "./fuel-cost-calculator";
 import roadTripDef from "./road-trip-cost-calculator";
 import pricePerSqftDef from "./price-per-square-foot-calculator";
+import medianOfFiveCalculator from "./median-of-five-calculator";
+import medianOfTenCalculator from "./median-of-ten-calculator";
+import modeOfNumbersCalculator from "./mode-of-numbers-calculator";
+import rangeOfNumbersCalculator from "./range-of-numbers-calculator";
+import standardDeviationSimpleCalculator from "./standard-deviation-simple-calculator";
+import randomNumberRangeCalculator from "./random-number-range-calculator";
+import randomPasswordLengthCalculator from "./random-password-length-calculator";
+import countdownDaysCalculator from "./countdown-days-calculator";
+import countdownHoursCalculator from "./countdown-hours-calculator";
+import sleepCycleCalculator from "./sleep-cycle-calculator";
+import wakeUpTimeCalculator from "./wake-up-time-calculator";
+import bedtimeCalculator from "./bedtime-calculator";
+import studyHoursCalculator from "./study-hours-calculator";
+import readingTimeCalculator from "./reading-time-calculator";
+import dailyScreenTimeCalculator from "./daily-screen-time-calculator";
+import mortgageInterestOnlyCalculator from "./mortgage-interest-only-calculator";
+import mortgagePaymentExtraPrincipalCalculator from "./mortgage-payment-extra-principal-calculator";
+import loanTotalInterestCalculator from "./loan-total-interest-calculator";
+import loanBalanceRemainingCalculator from "./loan-balance-remaining-calculator";
+import carLoanAffordabilityCalculator from "./car-loan-affordability-calculator";
+import investmentDoublingTimeCalculator from "./investment-doubling-time-calculator";
+import savingsInterestCalculator from "./savings-interest-calculator";
+import monthlyBudgetCalculator from "./monthly-budget-calculator";
+import netWorthCalculator from "./net-worth-calculator";
+import debtToIncomeCalculator from "./debt-to-income-calculator";
+import hydrationReminderCalculator from "./hydration-reminder-calculator";
+import dailyWaterByWeightCalculator from "./daily-water-by-weight-calculator";
+import caloriesBurnedRunningDistanceCalculator from "./calories-burned-running-distance-calculator";
+import targetWeightLossCalculator from "./target-weight-loss-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -342,6 +371,35 @@ export const calculators: CalculatorDef[] = [
   fuelCostDef, 
   roadTripDef, 
   pricePerSqftDef,
+  medianOfFiveCalculator,
+ medianOfTenCalculator,
+ modeOfNumbersCalculator,
+ rangeOfNumbersCalculator,
+ standardDeviationSimpleCalculator,
+ randomNumberRangeCalculator,
+ randomPasswordLengthCalculator,
+ countdownDaysCalculator,
+ countdownHoursCalculator,
+ sleepCycleCalculator,
+ wakeUpTimeCalculator,
+ bedtimeCalculator,
+ studyHoursCalculator,
+ readingTimeCalculator,
+ dailyScreenTimeCalculator,
+ mortgageInterestOnlyCalculator,
+ mortgagePaymentExtraPrincipalCalculator,
+ loanTotalInterestCalculator,
+ loanBalanceRemainingCalculator,
+ carLoanAffordabilityCalculator,
+ investmentDoublingTimeCalculator,
+ savingsInterestCalculator,
+ monthlyBudgetCalculator,
+ netWorthCalculator,
+ debtToIncomeCalculator,
+ hydrationReminderCalculator,
+ dailyWaterByWeightCalculator,
+ caloriesBurnedRunningDistanceCalculator,
+ targetWeightLossCalculator,
  
 ];
 
