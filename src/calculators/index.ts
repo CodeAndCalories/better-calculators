@@ -198,10 +198,12 @@ import hydrationReminderCalculator from "./hydration-reminder-calculator";
 import dailyWaterByWeightCalculator from "./daily-water-by-weight-calculator";
 import caloriesBurnedRunningDistanceCalculator from "./calories-burned-running-distance-calculator";
 import targetWeightLossCalculator from "./target-weight-loss-calculator";
+import randomDiceCalculator from "./random-dice-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
   mortgage,
+  randomDiceCalculator,
   loanPayment,
   compoundInterest,
   simpleInterest,
