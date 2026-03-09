@@ -57,7 +57,7 @@ export default function HomePage() {
           <div className={styles.stats}>
             <div className={styles.stat}><strong>200+</strong><span>Calculators</span></div>
             <div className={styles.statDivider} />
-            <div className={styles.stat}><strong>3</strong><span>Categories</span></div>
+            <div className={styles.stat}><strong>4</strong><span>Categories</span></div>
             <div className={styles.statDivider} />
             <div className={styles.stat}><strong>100%</strong><span>Always Free</span></div>
           </div>
