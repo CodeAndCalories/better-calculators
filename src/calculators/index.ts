@@ -297,6 +297,22 @@ import mphToFpsCalculator from "./mph-to-fps-calculator";
 import fpsToMphCalculator from "./fps-to-mph-calculator";
 import stonesToPoundsCalculator from "./stones-to-pounds-calculator";
 import poundsToStonesCalculator from "./pounds-to-stones-calculator";
+import cryptoProfitCalculator from "./crypto-profit-calculator";
+import bitcoinMiningProfitabilityCalculator from "./bitcoin-mining-profitability-calculator";
+import ethereumStakingCalculator from "./ethereum-staking-calculator";
+import cryptoStakingRewardsCalculator from "./crypto-staking-rewards-calculator";
+import cryptoDcaCalculator from "./crypto-dca-calculator";
+import cryptoRoiCalculator from "./crypto-roi-calculator";
+import cryptoCompoundInterestCalculator from "./crypto-compound-interest-calculator";
+import cryptoMarketCapCalculator from "./crypto-market-cap-calculator";
+import cryptoConverter from "./crypto-converter";
+import bitcoinHalvingProfitCalculator from "./bitcoin-halving-profit-calculator";
+import cryptoPortfolioCalculator from "./crypto-portfolio-calculator";
+import cryptoTaxCalculator from "./crypto-tax-calculator";
+import satoshiToBitcoinCalculator from "./satoshi-to-bitcoin-calculator";
+import bitcoinToUsdCalculator from "./bitcoin-to-usd-calculator";
+import cryptoLiquidationCalculator from "./crypto-liquidation-calculator";
+
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -599,6 +615,21 @@ hectaresToSquareMeters,
   fpsToMphCalculator,
   stonesToPoundsCalculator,
   poundsToStonesCalculator,
+  cryptoProfitCalculator,
+  bitcoinMiningProfitabilityCalculator,
+  ethereumStakingCalculator,
+  cryptoStakingRewardsCalculator,
+  cryptoDcaCalculator,
+  cryptoRoiCalculator,
+  cryptoCompoundInterestCalculator,
+  cryptoMarketCapCalculator,
+  cryptoConverter,
+  bitcoinHalvingProfitCalculator,
+  cryptoPortfolioCalculator,
+  cryptoTaxCalculator,
+  satoshiToBitcoinCalculator,
+  bitcoinToUsdCalculator,
+  cryptoLiquidationCalculator,
  
 ];
 
