@@ -237,6 +237,18 @@ import barToPsiCalculator from "./bar-to-psi-calculator";
 import psiToBarCalculator from "./psi-to-bar-calculator";
 import kelvinToFahrenheitCalculator from "./kelvin-to-fahrenheit-calculator";
 import fahrenheitToKelvinCalculator from "./fahrenheit-to-kelvin-calculator";
+import metersToCentimetersCalculator from "./meters-to-centimeters-calculator";
+import centimetersToMetersCalculator from "./centimeters-to-meters-calculator";
+import metersToMillimetersCalculator from "./meters-to-millimeters-calculator";
+import millimetersToMetersCalculator from "./millimeters-to-meters-calculator";
+import kilometersToFeetCalculator from "./kilometers-to-feet-calculator";
+import feetToKilometersCalculator from "./feet-to-kilometers-calculator";
+import squareMetersToAcresCalculator from "./square-meters-to-acres-calculator";
+import acresToSquareMetersCalculator from "./acres-to-square-meters-calculator";
+import litersToCupsCalculator from "./liters-to-cups-calculator";
+import cupsToLitersCalculator from "./cups-to-liters-calculator";
+import poundsToKgCalculator from "./pounds-to-kg-calculator";
+import kgToPoundsCalculator from "./kg-to-pounds-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -479,6 +491,18 @@ barToPsiCalculator,
 psiToBarCalculator,
 kelvinToFahrenheitCalculator,
 fahrenheitToKelvinCalculator,
+metersToCentimetersCalculator,
+centimetersToMetersCalculator,
+metersToMillimetersCalculator,
+millimetersToMetersCalculator,
+kilometersToFeetCalculator,
+feetToKilometersCalculator,
+squareMetersToAcresCalculator,
+acresToSquareMetersCalculator,
+litersToCupsCalculator,
+cupsToLitersCalculator,
+poundsToKgCalculator,
+kgToPoundsCalculator,
  
 ];
 
