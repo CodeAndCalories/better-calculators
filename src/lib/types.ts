@@ -1,5 +1,5 @@
 export type InputType = "number" | "select" | "toggle";
-export type Category = "finance" | "health" | "life";
+export type Category = "finance" | "health" | "life" | "conversions";
 
 export interface NumberInputSchema {
   type: "number";
