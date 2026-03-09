@@ -249,6 +249,26 @@ import litersToCupsCalculator from "./liters-to-cups-calculator";
 import cupsToLitersCalculator from "./cups-to-liters-calculator";
 import poundsToKgCalculator from "./pounds-to-kg-calculator";
 import kgToPoundsCalculator from "./kg-to-pounds-calculator";
+import metersToFeet from "./meters-to-feet-calculator";
+import feetToMeters from "./feet-to-meters-calculator";
+import metersToYards from "./meters-to-yards-calculator";
+import yardsToMeters from "./yards-to-meters-calculator";
+import metersToMiles from "./meters-to-miles-calculator";
+import milesToMeters from "./miles-to-meters-calculator";
+import kilogramsToGrams from "./kilograms-to-grams-calculator";
+import gramsToKilograms from "./grams-to-kilograms-calculator";
+import kilogramsToPounds from "./kilograms-to-pounds-calculator";
+import poundsToKilograms from "./pounds-to-kilograms-calculator";
+import kilogramsToOunces from "./kilograms-to-ounces-calculator";
+import ouncesToKilograms from "./ounces-to-kilograms-calculator";
+import litersToMilliliters from "./liters-to-milliliters-calculator";
+import millilitersToLiters from "./milliliters-to-liters-calculator";
+import litersToTablespoons from "./liters-to-tablespoons-calculator";
+import tablespoonsToLiters from "./tablespoons-to-liters-calculator";
+import litersToTeaspoons from "./liters-to-teaspoons-calculator";
+import teaspoonsToLiters from "./teaspoons-to-liters-calculator";
+import squareMetersToHectares from "./square-meters-to-hectares-calculator";
+import hectaresToSquareMeters from "./hectares-to-square-meters-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -503,6 +523,26 @@ litersToCupsCalculator,
 cupsToLitersCalculator,
 poundsToKgCalculator,
 kgToPoundsCalculator,
+metersToFeet,
+feetToMeters,
+metersToYards,
+yardsToMeters,
+metersToMiles,
+milesToMeters,
+kilogramsToGrams,
+gramsToKilograms,
+kilogramsToPounds,
+poundsToKilograms,
+kilogramsToOunces,
+ouncesToKilograms,
+litersToMilliliters,
+millilitersToLiters,
+litersToTablespoons,
+tablespoonsToLiters,
+litersToTeaspoons,
+teaspoonsToLiters,
+squareMetersToHectares,
+hectaresToSquareMeters,
  
 ];
 
