@@ -312,7 +312,11 @@ import cryptoTaxCalculator from "./crypto-tax-calculator";
 import satoshiToBitcoinCalculator from "./satoshi-to-bitcoin-calculator";
 import bitcoinToUsdCalculator from "./bitcoin-to-usd-calculator";
 import cryptoLiquidationCalculator from "./crypto-liquidation-calculator";
-
+import solarPanelSavingsCalculator from "./solar-panel-savings-calculator";
+import freelanceHourlyRateCalculator from "./freelance-hourly-rate-calculator";
+import swimmingPoolVolumeCalculator from "./swimming-pool-volume-calculator";
+import inflationImpactOnSavingsCalculator from "./inflation-impact-on-savings-calculator";
+import annualPetCostCalculator from "./annual-pet-cost-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -630,6 +634,11 @@ hectaresToSquareMeters,
   satoshiToBitcoinCalculator,
   bitcoinToUsdCalculator,
   cryptoLiquidationCalculator,
+  solarPanelSavingsCalculator,
+  freelanceHourlyRateCalculator,
+  swimmingPoolVolumeCalculator,
+  inflationImpactOnSavingsCalculator,
+  annualPetCostCalculator,
  
 ];
 
