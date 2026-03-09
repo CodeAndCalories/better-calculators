@@ -269,6 +269,34 @@ import litersToTeaspoons from "./liters-to-teaspoons-calculator";
 import teaspoonsToLiters from "./teaspoons-to-liters-calculator";
 import squareMetersToHectares from "./square-meters-to-hectares-calculator";
 import hectaresToSquareMeters from "./hectares-to-square-meters-calculator";
+import stockProfitCalculator from "./stock-profit-calculator";
+import emergencyFundCalculator from "./emergency-fund-calculator";
+import ruleOf72Calculator from "./rule-of-72-calculator";
+import dividendYieldCalculator from "./dividend-yield-calculator";
+import costPerUseCalculator from "./cost-per-use-calculator";
+import childSavingsCalculator from "./child-savings-calculator";
+import costPerMileCalculator from "./cost-per-mile-calculator";
+import hourlyRateFromProjectCalculator from "./hourly-rate-from-project-calculator";
+import vo2MaxCalculator from "./vo2-max-calculator";
+import caloriesBurnedSwimmingCalculator from "./calories-burned-swimming-calculator";
+import stepsToCaloriesCalculator from "./steps-to-calories-calculator";
+import stepsToMilesCalculator from "./steps-to-miles-calculator";
+import sleepDebtCalculator from "./sleep-debt-calculator";
+import pushUpCaloriesCalculator from "./push-up-calories-calculator";
+import bmiPrimeCalculator from "./bmi-prime-calculator";
+import gasMileageCalculator from "./gas-mileage-calculator";
+import carbonFootprintDrivingCalculator from "./carbon-footprint-driving-calculator";
+import dogAgeCalculator from "./dog-age-calculator";
+import catAgeCalculator from "./cat-age-calculator";
+import readingPagesCalculator from "./reading-pages-calculator";
+import screenTimeWeeklyCalculator from "./screen-time-weekly-calculator";
+import typingSpeedWpmCalculator from "./typing-speed-wpm-calculator";
+import wattsToKilowattsCalculator from "./watts-to-kilowatts-calculator";
+import kilowattsToWattsCalculator from "./kilowatts-to-watts-calculator";
+import mphToFpsCalculator from "./mph-to-fps-calculator";
+import fpsToMphCalculator from "./fps-to-mph-calculator";
+import stonesToPoundsCalculator from "./stones-to-pounds-calculator";
+import poundsToStonesCalculator from "./pounds-to-stones-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -543,6 +571,34 @@ litersToTeaspoons,
 teaspoonsToLiters,
 squareMetersToHectares,
 hectaresToSquareMeters,
+  stockProfitCalculator,
+  emergencyFundCalculator,
+  ruleOf72Calculator,
+  dividendYieldCalculator,
+  costPerUseCalculator,
+  childSavingsCalculator,
+  costPerMileCalculator,
+  hourlyRateFromProjectCalculator,
+  vo2MaxCalculator,
+  caloriesBurnedSwimmingCalculator,
+  stepsToCaloriesCalculator,
+  stepsToMilesCalculator,
+  sleepDebtCalculator,
+  pushUpCaloriesCalculator,
+  bmiPrimeCalculator,
+  gasMileageCalculator,
+  carbonFootprintDrivingCalculator,
+  dogAgeCalculator,
+  catAgeCalculator,
+  readingPagesCalculator,
+  screenTimeWeeklyCalculator,
+  typingSpeedWpmCalculator,
+  wattsToKilowattsCalculator,
+  kilowattsToWattsCalculator,
+  mphToFpsCalculator,
+  fpsToMphCalculator,
+  stonesToPoundsCalculator,
+  poundsToStonesCalculator,
  
 ];
 
