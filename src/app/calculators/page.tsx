@@ -10,6 +10,7 @@ const CATEGORIES: Array<{ value: Category | "all"; label: string }> = [
   { value: "finance", label: "💰 Finance" },
   { value: "health", label: "❤️ Health" },
   { value: "life", label: "✨ Life" },
+  { value: "conversions", label: "🔁 Conversions" },
 ];
 
 export default function CalculatorsPage() {
@@ -33,7 +34,7 @@ export default function CalculatorsPage() {
       <div className={`container ${styles.header}`}>
         <h1>All Calculators</h1>
         <p className={styles.subtitle}>
-          {calculators.length} free calculators for finance, health, and everyday life.
+          {calculators.length} free calculators for finance, health, conversions, and everyday life.
         </p>
 
         <div className={styles.controls}>
