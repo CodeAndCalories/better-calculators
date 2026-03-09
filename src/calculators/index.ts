@@ -223,7 +223,6 @@ import monthsToDaysCalculator from "./months-to-days-calculator";
 import daysToWeeksCalculator from "./days-to-weeks-calculator";
 import daysToMonthsCalculator from "./days-to-months-calculator";
 import secondsToHoursCalculator from "./seconds-to-hours-calculator";
-import hoursToSecondsCalculator from "./hours-to-seconds-calculator";
 import minutesToDaysCalculator from "./minutes-to-days-calculator";
 import daysToSecondsCalculator from "./days-to-seconds-calculator";
 import kilometersToMetersCalculator from "./kilometers-to-meters-calculator";
@@ -466,7 +465,6 @@ monthsToDaysCalculator,
 daysToWeeksCalculator,
 daysToMonthsCalculator,
 secondsToHoursCalculator,
-hoursToSecondsCalculator,
 minutesToDaysCalculator,
 daysToSecondsCalculator,
 kilometersToMetersCalculator,
