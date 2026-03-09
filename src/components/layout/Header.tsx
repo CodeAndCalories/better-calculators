@@ -15,11 +15,12 @@ export default function Header() {
         </Link>
 
         <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ""}`} aria-label="Main navigation">
-          <Link href="/calculators" className={styles.navLink} onClick={() => setMenuOpen(false)}>All Calculators</Link>
-          <Link href="/calculators/finance" className={styles.navLink} onClick={() => setMenuOpen(false)}>Finance</Link>
-          <Link href="/calculators/health" className={styles.navLink} onClick={() => setMenuOpen(false)}>Health</Link>
-          <Link href="/calculators/life" className={styles.navLink} onClick={() => setMenuOpen(false)}>Life</Link>
-        </nav>
+    <Link href="/calculators" className={styles.navLink} onClick={() => setMenuOpen(false)}>All Calculators</Link>
+    <Link href="/calculators/finance" className={styles.navLink} onClick={() => setMenuOpen(false)}>Finance</Link>
+    <Link href="/calculators/health" className={styles.navLink} onClick={() => setMenuOpen(false)}>Health</Link>
+    <Link href="/calculators/life" className={styles.navLink} onClick={() => setMenuOpen(false)}>Life</Link>
+    <Link href="/calculators/conversions" className={styles.navLink} onClick={() => setMenuOpen(false)}>Conversions</Link>
+  </nav>
 
         <button
           className={styles.menuToggle}
