@@ -7,7 +7,7 @@ const def: CalculatorDef = {
   description: "Convert kilometers per hour to miles per hour instantly.",
   longDescription:
     "When driving in the US or UK after traveling from a metric country, or reading a car's European spec sheet, converting km/h to mph is essential. This calculator applies the exact conversion factor so you always know what a given speed means in miles per hour.",
-  category: "life",
+  category: "conversions",
   keywords: ["kmh to mph", "kilometers per hour to miles per hour", "speed converter", "velocity conversion"],
   inputs: [
     {

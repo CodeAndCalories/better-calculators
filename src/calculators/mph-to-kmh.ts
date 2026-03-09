@@ -7,7 +7,7 @@ const def: CalculatorDef = {
   description: "Convert miles per hour to kilometers per hour instantly.",
   longDescription:
     "Miles per hour (mph) is the standard speed unit in the United States and United Kingdom, while kilometers per hour (km/h) is used in most of the rest of the world. Whether you're driving abroad, reading a foreign speedometer, or comparing vehicle specs, this calculator gives you an instant and accurate conversion.",
-  category: "life",
+  category: "conversions",
   keywords: ["mph to kmh", "miles per hour to kilometers per hour", "speed converter", "velocity conversion"],
   inputs: [
     {

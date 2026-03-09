@@ -7,7 +7,7 @@ const def: CalculatorDef = {
   description: "Convert US gallons to liters instantly.",
   longDescription:
     "Whether you're converting a fuel tank capacity, a recipe volume, or a product specification, this calculator converts US gallons to liters using the exact defined conversion factor. It's an essential tool for anyone working between the US customary and metric systems.",
-  category: "life",
+  category: "conversions",
   keywords: ["gallons to liters", "gallons to litres", "volume converter", "liquid conversion", "fuel converter"],
   inputs: [
     {

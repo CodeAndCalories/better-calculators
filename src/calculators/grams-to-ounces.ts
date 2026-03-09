@@ -7,7 +7,7 @@ const def: CalculatorDef = {
   description: "Convert grams to ounces for cooking, nutrition, and shipping.",
   longDescription:
     "Grams are the standard unit of mass in the metric system, while ounces are commonly used in the United States for food portions, nutrition labels, and shipping weights. This calculator converts any gram value to its precise ounce equivalent.",
-  category: "life",
+  category: "conversions",
   keywords: ["grams to ounces", "g to oz", "weight converter", "mass conversion", "cooking converter"],
   inputs: [
     {

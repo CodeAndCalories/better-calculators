@@ -7,7 +7,7 @@ const def: CalculatorDef = {
   description: "Convert miles to kilometers with precision.",
   longDescription:
     "Miles are used in the United States and United Kingdom, while kilometers are the standard in most of the world. Whether you're planning a road trip abroad, tracking a run, or reading a foreign map, this converter gives you an instant and accurate result.",
-  category: "life",
+  category: "conversions",
   keywords: ["miles to km", "miles to kilometers", "distance converter", "length conversion"],
   inputs: [
     {

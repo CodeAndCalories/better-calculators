@@ -7,7 +7,7 @@ const def: CalculatorDef = {
   description: "Convert feet to meters quickly and accurately.",
   longDescription:
     "The foot is the primary unit of length in the United States, while the meter is the international standard. Whether you're converting your height, measuring a room, or working on a construction project with international specifications, this calculator gives you an instant and precise result.",
-  category: "life",
+  category: "conversions",
   keywords: ["feet to meters", "ft to m", "length converter", "distance conversion", "height converter"],
   inputs: [
     {

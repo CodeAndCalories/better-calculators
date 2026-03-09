@@ -7,7 +7,7 @@ const def: CalculatorDef = {
   description: "Convert ounces to grams for cooking, nutrition, and shipping.",
   longDescription:
     "Whether you're following a metric recipe, reading a nutrition label, or calculating a shipping weight, converting ounces to grams is a frequent need. This calculator gives you an accurate result using the exact defined conversion factor.",
-  category: "life",
+  category: "conversions",
   keywords: ["ounces to grams", "oz to g", "weight converter", "mass conversion", "cooking converter"],
   inputs: [
     {

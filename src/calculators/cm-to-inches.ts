@@ -7,7 +7,7 @@ const def: CalculatorDef = {
   description: "Convert centimeters to inches instantly.",
   longDescription:
     "Centimeters are the standard unit for everyday length measurements in most of the world, while inches are common in the United States for heights, screen sizes, and dimensions. This calculator converts any centimeter value to its precise inch equivalent.",
-  category: "life",
+  category: "conversions",
   keywords: ["cm to inches", "centimeters to inches", "length converter", "height conversion"],
   inputs: [
     {

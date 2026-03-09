@@ -7,7 +7,7 @@ const def: CalculatorDef = {
   description: "Convert liters to US gallons instantly.",
   longDescription:
     "The liter is the standard unit of volume in most of the world, while the US gallon is commonly used in the United States for fuel, beverages, and liquid measurements. This calculator converts any liter value to its US gallon equivalent using the exact conversion factor.",
-  category: "life",
+  category: "conversions",
   keywords: ["liters to gallons", "litres to gallons", "volume converter", "liquid conversion", "fuel converter"],
   inputs: [
     {

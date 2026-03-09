@@ -7,7 +7,7 @@ const def: CalculatorDef = {
   description: "Convert meters to feet quickly and accurately.",
   longDescription:
     "Whether you're reading an international specification, interpreting a metric measurement, or converting your height from meters to feet, this calculator gives you an instant result. Enter any meter value and get the precise equivalent in feet.",
-  category: "life",
+  category: "conversions",
   keywords: ["meters to feet", "m to ft", "length converter", "distance conversion", "height converter"],
   inputs: [
     {
