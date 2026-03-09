@@ -199,6 +199,45 @@ import dailyWaterByWeightCalculator from "./daily-water-by-weight-calculator";
 import caloriesBurnedRunningDistanceCalculator from "./calories-burned-running-distance-calculator";
 import targetWeightLossCalculator from "./target-weight-loss-calculator";
 import randomDiceCalculator from "./random-dice-calculator";
+import metersToInchesCalculator from "./meters-to-inches-calculator";
+import inchesToMetersCalculator from "./inches-to-meters-calculator";
+import feetToInchesCalculator from "./feet-to-inches-calculator";
+import inchesToFeetCalculator from "./inches-to-feet-calculator";
+import yardsToFeetCalculator from "./yards-to-feet-calculator";
+import feetToYardsCalculator from "./feet-to-yards-calculator";
+import milesToFeetCalculator from "./miles-to-feet-calculator";
+import feetToMilesCalculator from "./feet-to-miles-calculator";
+import kgToGramsCalculator from "./kg-to-grams-calculator";
+import gramsToKgCalculator from "./grams-to-kg-calculator";
+import poundsToOuncesCalculator from "./pounds-to-ounces-calculator";
+import ouncesToPoundsCalculator from "./ounces-to-pounds-calculator";
+import mlToLitersCalculator from "./ml-to-liters-calculator";
+import litersToMlCalculator from "./liters-to-ml-calculator";
+import tablespoonsToTeaspoonsCalculator from "./tablespoons-to-teaspoons-calculator";
+import teaspoonsToTablespoonsCalculator from "./teaspoons-to-tablespoons-calculator";
+import cupsToMlCalculator from "./cups-to-ml-calculator";
+import mlToCupsCalculator from "./ml-to-cups-calculator";
+import daysToMinutesCalculator from "./days-to-minutes-calculator";
+import weeksToDaysCalculator from "./weeks-to-days-calculator";
+import monthsToDaysCalculator from "./months-to-days-calculator";
+import daysToWeeksCalculator from "./days-to-weeks-calculator";
+import daysToMonthsCalculator from "./days-to-months-calculator";
+import secondsToHoursCalculator from "./seconds-to-hours-calculator";
+import hoursToSecondsCalculator from "./hours-to-seconds-calculator";
+import minutesToDaysCalculator from "./minutes-to-days-calculator";
+import daysToSecondsCalculator from "./days-to-seconds-calculator";
+import kilometersToMetersCalculator from "./kilometers-to-meters-calculator";
+import metersToKilometersCalculator from "./meters-to-kilometers-calculator";
+import millimetersToCentimetersCalculator from "./millimeters-to-centimeters-calculator";
+import centimetersToMillimetersCalculator from "./centimeters-to-millimeters-calculator";
+import squareMetersToSquareFeetCalculator from "./square-meters-to-square-feet-calculator";
+import squareFeetToSquareMetersCalculator from "./square-feet-to-square-meters-calculator";
+import acresToSquareFeetCalculator from "./acres-to-square-feet-calculator";
+import squareFeetToAcresCalculator from "./square-feet-to-acres-calculator";
+import barToPsiCalculator from "./bar-to-psi-calculator";
+import psiToBarCalculator from "./psi-to-bar-calculator";
+import kelvinToFahrenheitCalculator from "./kelvin-to-fahrenheit-calculator";
+import fahrenheitToKelvinCalculator from "./fahrenheit-to-kelvin-calculator";
 
 // REGISTRY — add new calculators here
 export const calculators: CalculatorDef[] = [
@@ -402,6 +441,46 @@ export const calculators: CalculatorDef[] = [
  dailyWaterByWeightCalculator,
  caloriesBurnedRunningDistanceCalculator,
  targetWeightLossCalculator,
+
+ metersToInchesCalculator,
+inchesToMetersCalculator,
+feetToInchesCalculator,
+inchesToFeetCalculator,
+yardsToFeetCalculator,
+feetToYardsCalculator,
+milesToFeetCalculator,
+feetToMilesCalculator,
+kgToGramsCalculator,
+gramsToKgCalculator,
+poundsToOuncesCalculator,
+ouncesToPoundsCalculator,
+mlToLitersCalculator,
+litersToMlCalculator,
+tablespoonsToTeaspoonsCalculator,
+teaspoonsToTablespoonsCalculator,
+cupsToMlCalculator,
+mlToCupsCalculator,
+daysToMinutesCalculator,
+weeksToDaysCalculator,
+monthsToDaysCalculator,
+daysToWeeksCalculator,
+daysToMonthsCalculator,
+secondsToHoursCalculator,
+hoursToSecondsCalculator,
+minutesToDaysCalculator,
+daysToSecondsCalculator,
+kilometersToMetersCalculator,
+metersToKilometersCalculator,
+millimetersToCentimetersCalculator,
+centimetersToMillimetersCalculator,
+squareMetersToSquareFeetCalculator,
+squareFeetToSquareMetersCalculator,
+acresToSquareFeetCalculator,
+squareFeetToAcresCalculator,
+barToPsiCalculator,
+psiToBarCalculator,
+kelvinToFahrenheitCalculator,
+fahrenheitToKelvinCalculator,
  
 ];
 
