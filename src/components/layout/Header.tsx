@@ -20,6 +20,7 @@ export default function Header() {
     <Link href="/calculators/health" className={styles.navLink} onClick={() => setMenuOpen(false)}>Health</Link>
     <Link href="/calculators/life" className={styles.navLink} onClick={() => setMenuOpen(false)}>Life</Link>
     <Link href="/calculators/conversions" className={styles.navLink} onClick={() => setMenuOpen(false)}>Conversions</Link>
+    <Link href="/guides" className={styles.navLink} onClick={() => setMenuOpen(false)}>Guides</Link>
   </nav>
 
         <button
