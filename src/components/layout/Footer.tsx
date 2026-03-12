@@ -28,6 +28,14 @@ export default function Footer() {
             <Link href="/about">About</Link>
             <Link href="/privacy">Privacy Policy</Link>
             <Link href="/terms">Terms of Service</Link>
+           <a
+             href="https://toolsdock.io"
+             target="_blank"
+             rel="noopener noreferrer"
+             className={styles.link}
+            >
+            250+ Free Online Developer Tools
+        </a>
           </div>
         </nav>
       </div>
