@@ -153,6 +153,53 @@ const RESOURCES: Record<string, Resource[]> = {
     { label: "Profit Margin Calculator", href: "/calculators/profit-margin-calculator", type: "tool" },
   ],
 
+  // ── Debt-to-Income ───────────────────────────────────────────────
+  "debt-to-income-calculator": [
+    {
+      label: "Debt-to-Income Ratio Guide",
+      href: "/guides/debt-to-income-ratio-guide",
+      type: "guide",
+    },
+    { label: "Debt Payoff Calculator", href: "/calculators/debt-payoff-calculator", type: "tool" },
+  ],
+
+  // ── Dividend Yield ───────────────────────────────────────────────
+  "dividend-yield-calculator": [
+    {
+      label: "Dividend Yield: Avoiding the Yield Trap",
+      href: "/guides/dividend-yield-investing-guide",
+      type: "guide",
+    },
+  ],
+
+  // ── Emergency Fund ───────────────────────────────────────────────
+  "emergency-fund-calculator": [
+    {
+      label: "Emergency Fund Strategy Guide",
+      href: "/guides/emergency-fund-strategy",
+      type: "guide",
+    },
+  ],
+
+  // ── Decimal to Fraction ──────────────────────────────────────────
+  "decimal-to-fraction-calculator": [
+    {
+      label: "How to Convert Decimals to Fractions",
+      href: "/guides/decimal-to-fraction-guide",
+      type: "guide",
+    },
+  ],
+
+  // ── Down Payment ─────────────────────────────────────────────────
+  "down-payment-calculator": [
+    {
+      label: "Down Payment Guide",
+      href: "/guides/down-payment-guide",
+      type: "guide",
+    },
+    { label: "Mortgage Calculator", href: "/calculators/mortgage-calculator", type: "tool" },
+  ],
+
   // ── Debt Payoff ──────────────────────────────────────────────────
   "debt-payoff-calculator": [
     {

@@ -3,10 +3,25 @@ import guideStyles from "../guide.module.css";
 
 const SITE_URL = "https://bettercalculators.net";
 
+// ─────────────────────────────────────────────────────────────────
+// Types
+// ─────────────────────────────────────────────────────────────────
+
 type GuideSection = {
   heading: string;
   body: string[];
   formula?: string;
+};
+
+/**
+ * Optional contextual cross-link displayed after the top CTA.
+ * Renders as: "{text} <a href={href}>{label}</a>{suffix}"
+ */
+type RelatedContent = {
+  text: string;
+  label: string;
+  href: string;
+  suffix?: string;
 };
 
 type Guide = {
@@ -16,8 +31,14 @@ type Guide = {
   keywords: string[];
   calculatorSlug: string;
   calculatorLabel: string;
+  /** When set, a contextual cross-link note appears below the top CTA. */
+  relatedContent?: RelatedContent;
   sections: GuideSection[];
 };
+
+// ─────────────────────────────────────────────────────────────────
+// Guide data
+// ─────────────────────────────────────────────────────────────────
 
 const guides: Guide[] = [
   // ─────────────────────────────────────────────────────────────────
@@ -347,6 +368,361 @@ const guides: Guide[] = [
       },
     ],
   },
+
+  // ─────────────────────────────────────────────────────────────────
+  // Debt-to-Income Ratio
+  // ─────────────────────────────────────────────────────────────────
+  {
+    slug: "debt-to-income-ratio-guide",
+    title: "Debt-to-Income Ratio: What It Is and How to Improve It",
+    description:
+      "Your debt-to-income ratio shows lenders how much of your gross monthly income is already committed to debt payments. Learn the 43% Rule, how to calculate DTI, and strategies to lower it.",
+    keywords: [
+      "debt to income ratio",
+      "dti ratio",
+      "dti calculator",
+      "mortgage qualification",
+      "debt ratio",
+    ],
+    calculatorSlug: "debt-to-income-calculator",
+    calculatorLabel: "Debt-to-Income Calculator",
+    relatedContent: {
+      text: "If your DTI reveals a high debt load, see our",
+      label: "Debt Snowball vs. Avalanche guide",
+      href: "/guides/debt-snowball-vs-avalanche",
+      suffix: " for a structured repayment plan.",
+    },
+    sections: [
+      {
+        heading: "Introduction",
+        body: [
+          "Your debt-to-income (DTI) ratio is one of the first numbers mortgage lenders, auto lenders, and credit card issuers examine when reviewing your application. It measures how much of your gross monthly income is already spoken for by debt obligations — and it directly influences whether you qualify for new credit and at what interest rate.",
+          "A high DTI signals financial strain; a low DTI signals room to absorb additional debt. Understanding yours gives you a realistic picture of your borrowing power before you ever talk to a lender.",
+        ],
+      },
+      {
+        heading: "When to Use This Calculator",
+        body: [
+          "Use the debt-to-income calculator before applying for a mortgage, car loan, or personal loan to estimate how lenders will evaluate your application; after taking on new debt to understand how it shifts your financial standing; when developing a debt payoff plan to track progress toward a healthier ratio; or when comparing the impact of paying off specific debts.",
+        ],
+      },
+      {
+        heading: "How the Math Works",
+        body: [
+          "DTI is expressed as the percentage of your gross monthly income (before taxes) consumed by recurring debt payments:",
+          "Example: If your gross monthly income is $6,000 and your monthly debt payments total $2,100 (rent $1,200, car payment $450, student loan $300, credit card minimums $150), your DTI is 2,100 ÷ 6,000 = 35%.",
+          "The Mortgage Underwriting 43% Rule: Qualified mortgage standards generally require a maximum back-end DTI of 43%. Many conventional lenders prefer 36% or below. FHA loans may accept higher DTI ratios — sometimes up to 57% with compensating factors — but at higher rates and stricter terms.",
+          "Front-end vs. Back-end DTI: Mortgage lenders calculate both. Front-end DTI counts only housing costs (mortgage principal, interest, taxes, and insurance). Back-end DTI includes all debt payments. Lenders typically want front-end below 28% and back-end below 43%.",
+        ],
+        formula: "DTI = (Total Monthly Debt Payments ÷ Gross Monthly Income) × 100",
+      },
+      {
+        heading: "Practical Example",
+        body: [
+          "Maria earns $7,500/month gross. Her recurring debts: mortgage $1,800, car loan $380, student loan $290, credit card minimums $130. Total: $2,600.",
+          "DTI = 2,600 ÷ 7,500 = 34.7%. This is below the 36% preferred threshold, meaning Maria is well-positioned for new credit at competitive rates.",
+          "If Maria added a $400/month car payment for a second vehicle, her DTI would rise to 40% — still within the 43% qualified mortgage limit, but approaching the risk threshold that could raise her interest rate.",
+        ],
+      },
+      {
+        heading: "Common Mistakes",
+        body: [
+          "Using net income instead of gross: DTI always uses pre-tax income. Using take-home pay will dramatically overstate your ratio.",
+          "Forgetting all debt obligations: Include minimum credit card payments, student loans, auto loans, personal loans, child support, and alimony. Omitting any of these understates your DTI.",
+          "Ignoring the ratio when shopping for a home: Running DTI analysis after falling in love with a specific house leads to emotional decision-making. Calculate your maximum mortgage payment first, then shop accordingly.",
+          "Confusing balance reduction with payment elimination: Reducing a credit card balance from $5,000 to $4,000 doesn't change DTI — only paying off the card entirely (eliminating the minimum payment) does.",
+        ],
+      },
+      {
+        heading: "Use the Calculator",
+        body: [
+          "Enter your gross monthly income and list all recurring monthly debt payments. The calculator instantly shows your front-end and back-end DTI ratios and flags whether they meet common lender thresholds for mortgage qualification.",
+        ],
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────
+  // Dividend Yield
+  // ─────────────────────────────────────────────────────────────────
+  {
+    slug: "dividend-yield-investing-guide",
+    title: "Dividend Yield: How to Evaluate Dividend Income and Avoid the Yield Trap",
+    description:
+      "Dividend yield measures the annual dividend payment as a percentage of a stock's price. Learn how to calculate it, evaluate it in context, and recognize the yield trap that catches income investors.",
+    keywords: [
+      "dividend yield",
+      "dividend yield calculator",
+      "yield trap",
+      "dividend investing",
+      "dividend income",
+    ],
+    calculatorSlug: "dividend-yield-calculator",
+    calculatorLabel: "Dividend Yield Calculator",
+    sections: [
+      {
+        heading: "Introduction",
+        body: [
+          "Dividend yield is one of the most commonly cited metrics in income investing. It tells you how much annual income you can expect from a stock's dividend relative to its current price — expressed as a percentage.",
+          "At first glance, a higher yield appears more attractive. But dividend yield alone can be deeply misleading. Understanding what drives changes in yield — and recognizing the yield trap — is essential before making any dividend investment decision.",
+        ],
+      },
+      {
+        heading: "When to Use This Calculator",
+        body: [
+          "Use the dividend yield calculator to compare dividend income across multiple stocks or ETFs; evaluate whether a dividend stock's yield is competitive with bonds or other income instruments; estimate the annual income your portfolio would generate at a given yield; or calculate the yield on your cost basis for stocks you already own.",
+        ],
+      },
+      {
+        heading: "How the Math Works",
+        body: [
+          "Dividend yield is calculated using:",
+          "Example: A stock pays an annual dividend of $3.00 per share and trades at $60. Dividend yield = (3.00 ÷ 60) × 100 = 5.0%.",
+          "Why yield can rise without any dividend increase: Yield and stock price move inversely. If the same stock drops to $40 while the dividend stays at $3.00, the yield jumps to 7.5% — not because the company is paying more, but because the price fell.",
+          "The Yield Trap: A sharply rising dividend yield is sometimes a warning signal rather than an opportunity. When a stock price falls rapidly because the market anticipates a dividend cut, declining earnings, or financial distress, the yield appears unusually high. Investors attracted by the apparent income may be buying into a deteriorating business. Always investigate the reason for an elevated yield before purchasing.",
+        ],
+        formula: "Dividend Yield = (Annual Dividend Per Share ÷ Stock Price) × 100",
+      },
+      {
+        heading: "Practical Example",
+        body: [
+          "Company A has paid a stable $2.40 annual dividend for five years. The stock currently trades at $48, giving a yield of 5.0%. Earnings per share are $4.20, and the payout ratio is 57% — a comfortable level that suggests the dividend is well-supported.",
+          "Company B also yields 5.0% — but one year ago it yielded 2.5%, and the stock has dropped 50% as the market priced in a likely dividend cut. The yield is high because the price crashed, not because the company is thriving. This is the yield trap in practice.",
+          "The key comparison: always check the payout ratio (dividends ÷ earnings) alongside yield. A payout ratio above 80–90% leaves little buffer and may signal an unsustainable dividend.",
+        ],
+      },
+      {
+        heading: "Common Mistakes",
+        body: [
+          "Chasing yield without examining the payout ratio: A 9% yield from a company paying out 120% of earnings is a dividend cut waiting to happen.",
+          "Using trailing yield when dividends have already been cut: Once a dividend is reduced, historical data overstates the current yield. Always verify the most recently declared dividend.",
+          "Ignoring total return: A high-yield stock that declines 15% in price has delivered a negative total return despite the income. Price appreciation and yield must both factor into the investment thesis.",
+          "Not adjusting for sector norms: A 2% yield is impressive for a technology company; it is below average for a utility or REIT. Always compare yield within the same sector context.",
+        ],
+      },
+      {
+        heading: "Use the Calculator",
+        body: [
+          "Enter the annual dividend per share and the current stock price to instantly calculate dividend yield. Use the result alongside the payout ratio and earnings history to form a complete picture of dividend sustainability.",
+        ],
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────
+  // Emergency Fund
+  // ─────────────────────────────────────────────────────────────────
+  {
+    slug: "emergency-fund-strategy",
+    title: "Emergency Fund Strategy: How Much to Save and Where to Keep It",
+    description:
+      "An emergency fund protects your financial plan from unexpected shocks. Learn the tiered savings approach, how to calculate your target, and where to keep your emergency reserves.",
+    keywords: [
+      "emergency fund",
+      "emergency savings",
+      "emergency fund calculator",
+      "how much emergency fund",
+      "financial safety net",
+    ],
+    calculatorSlug: "emergency-fund-calculator",
+    calculatorLabel: "Emergency Fund Calculator",
+    sections: [
+      {
+        heading: "Introduction",
+        body: [
+          "An emergency fund is a dedicated cash reserve set aside exclusively for genuine financial emergencies: job loss, major medical expenses, urgent home repairs, or large unexpected costs. Without one, any financial disruption forces you to take on high-interest debt — credit cards, personal loans — at the worst possible moment.",
+          "The emergency fund is often called the foundation of personal finance because every other financial goal — investing, debt payoff, saving for a home — becomes fragile without it.",
+        ],
+      },
+      {
+        heading: "When to Use This Calculator",
+        body: [
+          "Use the emergency fund calculator to determine your savings target based on monthly essential expenses; set a timeline for reaching each tier of your emergency fund goal; compare how different savings rates affect your time-to-fully-funded; or recalculate your target after major life changes such as a new mortgage, new dependents, or a change in income.",
+        ],
+      },
+      {
+        heading: "How the Math Works",
+        body: [
+          "The core formula calculates your target based on essential monthly expenses — not total spending:",
+          "Essential expenses include: rent or mortgage, utilities, groceries, insurance premiums, minimum debt payments, and essential transportation costs. Discretionary spending — dining out, subscriptions, entertainment — is excluded because these can be paused during a genuine emergency.",
+          "The Tiered Savings Approach makes the goal achievable in stages:",
+          "Tier 1 — Starter Fund: $1,000 to $2,000. Handles the most common unexpected expenses (car repair, medical co-pay, appliance replacement) and prevents credit card reliance.",
+          "Tier 2 — Intermediate Goal: 3 months of essential expenses. Covers a period of job search or unexpected income interruption without financial crisis.",
+          "Tier 3 — Full Security: 6 months of essential expenses. The recommended target for most households. Self-employed individuals, single-income households, and those in volatile industries may benefit from 9–12 months.",
+        ],
+        formula: "Emergency Fund Target = Monthly Essential Expenses × Months of Coverage",
+      },
+      {
+        heading: "Practical Example",
+        body: [
+          "James's monthly essential expenses: rent $1,300, utilities $180, groceries $350, insurance $200, car payment $280, minimum loan payment $150. Total: $2,460/month.",
+          "Tier 1 target: $2,000 (immediate priority). Tier 2 target: $2,460 × 3 = $7,380. Tier 3 target: $2,460 × 6 = $14,760.",
+          "Saving $300/month: Tier 1 in ~7 months, Tier 3 in ~49 months. Saving $500/month: Tier 3 fully funded in under 30 months.",
+        ],
+      },
+      {
+        heading: "Common Mistakes",
+        body: [
+          "Counting investment accounts as your emergency fund: A brokerage account can drop 30% right when you need it most, and withdrawals may trigger taxes and penalties. Emergency funds must be in liquid, stable accounts.",
+          "Using a standard checking account: While accessible, a standard checking account earns little or no interest. Use a high-yield savings account (HYSA) to earn 4–5% APY without sacrificing liquidity.",
+          "Raiding the fund for non-emergencies: An emergency fund is not a vacation fund or opportunity fund. Define 'emergency' clearly before you need to make a decision under stress.",
+          "Not rebuilding after a withdrawal: After using emergency funds, immediately redirect savings toward replenishing the account before resuming other financial goals.",
+        ],
+      },
+      {
+        heading: "Use the Calculator",
+        body: [
+          "Enter your monthly essential expenses and your target coverage period (3, 6, or 12 months) to instantly see your savings target at each tier. Adjust your monthly savings amount to model your timeline to fully funded.",
+        ],
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────
+  // Decimal to Fraction
+  // ─────────────────────────────────────────────────────────────────
+  {
+    slug: "decimal-to-fraction-guide",
+    title: "How to Convert Decimals to Fractions: The Place Value Method",
+    description:
+      "Learn the step-by-step place value method for converting any decimal to a fraction, how to simplify using the greatest common divisor, and how to handle repeating decimals.",
+    keywords: [
+      "decimal to fraction",
+      "convert decimal to fraction",
+      "place value method",
+      "simplify fractions",
+      "repeating decimals",
+    ],
+    calculatorSlug: "decimal-to-fraction-calculator",
+    calculatorLabel: "Decimal to Fraction Calculator",
+    sections: [
+      {
+        heading: "Introduction",
+        body: [
+          "Converting decimals to fractions is a fundamental math skill used in cooking recipes, engineering measurements, carpentry, and academic work. A decimal like 0.75 is mathematically identical to the fraction 3/4 — but fractions are often more useful when working with ratios, proportions, or precise physical measurements.",
+          "The conversion process follows a consistent method based on the decimal's place value, and simplification uses the greatest common divisor (GCD) to express the result in its lowest terms.",
+        ],
+      },
+      {
+        heading: "When to Use This Calculator",
+        body: [
+          "Use the decimal to fraction calculator when you need to convert measurement decimals for construction or crafting (e.g., 0.625 inches to 5/8\"); simplify calculated decimal results into readable fractions for reports or presentations; verify manual conversions; or handle repeating decimals that are difficult to convert by hand.",
+        ],
+      },
+      {
+        heading: "How the Math Works",
+        body: [
+          "The Place Value Method for terminating decimals works in three steps:",
+          "Step 1 — Write the decimal over 1 as a fraction.",
+          "Step 2 — Multiply numerator and denominator by 10 for each digit after the decimal point, removing the decimal from the numerator.",
+          "Step 3 — Simplify by dividing both numerator and denominator by their greatest common divisor (GCD).",
+          "Example: 0.75 → 75/100. GCD(75, 100) = 25. Simplified: 75÷25 / 100÷25 = 3/4.",
+          "For Repeating Decimals — use algebraic substitution: Let x = 0.333... Then 10x = 3.333... Subtract: 9x = 3 → x = 3/9 = 1/3.",
+        ],
+        formula:
+          "0.75  → 75/100  → GCD(75,100)=25   → 3/4\n0.625 → 625/1000 → GCD(625,1000)=125 → 5/8\n0.333... → let x=0.333..., 9x=3           → 1/3",
+      },
+      {
+        heading: "Practical Example",
+        body: [
+          "You are reading a blueprint showing a measurement of 0.3125 inches and need the nearest standard fraction: 0.3125 = 3125/10000. GCD(3125, 10000) = 625. Result: 3125÷625 / 10000÷625 = 5/16.",
+          "5/16\" is a standard drill bit size — so the measurement corresponds exactly to a 5/16-inch drill bit. Converting the decimal allowed you to select the right tool from a standard set.",
+        ],
+      },
+      {
+        heading: "Common Mistakes",
+        body: [
+          "Not simplifying the fraction: 75/100 is mathematically correct, but 3/4 is the expected simplified form. Always reduce to lowest terms by dividing by the GCD.",
+          "Miscounting decimal places: 0.5 has one decimal place (denominator: 10), 0.05 has two (denominator: 100), 0.005 has three (denominator: 1,000). Each additional decimal place multiplies the denominator by 10.",
+          "Treating repeating decimals as terminating: 0.333 is not exactly 1/3 — only 0.333... (infinitely repeating) equals 1/3. A truncated decimal produces only an approximation.",
+          "Confusing improper fractions and mixed numbers: 1.75 as an improper fraction is 7/4; as a mixed number it is 1¾. Clarify which form is required for your context.",
+        ],
+      },
+      {
+        heading: "Use the Calculator",
+        body: [
+          "Enter any decimal — terminating or repeating — and the calculator instantly returns the simplified fraction in both improper fraction and mixed number form. Use it to verify manual calculations or convert complex decimals quickly.",
+        ],
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────
+  // Down Payment
+  // ─────────────────────────────────────────────────────────────────
+  {
+    slug: "down-payment-guide",
+    title: "Down Payment Guide: How Much Do You Really Need to Buy a Home?",
+    description:
+      "The 20% down payment myth holds many buyers back unnecessarily. Learn actual requirements for FHA, conventional, and VA loans, how to calculate your savings target, and the real trade-offs.",
+    keywords: [
+      "down payment",
+      "down payment calculator",
+      "how much down payment",
+      "fha loan down payment",
+      "first time home buyer",
+    ],
+    calculatorSlug: "down-payment-calculator",
+    calculatorLabel: "Down Payment Calculator",
+    relatedContent: {
+      text: "After purchasing, optimizing your mortgage terms is the natural next step — see our",
+      label: "Mortgage Refinance Strategies guide",
+      href: "/guides/mortgage-refinance-strategies",
+      suffix: ".",
+    },
+    sections: [
+      {
+        heading: "Introduction",
+        body: [
+          "The 20% down payment is one of the most persistent myths in home buying. While 20% down has real advantages — eliminating private mortgage insurance and producing a lower monthly payment — it is not a requirement for most loan programs, and waiting until you have it may not make financial sense.",
+          "Modern home loan programs allow buyers to purchase with as little as 3% down, and in some cases 0% for eligible veterans and USDA rural program participants. Understanding what down payment you actually need — and the real trade-offs of different amounts — helps you make a data-driven decision.",
+        ],
+      },
+      {
+        heading: "When to Use This Calculator",
+        body: [
+          "Use the down payment calculator to determine how much cash you need at closing for a target home price and down payment percentage; compare your monthly payment across different down payment scenarios; calculate how long it will take to save a target amount at a given monthly savings rate; or model the break-even point between paying PMI now versus waiting to save 20%.",
+        ],
+      },
+      {
+        heading: "How the Math Works",
+        body: [
+          "The core calculation is straightforward:",
+          "Common loan program minimums for 2024–2025:",
+          "FHA Loans: 3.5% down for borrowers with a credit score of 580 or higher; 10% for scores 500–579. Requires a mortgage insurance premium (MIP) for the life of the loan if less than 10% down.",
+          "Conventional Loans: As low as 3% down for first-time buyers meeting income limits. Requires private mortgage insurance (PMI) until the loan-to-value ratio reaches 80%. PMI is cancellable unlike FHA MIP.",
+          "VA Loans: 0% down for eligible veterans, active-duty service members, and surviving spouses. No PMI requirement. A VA funding fee (1.25–3.3%) applies and can be rolled into the loan.",
+          "USDA Loans: 0% down for eligible rural and suburban properties meeting income limits. Requires an upfront guarantee fee and annual fee.",
+          "Important: Down payment is only part of your closing costs. Budget an additional 2–5% of the purchase price for origination fees, appraisal, title insurance, and escrow.",
+        ],
+        formula:
+          "Down Payment = Home Price × Down Payment %\n\nExamples on a $350,000 home:\n  3.0%  → $10,500   (Conventional minimum)\n  3.5%  → $12,250   (FHA minimum)\n  10.0% → $35,000\n  20.0% → $70,000   (PMI-free threshold)",
+      },
+      {
+        heading: "Practical Example",
+        body: [
+          "Priya is buying a $320,000 home and has $18,000 saved. With an FHA loan at 3.5% down ($11,200), she can proceed today — but with only $6,800 remaining she needs to ensure she has enough for closing costs ($6,400–$16,000). It is tight and may require seller concessions.",
+          "With a conventional loan at 5% down ($16,000), she has $2,000 left after the down payment — insufficient for closing costs without additional assistance.",
+          "At 10% down ($32,000), she is $14,000 short. Saving $1,200/month, she reaches this target in about 12 months. During that time, home prices may rise — but so does her down payment buffer. The calculator helps model whether saving longer makes financial sense given current market conditions.",
+        ],
+      },
+      {
+        heading: "Common Mistakes",
+        body: [
+          "Treating 20% as a universal requirement: Millions of buyers purchase homes every year with less than 20% down. The trade-off is PMI — roughly 0.5–1.5% of the loan amount annually — but for many buyers the math still favors buying sooner.",
+          "Not budgeting for closing costs: A buyer focused entirely on the down payment may arrive at closing short on funds. Always add 2–5% of the purchase price to your target savings figure.",
+          "Draining the emergency fund for a larger down payment: Entering homeownership with no liquidity is risky. Major repairs can arise immediately after purchase. Maintain 3–6 months of expenses even if it means a smaller down payment.",
+          "Ignoring the opportunity cost of the 20% wait: In an appreciating market, the home price increase during extra years of saving may significantly exceed the total PMI cost you were trying to avoid.",
+        ],
+      },
+      {
+        heading: "Use the Calculator",
+        body: [
+          "Enter the home purchase price and your target down payment percentage to instantly calculate the required amount, estimated PMI threshold, and resulting loan size. Adjust the percentage to compare different purchase scenarios and find the right balance for your financial situation.",
+        ],
+      },
+    ],
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────
@@ -426,10 +802,19 @@ export default function GuidePage({ params }: Props) {
           <h1>{guide.title}</h1>
           <p className={guideStyles.lead}>{guide.description}</p>
 
-          {/* Back to Calculator — top */}
-          <a href={calculatorUrl} className={guideStyles.backBtn}>
-            ← Use the {guide.calculatorLabel}
+          {/* Top CTA — subtle inline link (Step 2) */}
+          <a href={calculatorUrl} className={guideStyles.inlineCtaLink}>
+            Try the {guide.calculatorLabel} →
           </a>
+
+          {/* Contextual cross-link note (Step 3) */}
+          {guide.relatedContent && (
+            <p className={guideStyles.relatedNote}>
+              {guide.relatedContent.text}{" "}
+              <a href={guide.relatedContent.href}>{guide.relatedContent.label}</a>
+              {guide.relatedContent.suffix ?? "."}
+            </p>
+          )}
 
           {/* Article sections */}
           {guide.sections.map((section, i) => (

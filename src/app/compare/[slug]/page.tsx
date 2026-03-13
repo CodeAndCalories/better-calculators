@@ -31,6 +31,17 @@ type CtaLink = {
   href: string;
 };
 
+/**
+ * Optional contextual cross-link shown below the top CTA.
+ * Renders as: "{text} <a href={href}>{label}</a>{suffix}"
+ */
+type RelatedContent = {
+  text: string;
+  label: string;
+  href: string;
+  suffix?: string;
+};
+
 type Comparison = {
   slug: string;
   title: string;
@@ -38,6 +49,8 @@ type Comparison = {
   keywords: string[];
   /** Optional CTA box prompt text. Defaults to a generic message. */
   ctaPrompt?: string;
+  /** Optional contextual cross-link note shown near the top of the article. */
+  relatedContent?: RelatedContent;
   ctaLinks: CtaLink[];
   sections: ComparisonSection[];
 };
@@ -61,6 +74,12 @@ const comparisons: Comparison[] = [
       "debt repayment comparison",
     ],
     ctaPrompt: "Ready to build your payoff plan? Try these free calculators:",
+    relatedContent: {
+      text: "For a complete step-by-step strategy walkthrough, see our",
+      label: "Debt Snowball vs. Avalanche guide",
+      href: "/guides/debt-snowball-vs-avalanche",
+      suffix: ".",
+    },
     ctaLinks: [
       { label: "Debt Payoff Calculator", href: "/calculators/debt-payoff-calculator" },
       { label: "Loan Payment Calculator", href: "/calculators/loan-payment-calculator" },
@@ -130,6 +149,12 @@ const comparisons: Comparison[] = [
       "apr explained",
     ],
     ctaPrompt: "Compare loans with confidence — use these free financial calculators:",
+    relatedContent: {
+      text: "For mortgage strategies after securing your loan, see our",
+      label: "Mortgage Refinance Strategies guide",
+      href: "/guides/mortgage-refinance-strategies",
+      suffix: ".",
+    },
     ctaLinks: [
       { label: "APR Calculator", href: "/calculators/apr-calculator" },
       { label: "Mortgage Calculator", href: "/calculators/mortgage-calculator" },
@@ -199,6 +224,12 @@ const comparisons: Comparison[] = [
       "business profitability metrics",
     ],
     ctaPrompt: "Calculate your business profitability with these free tools:",
+    relatedContent: {
+      text: "For practical strategies to improve your margins, see our",
+      label: "Profit Margin Optimization guide",
+      href: "/guides/profit-margin-optimization",
+      suffix: ".",
+    },
     ctaLinks: [
       { label: "Profit Margin Calculator", href: "/calculators/profit-margin-calculator" },
       { label: "Net Income Calculator", href: "/calculators/net-income-calculator" },
@@ -270,6 +301,12 @@ const comparisons: Comparison[] = [
       "margin formula",
     ],
     ctaPrompt: "Check your pricing and margin calculations with these free tools:",
+    relatedContent: {
+      text: "For a complete look at all three margin types, see our",
+      label: "Profit Margin Optimization guide",
+      href: "/guides/profit-margin-optimization",
+      suffix: ".",
+    },
     ctaLinks: [
       { label: "Markup Calculator", href: "/calculators/markup-calculator" },
       { label: "Margin Calculator", href: "/calculators/margin-calculator" },
@@ -341,6 +378,12 @@ const comparisons: Comparison[] = [
       "daily calorie calculator",
     ],
     ctaPrompt: "Calculate your daily calorie needs with these free tools:",
+    relatedContent: {
+      text: "To understand related body composition metrics, see our",
+      label: "How to Calculate BMI guide",
+      href: "/guides/how-to-calculate-bmi",
+      suffix: ".",
+    },
     ctaLinks: [
       { label: "Calorie Calculator", href: "/calculators/calorie-calculator" },
       { label: "BMI Calculator", href: "/calculators/bmi-calculator" },
@@ -475,6 +518,22 @@ export default function ComparePage({ params }: Props) {
 
           <h1>{comparison.title}</h1>
           <p className={compareStyles.lead}>{comparison.description}</p>
+
+          {/* Top CTA — subtle inline link to primary calculator (Step 2) */}
+          {comparison.ctaLinks[0] && (
+            <a href={comparison.ctaLinks[0].href} className={compareStyles.inlineCtaLink}>
+              Try the {comparison.ctaLinks[0].label} →
+            </a>
+          )}
+
+          {/* Contextual cross-link note (Step 3) */}
+          {comparison.relatedContent && (
+            <p className={compareStyles.relatedNote}>
+              {comparison.relatedContent.text}{" "}
+              <a href={comparison.relatedContent.href}>{comparison.relatedContent.label}</a>
+              {comparison.relatedContent.suffix ?? "."}
+            </p>
+          )}
 
           {/* Article sections */}
           {comparison.sections.map((section, i) => (
