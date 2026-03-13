@@ -10,7 +10,7 @@ const CATEGORIES: Array<{ value: Category | "all"; label: string }> = [
   { value: "finance", label: "💰 Finance" },
   { value: "health", label: "❤️ Health" },
   { value: "life", label: "✨ Life" },
-  { value: "conversions", label: "🔁 Conversions" },
+  { value: "conversions", label: "📏 Conversions" },
 ];
 
 export default function CalculatorsPage() {
