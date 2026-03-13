@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import legalStyles from "../legal.module.css";
 import compareStyles from "../compare.module.css";
 
 const SITE_URL = "https://bettercalculators.net";
@@ -198,8 +197,8 @@ export default function ComparePage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      <main className={legalStyles.page}>
-        <div className={`container ${legalStyles.content}`}>
+      <main className={compareStyles.page}>
+        <div className={`container ${compareStyles.content}`}>
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className={compareStyles.breadcrumb}>
             <a href="/">Home</a>
@@ -210,7 +209,7 @@ export default function ComparePage({ params }: Props) {
           </nav>
 
           <h1>{comparison.title}</h1>
-          <p className={legalStyles.lead}>{comparison.description}</p>
+          <p className={compareStyles.lead}>{comparison.description}</p>
 
           {/* Article sections */}
           {comparison.sections.map((section, i) => (
@@ -252,7 +251,7 @@ export default function ComparePage({ params }: Props) {
             </section>
           ))}
 
-          <hr className={legalStyles.divider} />
+          <hr className={compareStyles.divider} />
 
           {/* Try the Calculators CTA */}
           <div className={compareStyles.calcCta}>
