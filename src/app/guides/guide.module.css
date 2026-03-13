@@ -1,4 +1,46 @@
 /* ─────────────────────────────────────────
+   Page layout  (mirrors legal.module.css)
+───────────────────────────────────────── */
+.page { padding-bottom: 4rem; }
+
+.content {
+  max-width: 720px;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.content h1 { margin-bottom: 0.25rem; }
+.content h2 { margin-top: 0.5rem; }
+.content h3 { margin-top: 0.25rem; font-size: 1rem; }
+
+.content p { color: var(--color-text-2); line-height: 1.75; }
+
+.content ul {
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.content li { color: var(--color-text-2); font-size: 0.95rem; line-height: 1.6; }
+
+.lead {
+  font-size: 1.05rem;
+  color: var(--color-text-2);
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1rem;
+  font-style: italic;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0.5rem 0;
+}
+
+/* ─────────────────────────────────────────
    Breadcrumb
 ───────────────────────────────────────── */
 .breadcrumb {
@@ -77,4 +119,45 @@
   color: var(--color-text-2);
   margin: 0;
   font-size: 0.95rem;
+}
+
+/* ─────────────────────────────────────────
+   Inline top CTA link (subtle, near title)
+───────────────────────────────────────── */
+.inlineCtaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--color-accent);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  margin-top: -0.25rem;
+}
+
+.inlineCtaLink:hover {
+  text-decoration: underline;
+}
+
+/* ─────────────────────────────────────────
+   Related content note (contextual linking)
+───────────────────────────────────────── */
+.relatedNote {
+  font-size: 0.875rem;
+  color: var(--color-text-3);
+  background: var(--color-surface-2);
+  border-left: 3px solid var(--color-border);
+  padding: 0.6rem 1rem;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin: 0;
+}
+
+.relatedNote a {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.relatedNote a:hover {
+  text-decoration: underline;
 }
