@@ -8,45 +8,100 @@ interface Resource {
 
 /**
  * Maps calculator slugs to related guides and tools.
+ * Keys must match the actual `slug` field in each CalculatorDef.
  * Add entries here as new guides are published.
  */
 const RESOURCES: Record<string, Resource[]> = {
-  "compound-interest": [
+  // ── Compound Interest ────────────────────────────────────────────
+  "compound-interest-calculator": [
     {
       label: "How to Calculate Compound Interest",
       href: "/guides/how-to-calculate-compound-interest",
       type: "guide",
     },
-    { label: "Simple Interest Calculator", href: "/calculators/simple-interest", type: "tool" },
+    {
+      label: "Simple Interest Calculator",
+      href: "/calculators/simple-interest-calculator",
+      type: "tool",
+    },
   ],
-  "simple-interest": [
+
+  // ── Simple Interest ──────────────────────────────────────────────
+  "simple-interest-calculator": [
     {
       label: "How to Calculate Compound Interest",
       href: "/guides/how-to-calculate-compound-interest",
       type: "guide",
     },
-    { label: "Compound Interest Calculator", href: "/calculators/compound-interest", type: "tool" },
+    {
+      label: "Compound Interest Calculator",
+      href: "/calculators/compound-interest-calculator",
+      type: "tool",
+    },
   ],
-  bmi: [
+
+  // ── BMI ──────────────────────────────────────────────────────────
+  "bmi-calculator": [
     {
       label: "How to Calculate BMI",
       href: "/guides/how-to-calculate-bmi",
       type: "guide",
     },
-    { label: "Calorie Calculator", href: "/calculators/calorie", type: "tool" },
-    { label: "Water Intake Calculator", href: "/calculators/water-intake", type: "tool" },
+    { label: "Calorie Calculator", href: "/calculators/calorie-calculator", type: "tool" },
+    { label: "Water Intake Calculator", href: "/calculators/water-intake-calculator", type: "tool" },
   ],
-  calorie: [
-    { label: "BMI Calculator", href: "/calculators/bmi", type: "tool" },
-    { label: "Water Intake Calculator", href: "/calculators/water-intake", type: "tool" },
+
+  // ── Calorie ──────────────────────────────────────────────────────
+  "calorie-calculator": [
+    { label: "BMI Calculator", href: "/calculators/bmi-calculator", type: "tool" },
+    { label: "Water Intake Calculator", href: "/calculators/water-intake-calculator", type: "tool" },
   ],
-  mortgage: [
-    { label: "Loan Payment Calculator", href: "/calculators/loan-payment", type: "tool" },
+
+  // ── Mortgage ─────────────────────────────────────────────────────
+  "mortgage-calculator": [
+    {
+      label: "Mortgage Refinance Strategies",
+      href: "/guides/mortgage-refinance-strategies",
+      type: "guide",
+    },
+    { label: "Loan Payment Calculator", href: "/calculators/loan-payment-calculator", type: "tool" },
     { label: "APR Calculator", href: "/calculators/apr-calculator", type: "tool" },
   ],
-  "loan-payment": [
-    { label: "Mortgage Calculator", href: "/calculators/mortgage", type: "tool" },
+
+  // ── Loan Payment ─────────────────────────────────────────────────
+  "loan-payment-calculator": [
+    { label: "Mortgage Calculator", href: "/calculators/mortgage-calculator", type: "tool" },
     { label: "APR Calculator", href: "/calculators/apr-calculator", type: "tool" },
+  ],
+
+  // ── Profit Margin ────────────────────────────────────────────────
+  "profit-margin-calculator": [
+    {
+      label: "Profit Margin Optimization Guide",
+      href: "/guides/profit-margin-optimization",
+      type: "guide",
+    },
+    { label: "Markup Calculator", href: "/calculators/markup-calculator", type: "tool" },
+    { label: "Break-Even Calculator", href: "/calculators/break-even-calculator", type: "tool" },
+  ],
+
+  // ── Debt Payoff ──────────────────────────────────────────────────
+  "debt-payoff-calculator": [
+    {
+      label: "Debt Snowball vs. Avalanche Guide",
+      href: "/guides/debt-snowball-vs-avalanche",
+      type: "guide",
+    },
+    {
+      label: "Credit Card Payoff Calculator",
+      href: "/calculators/credit-card-payoff",
+      type: "tool",
+    },
+    {
+      label: "Debt-to-Income Calculator",
+      href: "/calculators/debt-to-income-calculator",
+      type: "tool",
+    },
   ],
 };
 

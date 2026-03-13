@@ -1,0 +1,80 @@
+/* ─────────────────────────────────────────
+   Breadcrumb
+───────────────────────────────────────── */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--color-text-3);
+  flex-wrap: wrap;
+  margin-bottom: -0.5rem; /* pulls closer to h1 */
+}
+
+.breadcrumb a {
+  color: var(--color-text-3);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: var(--color-accent);
+}
+
+/* ─────────────────────────────────────────
+   Back-to-Calculator button
+───────────────────────────────────────── */
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--color-accent);
+  color: var(--color-text-inv);
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.backBtn:hover {
+  background: var(--color-accent-hover);
+  text-decoration: none;
+}
+
+/* ─────────────────────────────────────────
+   Formula / code block
+───────────────────────────────────────── */
+.formula {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  white-space: pre;
+  overflow-x: auto;
+  line-height: 1.8;
+  margin: 0.25rem 0;
+}
+
+/* ─────────────────────────────────────────
+   Bottom CTA box
+───────────────────────────────────────── */
+.calcCta {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--color-accent-light);
+  border: 1px solid var(--color-accent-border);
+  border-radius: var(--radius-lg);
+}
+
+.calcCta p {
+  color: var(--color-text-2);
+  margin: 0;
+  font-size: 0.95rem;
+}
