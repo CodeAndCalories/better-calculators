@@ -3,7 +3,7 @@ import styles from "./RecommendedResources.module.css";
 interface Resource {
   label: string;
   href: string;
-  type: "guide" | "tool";
+  type: "guide" | "tool" | "comparison";
 }
 
 /**
@@ -93,6 +93,11 @@ const RESOURCES: Record<string, Resource[]> = {
       type: "guide",
     },
     {
+      label: "Debt Snowball vs. Avalanche: Full Comparison",
+      href: "/compare/debt-snowball-vs-avalanche",
+      type: "comparison",
+    },
+    {
       label: "Credit Card Payoff Calculator",
       href: "/calculators/credit-card-payoff",
       type: "tool",
@@ -122,7 +127,11 @@ export default function RecommendedResources({ slug }: Props) {
         {resources.map((r, i) => (
           <li key={i} className={styles.item}>
             <span className={styles.typeLabel}>
-              {r.type === "guide" ? "Guide" : "Related Tool"}
+              {r.type === "guide"
+                ? "Guide"
+                : r.type === "comparison"
+                ? "Comparison"
+                : "Related Tool"}
             </span>
             <a href={r.href} className={styles.link}>
               {r.label}

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import legalStyles from "../legal.module.css";
 import guideStyles from "../guide.module.css";
 
 const SITE_URL = "https://bettercalculators.net";
@@ -413,8 +412,8 @@ export default function GuidePage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
-      <main className={legalStyles.page}>
-        <div className={`container ${legalStyles.content}`}>
+      <main className={guideStyles.page}>
+        <div className={`container ${guideStyles.content}`}>
           {/* Breadcrumb navigation */}
           <nav aria-label="Breadcrumb" className={guideStyles.breadcrumb}>
             <a href="/">Home</a>
@@ -425,7 +424,7 @@ export default function GuidePage({ params }: Props) {
           </nav>
 
           <h1>{guide.title}</h1>
-          <p className={legalStyles.lead}>{guide.description}</p>
+          <p className={guideStyles.lead}>{guide.description}</p>
 
           {/* Back to Calculator — top */}
           <a href={calculatorUrl} className={guideStyles.backBtn}>
@@ -447,7 +446,7 @@ export default function GuidePage({ params }: Props) {
             </section>
           ))}
 
-          <hr className={legalStyles.divider} />
+          <hr className={guideStyles.divider} />
 
           {/* Back to Calculator — bottom CTA */}
           <div className={guideStyles.calcCta}>
