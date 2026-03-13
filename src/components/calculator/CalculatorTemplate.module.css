@@ -109,9 +109,14 @@
     top: 1.5rem;
     align-self: start;
     width: 160px;
-    min-height: 600px; /* standard ad unit height; collapses gracefully when empty */
+    /*
+      CLS prevention: reserve vertical space before the ad unit loads.
+      min-height matches the tallest standard ad unit (160×600 wide skyscraper).
+      This prevents layout shift when the ad iframe is injected.
+    */
+    min-height: 600px;
+    overflow: hidden; /* contain ad content; prevents unexpected layout expansion */
 
-    /* Subtle placeholder style — remove once real ads are wired up */
     background: transparent;
     border-radius: var(--radius-lg, 8px);
   }
@@ -124,7 +129,12 @@
     top: 1.5rem;
     align-self: start;
     width: 160px;
+    /*
+      CLS prevention: reserve vertical space before the ad unit loads.
+      min-height matches the tallest standard ad unit (160×600 wide skyscraper).
+    */
     min-height: 600px;
+    overflow: hidden;
     background: transparent;
     border-radius: var(--radius-lg, 8px);
   }

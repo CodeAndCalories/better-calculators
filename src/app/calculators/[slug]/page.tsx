@@ -7,15 +7,29 @@ import { VARIANTS } from "@/scripts/generateVariants";
 
 const SITE_URL = "https://bettercalculators.net";
 
+const FEATURE_LIST =
+  "Instant calculation, Real-time results, Mobile friendly interface, Privacy-first local calculations";
+
+function getApplicationCategory(category: string): string {
+  switch (category) {
+    case "finance":     return "FinanceApplication";
+    case "health":      return "HealthApplication";
+    case "life":        return "UtilityApplication";
+    case "conversions": return "UtilityApplication";
+    default:            return "UtilityApplication";
+  }
+}
+
 function calculatorJsonLd(title: string, description: string, slug: string) {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: title,
     description: description,
-    applicationCategory: "UtilitiesApplication",
-    operatingSystem: "Any",
+    applicationCategory: "UtilityApplication",
+    operatingSystem: "All",
     url: `${SITE_URL}/calculators/${slug}`,
+    featureList: FEATURE_LIST,
     offers: {
       "@type": "Offer",
       price: "0",
@@ -89,11 +103,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     keywords: def.keywords,
     alternates: { canonical: url },
+    robots: { index: true, follow: true },
     openGraph: {
       title: `${title} | Better Calculators`,
       description,
       url,
       type: "website",
+      siteName: "Better Calculators",
     },
   };
 }
@@ -113,8 +129,9 @@ export default function CalculatorPage({ params }: Props) {
       name: v ? v.title : def.title,
       description: v ? v.description : def.description,
       url,
-      applicationCategory: "UtilitiesApplication",
-      operatingSystem: "Any",
+      applicationCategory: getApplicationCategory(def.category),
+      operatingSystem: "All",
+      featureList: FEATURE_LIST,
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     },
     ...(def.faqs.length > 0

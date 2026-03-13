@@ -2,6 +2,7 @@ import type { CalculatorDef, InputValues } from "@/lib/types";
 import { getRelatedCalculators } from "@/calculators/index";
 import CalculatorEngine from "./CalculatorEngine";
 import CalculatorCard from "@/components/ui/CalculatorCard";
+import RecommendedResources from "@/components/RecommendedResources";
 import styles from "./CalculatorTemplate.module.css";
 
 interface Props {
@@ -100,6 +101,9 @@ export default function CalculatorTemplate({ def, prefill }: Props) {
               </div>
             </section>
           )}
+
+          {/* Recommended resources (guides + related tools for topical authority) */}
+          <RecommendedResources slug={def.slug} />
 
           {/* Related calculators */}
           {related && related.length > 0 && (
