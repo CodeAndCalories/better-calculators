@@ -7,9 +7,9 @@ interface Resource {
 }
 
 /**
- * Maps calculator slugs to related guides and tools.
+ * Maps calculator slugs to related guides, comparisons, and tools.
  * Keys must match the actual `slug` field in each CalculatorDef.
- * Add entries here as new guides are published.
+ * Add entries here as new guides or comparison pages are published.
  */
 const RESOURCES: Record<string, Resource[]> = {
   // ── Compound Interest ────────────────────────────────────────────
@@ -47,12 +47,22 @@ const RESOURCES: Record<string, Resource[]> = {
       href: "/guides/how-to-calculate-bmi",
       type: "guide",
     },
+    {
+      label: "TDEE vs. BMR: Which Should You Use?",
+      href: "/compare/tdee-vs-bmr",
+      type: "comparison",
+    },
     { label: "Calorie Calculator", href: "/calculators/calorie-calculator", type: "tool" },
     { label: "Water Intake Calculator", href: "/calculators/water-intake-calculator", type: "tool" },
   ],
 
   // ── Calorie ──────────────────────────────────────────────────────
   "calorie-calculator": [
+    {
+      label: "TDEE vs. BMR: Which Should You Use?",
+      href: "/compare/tdee-vs-bmr",
+      type: "comparison",
+    },
     { label: "BMI Calculator", href: "/calculators/bmi-calculator", type: "tool" },
     { label: "Water Intake Calculator", href: "/calculators/water-intake-calculator", type: "tool" },
   ],
@@ -64,14 +74,35 @@ const RESOURCES: Record<string, Resource[]> = {
       href: "/guides/mortgage-refinance-strategies",
       type: "guide",
     },
+    {
+      label: "APR vs. Interest Rate: What's the Real Cost?",
+      href: "/compare/apr-vs-interest-rate",
+      type: "comparison",
+    },
     { label: "Loan Payment Calculator", href: "/calculators/loan-payment-calculator", type: "tool" },
     { label: "APR Calculator", href: "/calculators/apr-calculator", type: "tool" },
   ],
 
   // ── Loan Payment ─────────────────────────────────────────────────
   "loan-payment-calculator": [
+    {
+      label: "APR vs. Interest Rate: What's the Real Cost?",
+      href: "/compare/apr-vs-interest-rate",
+      type: "comparison",
+    },
     { label: "Mortgage Calculator", href: "/calculators/mortgage-calculator", type: "tool" },
     { label: "APR Calculator", href: "/calculators/apr-calculator", type: "tool" },
+  ],
+
+  // ── APR ──────────────────────────────────────────────────────────
+  "apr-calculator": [
+    {
+      label: "APR vs. Interest Rate: What's the Real Cost?",
+      href: "/compare/apr-vs-interest-rate",
+      type: "comparison",
+    },
+    { label: "Mortgage Calculator", href: "/calculators/mortgage-calculator", type: "tool" },
+    { label: "Loan Payment Calculator", href: "/calculators/loan-payment-calculator", type: "tool" },
   ],
 
   // ── Profit Margin ────────────────────────────────────────────────
@@ -81,8 +112,45 @@ const RESOURCES: Record<string, Resource[]> = {
       href: "/guides/profit-margin-optimization",
       type: "guide",
     },
+    {
+      label: "Gross Profit vs. Net Profit Explained",
+      href: "/compare/gross-vs-net-profit",
+      type: "comparison",
+    },
     { label: "Markup Calculator", href: "/calculators/markup-calculator", type: "tool" },
     { label: "Break-Even Calculator", href: "/calculators/break-even-calculator", type: "tool" },
+  ],
+
+  // ── Net Income ───────────────────────────────────────────────────
+  "net-income-calculator": [
+    {
+      label: "Gross Profit vs. Net Profit Explained",
+      href: "/compare/gross-vs-net-profit",
+      type: "comparison",
+    },
+    { label: "Profit Margin Calculator", href: "/calculators/profit-margin-calculator", type: "tool" },
+  ],
+
+  // ── Markup ───────────────────────────────────────────────────────
+  "markup-calculator": [
+    {
+      label: "Markup vs. Margin: Why They're Not the Same",
+      href: "/compare/markup-vs-margin",
+      type: "comparison",
+    },
+    { label: "Margin Calculator", href: "/calculators/margin-calculator", type: "tool" },
+    { label: "Profit Margin Calculator", href: "/calculators/profit-margin-calculator", type: "tool" },
+  ],
+
+  // ── Margin ───────────────────────────────────────────────────────
+  "margin-calculator": [
+    {
+      label: "Markup vs. Margin: Why They're Not the Same",
+      href: "/compare/markup-vs-margin",
+      type: "comparison",
+    },
+    { label: "Markup Calculator", href: "/calculators/markup-calculator", type: "tool" },
+    { label: "Profit Margin Calculator", href: "/calculators/profit-margin-calculator", type: "tool" },
   ],
 
   // ── Debt Payoff ──────────────────────────────────────────────────
