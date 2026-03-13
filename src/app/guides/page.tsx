@@ -21,38 +21,63 @@ const guides = [
   {
     slug: "how-to-calculate-compound-interest",
     title: "How to Calculate Compound Interest",
-    description:
-      "Understand the compound interest formula and how to estimate investment growth over time.",
+    description: "Understand the compound interest formula and how to estimate investment growth over time.",
     category: "Finance",
   },
   {
     slug: "mortgage-refinance-strategies",
     title: "Mortgage Refinance Strategies",
-    description:
-      "Learn when refinancing makes sense and how to calculate your break-even point.",
+    description: "Learn when refinancing makes sense and how to calculate your break-even point.",
     category: "Finance",
   },
   {
     slug: "profit-margin-optimization",
     title: "Profit Margin Optimization",
-    description:
-      "Calculate gross, operating, and net margins and find strategies to improve business profitability.",
+    description: "Calculate gross, operating, and net margins and find strategies to improve business profitability.",
     category: "Finance",
   },
   {
     slug: "debt-snowball-vs-avalanche",
     title: "Debt Snowball vs. Avalanche",
-    description:
-      "Compare the two leading debt payoff strategies and choose the right one for your situation.",
+    description: "Compare the two leading debt payoff strategies and choose the right one for your situation.",
     category: "Finance",
   },
   {
     slug: "how-to-calculate-bmi",
     title: "How to Calculate BMI",
-    description:
-      "Learn how body mass index is calculated, how to interpret the results, and its key limitations.",
+    description: "Learn how body mass index is calculated, how to interpret the results, and its key limitations.",
     category: "Health",
   },
+  {
+    slug: "debt-to-income-ratio-guide",
+    title: "How to Calculate Your Debt-to-Income Ratio (DTI)",
+    description: "Learn how lenders use DTI to evaluate your borrowing power and how to calculate your own ratio.",
+    category: "Finance",
+  },
+  {
+    slug: "dividend-yield-investing-guide",
+    title: "Understanding Dividend Yield",
+    description: "Discover how to evaluate dividend stocks, calculate yields, and avoid common yield traps.",
+    category: "Finance",
+  },
+  {
+    slug: "emergency-fund-strategy",
+    title: "How to Build an Emergency Fund",
+    description: "Learn the tiered approach to building a cash safety net that protects you from debt.",
+    category: "Finance",
+  },
+  {
+    slug: "decimal-to-fraction-guide",
+    title: "Decimal to Fraction Conversion Guide",
+    description: "Master the step-by-step process of converting any decimal into its simplest fractional form.",
+    category: "Conversions",
+  },
+  {
+    slug: "down-payment-guide",
+    title: "The Ultimate Down Payment Guide",
+    description: "Debunking the 20% down payment myth and exploring low-down-payment options for buyers.",
+    category: "Finance",
+  }
 ];
 
 export default function GuidesPage() {
