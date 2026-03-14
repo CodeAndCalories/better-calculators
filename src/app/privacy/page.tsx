@@ -31,7 +31,11 @@ export default function PrivacyPage() {
         <p>We do not use cookies for tracking or advertising. We may use minimal session-based cookies if needed for site functionality.</p>
 
         <h2>Third-Party Services</h2>
-        <p>We may display Google AdSense advertisements to support the site. Google may use cookies to serve personalized ads based on your prior visits to websites. You can opt out at <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">Google Ad Settings</a>.</p>
+        <p>We may integrate third-party services such as analytics providers and advertising networks to support the site. These services operate under their own privacy policies.</p>
+
+        <h2>Advertising</h2>
+        <p>We use Google AdSense to display advertisements on this site. Google AdSense may use cookies to serve ads based on your prior visits to this site or other websites. Ads may be personalized based on your browsing activity and interests as inferred by Google.</p>
+        <p>You can opt out of personalized advertising at any time by visiting <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">Google Ad Settings</a>. For more information on how Google uses data from sites that use its advertising services, see <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">Google's Privacy &amp; Terms</a>.</p>
 
         <h2>Children's Privacy</h2>
         <p>Our service is not directed to children under 13. We do not knowingly collect personal information from children under 13.</p>

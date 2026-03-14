@@ -26,6 +26,7 @@ export default function Footer() {
           <div className={styles.linkGroup}>
             <p className={styles.groupLabel}>Company</p>
             <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
             <Link href="/privacy">Privacy Policy</Link>
             <Link href="/terms">Terms of Service</Link>
            <a
@@ -34,7 +35,7 @@ export default function Footer() {
              rel="noopener noreferrer"
              className={styles.link}
             >
-            250+ Free Online Developer Tools
+            300+ Free Online Developer Tools
         </a>
           </div>
         </nav>

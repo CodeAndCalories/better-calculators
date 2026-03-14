@@ -47,7 +47,7 @@ export default function HomePage() {
             <span className={styles.accent}>everyday calculations</span>
           </h1>
           <p className={styles.subheadline}>
-            300+ Fast, accurate, beautifully designed calculators for finance, health, and life. No data collected. Just answers.
+            300+ Fast, accurate, beautifully designed calculators for finance, health, and life. Private calculations. Your numbers stay in your browser. We never store your calculation data.
           </p>
           <div className={styles.heroCtas}>
             <Link href="/calculators" className={styles.primaryCta}>Browse all calculators</Link>
@@ -121,7 +121,7 @@ export default function HomePage() {
               { icon: "⚡", title: "Instant results",   desc: "No loading spinners. Results update as you type or on one click." },
               { icon: "🎯", title: "Accurate formulas", desc: "Every calculator uses the same formulas trusted by professionals." },
               { icon: "📱", title: "Works everywhere",  desc: "Fully responsive and accessible on any device or screen size." },
-              { icon: "🔒", title: "No data collected", desc: "Everything runs in your browser. We never store your numbers." },
+              { icon: "🔒", title: "Private calculations", desc: "Your numbers stay in your browser. We never store your calculation data." },
             ].map((item) => (
               <div key={item.title} className={styles.trustItem}>
                 <span className={styles.trustIcon}>{item.icon}</span>
